@@ -1,6 +1,6 @@
-# XPS-V2
+# National Epoxy Pros
 
-Phoenix Epoxy Pros digital bid system built as a Next.js PWA for Vercel.
+Americas Epoxy Pros digital bid system built as a Next.js PWA for Vercel.
 
 ## Commands
 
