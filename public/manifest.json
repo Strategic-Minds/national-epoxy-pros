@@ -1,1 +1,16 @@
-{"name":"Phoenix Epoxy Pros Digital Bid System","short_name":"Phoenix Epoxy","description":"Digital estimate, floor visualizer, proposal, and dashboard system for Phoenix Epoxy Pros.","start_url":"/","scope":"/","display":"standalone","background_color":"#050505","theme_color":"#d99a00","orientation":"portrait-primary","icons":[{"src":"/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}
+{
+  "name": "National Epoxy Pros Digital Bid System",
+  "short_name": "National Epoxy",
+  "description": "National Epoxy Pros digital bid system for premium epoxy floor projects at nationalepoxypros.com.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
