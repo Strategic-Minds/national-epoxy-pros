@@ -1,5 +1,255 @@
-const collections=[{name:'Flake Systems',colors:['#cec09d','#7f7a6f','#9c9f9a'],note:'Most requested garage finishes'},{name:'Metallic Systems',colors:['#294097','#421f14','#ac7742'],note:'Showroom and luxury interiors'},{name:'Quartz Systems',colors:['#93948f','#beb7b2','#c6b7a9'],note:'Commercial traction and durability'},{name:'Solid Epoxy',colors:['#e5e6e7','#b1b8b9','#cdd8d3'],note:'Clean base coats and utility floors'},{name:'Glitter Additives',colors:['#953435','#a93e4e','#705550'],note:'Statement floors and accents'},{name:'Concrete Dye & Stain',colors:['#b89798','#a98d8d','#cbc1bc'],note:'Decorative concrete character'}];
-const steps=[['01','Answer the smart intake','Project type, zip code, timing, size, and goals.'],['02','Pick your finish direction','Browse XPS-backed color families and sample looks.'],['03','Upload floor photos','Let the system understand your actual concrete.'],['04','Preview the transformation','Before/after direction before a sales appointment.'],['05','Get your digital bid','Rough scope, finish, timing, and next-step confidence.']];
-const proof=[['Powered by XPS','Powered by Xtreme Polishing Systems'],['70+','Locations nationwide'],['30+ yrs','Manufacturer and industry experience'],['Certified','Trainers, systems, and installation support']];
-const screens=[['Digital Estimator','A guided quote path built for homeowners who want speed without pressure.','480 sq ft','Domino'],['Visualizer','Preview finish direction before committing to an in-home or commercial visit.','Before','After'],['Proposal System','Turn uploaded details into a clean bid, upgrade options, and approval flow.','$3,248','Ready'],['Customer Dashboard','Keep every lead warm with timeline, messages, uploads, and next actions.','Proposal Sent','Next Step'],['Crew Leader','Installation notes, photos, approvals, and field status in one place.','In Progress','Photos'],['Owner Dashboard','Pipeline, response time, conversion, revenue, and exception tracking.','$248k','38.2%']];
-export default function Home(){return <><header className="top"><a className="brand" href="#"><span className="mark"/><span><b>PHOENIX</b><small>EPOXY PROS</small></span></a><nav><a href="#bid">Digital Bid</a><a href="/design-center">Design Center</a><a href="#proof">XPS Backed</a><a href="#ops">Platform</a></nav><a className="btn" href="#estimate">Start My Digital Bid</a></header><main><section className="hero"><div className="copy"><p className="eyebrow">Powered by Xtreme Polishing Systems</p><h1>Premium floors. Digital bids. Built to convert.</h1><p className="sub">America&apos;s #1 epoxy super store meets a Phoenix-ready lead generation system.</p><ul><li>See color direction before you book a sales visit</li><li>Upload photos so the estimator starts with your real floor</li><li>Get a clear digital bid path instead of phone tag</li></ul><div className="actions"><a className="btn" href="#estimate">Experience The Digital Bid</a><a className="btn ghost" href="/design-center">Open Design Center</a></div></div><div className="heroStage" aria-label="Epoxy garage before and after preview"><div className="beforeAfter"><span>Before</span><strong>Preview Result</strong></div><div className="floatingProof"><b>70+ Locations</b><small>Nationwide XPS support network</small></div></div><form id="estimate" className="form"><p className="formKicker">Start here</p><h2>Get My Digital Bid</h2><p>Save time. Pick a finish. Upload photos. Know the next step.</p><input aria-label="Full name" placeholder="Full Name"/><input aria-label="Email" placeholder="Email" type="email"/><input aria-label="Phone" placeholder="Phone Number"/><input aria-label="Zip code" placeholder="Zip Code"/><select aria-label="Project type" defaultValue="Garage Floor"><option>Garage Floor</option><option>Commercial Floor</option><option>Patio / Exterior</option><option>Retail / Showroom</option></select><button type="button">Start My Free Digital Bid</button></form></section><section id="proof" className="proofStrip">{proof.map(([big,label])=><article key={big}><b>{big}</b><span>{label}</span></article>)}</section><section id="bid" className="funnel"><div className="sectionIntro"><p className="eyebrow">Built for lead conversion</p><h2>A funnel that gets visitors into the bid platform.</h2><p>The homepage does one job: move curious visitors into a guided experience where they choose a floor, upload photos, and understand what happens next.</p></div><div className="steps">{steps.map(([num,title,copy])=><article key={num}><b>{num}</b><h3>{title}</h3><p>{copy}</p></article>)}</div></section><section id="systems" className="designPreview"><div><p className="eyebrow">XPS color direction</p><h2>Let visitors choose a finish before they talk to sales.</h2><p>These swatches are based on the color chart families you provided, turning passive browsing into an interactive design decision.</p><a className="btn" href="/design-center">Launch Design Center</a></div><div className="collectionGrid">{collections.map(c=><article className="collectionCard" key={c.name}><div className="swatches">{c.colors.map(color=><i key={color} style={{background:color}}/>)}</div><h3>{c.name}</h3><p>{c.note}</p></article>)}</div></section><section className="transform"><div className="transformText"><p className="eyebrow">The hook</p><h2>Show the transformation before asking for the appointment.</h2><p>Before-and-after proof, finish selection, and photo upload reduce hesitation. Visitors are not just requesting a quote; they are entering a guided floor decision system.</p></div><div className="visualCards"><article><span>Old Concrete</span><b>Upload Photo</b></article><article><span>XPS Finish</span><b>Preview Floor</b></article><article><span>Digital Bid</span><b>Approve Next Step</b></article></div></section><section id="ops" className="ops"><div className="sectionIntro light"><p className="eyebrow">Lead generation helper site</p><h2>The website becomes the front door to the XPS operating system.</h2></div><div className="screens">{screens.map(([title,copy,a,b])=><article className="screen" key={title}><h3>{title}</h3><p>{copy}</p><div className="kpis"><span>{a}</span><span>{b}</span></div></article>)}</div></section></main><footer><div className="brand"><span className="mark"/><span><b>PHOENIX</b><small>EPOXY PROS</small></span></div><p>Proudly powered by Xtreme Polishing Systems.</p><a className="btn" href="#estimate">Start Digital Bid</a></footer></>}
+import ColorChartGallery from "./color-chart-gallery";
+import PwaInstallButton from "./pwa-install-button";
+
+const utilityItems = [
+  "Powered By Xtreme Polishing Systems",
+  "America's #1 Epoxy Super Store",
+  "70+ Locations Nationwide",
+  "Certified Trainers",
+  "Manufacturers With 30+ Years Of Experience",
+];
+
+const navItems = [
+  "Services",
+  "Floor Systems",
+  "Design Center",
+  "Visualizer",
+  "Resources",
+  "About",
+  "Reviews",
+  "Contact",
+];
+
+const navTargets = {
+  Services: "#systems",
+  "Floor Systems": "#systems",
+  "Design Center": "/design-center",
+  Visualizer: "#color-charts",
+  Resources: "#resources",
+  About: "#about",
+  Reviews: "#reviews",
+  Contact: "#contact",
+};
+
+const stats = [
+  ["pin", "70+", "Locations", "Nationwide"],
+  ["crew", "Monthly", "Crew Training", "Program"],
+  ["shield", "Built On", "XPS Standards", "Nationwide"],
+  ["bolt", "Faster", "Digital", "Estimate"],
+  ["check", "Fast Response", "No Phone Tag", "Ever"],
+];
+
+const products = [
+  ["flake", "Top Flake", "Floor Systems", "Decorative, slip-resistant, and built to last.", "View Flake Colors", "#color-charts"],
+  ["metallic", "Metallic", "Epoxy Floors", "High-gloss, custom metallic finishes.", "Explore Metallics", "#color-charts"],
+  ["solid", "Solid Color", "Epoxy Floors", "Clean, modern, and seamless looks.", "View Solid Colors", "#color-charts"],
+  ["design", "Design", "Center", "Visualize your floor before you buy.", "Start Designing", "/design-center"],
+];
+
+const process = [
+  ["form", "01", "Enter Info", "Takes 60 seconds"],
+  ["person", "02", "Prefill Estimate", "We gather your project details"],
+  ["palette", "03", "Pick Finish", "Select system and color"],
+  ["screen", "04", "Visualizer", "See your floor direction"],
+  ["upload", "05", "Upload Photos", "Your photos. Our system."],
+  ["approve", "06", "Submit Bid", "Get your 15% discount"],
+  ["dashboard", "07", "Dashboard", "Track every step in one place"],
+];
+
+const trust = [
+  ["stars", "5-Star Rated", "Consistently rated high by customers"],
+  ["crew", "10,000+ Projects", "Completed"],
+  ["shield", "Licensed & Insured", "Professional crews you can trust"],
+  ["chart", "70+ Locations", "Nationwide"],
+  ["badge", "Backed By XPS Standards", "National systems. Local teams."],
+  ["clock", "Fast Response", "No phone tag. We respect your time"],
+];
+
+function Icon({ type }) {
+  return <span className={`lineIcon ${type}`} aria-hidden="true" />;
+}
+
+export default function Home() {
+  return (
+    <>
+      <header className="utilityBar" aria-label="National Epoxy Pros trust bar">
+        {utilityItems.map((item) => (
+          <span key={item}>
+            <Icon type="utility" />
+            {item}
+          </span>
+        ))}
+      </header>
+
+      <nav className="mainNav" aria-label="Primary navigation">
+        <a className="brandLockup" href="/" aria-label="National Epoxy Pros home">
+          <span className="brandMark" aria-hidden="true">
+            NEP
+          </span>
+          <span>
+            <b>National</b>
+            <small>Epoxy Pros</small>
+          </span>
+        </a>
+
+        <div className="navLinks">
+          {navItems.map((item) => (
+            <a key={item} href={navTargets[item]}>
+              {item}
+            </a>
+          ))}
+        </div>
+
+        <div className="navCtas">
+          <PwaInstallButton />
+          <a className="goldCta" href="#digital-bid">
+            Start My Digital Bid
+          </a>
+          <a className="phone" href="tel:+14808008246">
+            (480) 800-8246
+          </a>
+        </div>
+      </nav>
+
+      <main className="homeCanvas">
+        <section className="heroMatch" aria-label="Premium epoxy garage hero">
+          <div className="heroText">
+            <h1>
+              <span>Premium Floors.</span>
+              <span>Built To Last.</span>
+              <strong>Built By Pros.</strong>
+            </h1>
+            <p>High-performance epoxy, concrete coatings, and polished floors for homes, businesses, and industrial spaces.</p>
+            <ul>
+              <li>Durable. Beautiful. Easy to Maintain.</li>
+              <li>Installed by Certified Professionals.</li>
+              <li>Backed by America's #1 Epoxy Super Store.</li>
+            </ul>
+            <div className="heroActions">
+              <a className="goldCta large" href="#digital-bid">
+                Start My Digital Bid
+              </a>
+              <a className="outlineCta" href="#systems">
+                Explore Floor Systems
+              </a>
+            </div>
+          </div>
+
+          <aside className="statsPanel" aria-label="Trust metrics">
+            {stats.map(([icon, top, middle, bottom]) => (
+              <article key={`${top}-${middle}`}>
+                <Icon type={icon} />
+                <b>{top}</b>
+                <span>{middle}</span>
+                <small>{bottom}</small>
+              </article>
+            ))}
+          </aside>
+        </section>
+
+        <section id="digital-bid" className="promoStrip">
+          <span>Get 15% off your project with our digital bid system - fast - easy - accurate</span>
+          <a href="#contact">Get My 15% Estimate</a>
+        </section>
+
+        <section id="systems" className="productBand">
+          <article className="comparisonCard" aria-label="Before and after floor preview">
+            <img src="/images/before-after-garage.svg" alt="Before and after epoxy garage floor preview" />
+          </article>
+
+          <div className="productCards">
+            {products.map(([kind, title, subtitle, copy, link, href]) => (
+              <article className="productCard" key={kind}>
+                <div className={`productArt ${kind}`} aria-hidden="true">
+                  <span />
+                  <span />
+                  <span />
+                </div>
+                <h2>{title}</h2>
+                <h3>{subtitle}</h3>
+                <p>{copy}</p>
+                <a href={href}>{link}</a>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <ColorChartGallery />
+
+        <section className="bottomGrid" id="process">
+          <article className="processPanel">
+            <h2>The Simple 7-Step Digital Bid Process</h2>
+            <div className="stepsRow">
+              {process.map(([icon, num, title, copy]) => (
+                <div className="stepItem" key={num}>
+                  <Icon type={icon} />
+                  <b>{num}</b>
+                  <strong>{title}</strong>
+                  <small>{copy}</small>
+                </div>
+              ))}
+            </div>
+          </article>
+
+          <article className="trustPanel" id="reviews">
+            <h2>Trusted By Thousands Of Homeowners &amp; Businesses</h2>
+            <div className="trustRow">
+              {trust.map(([icon, title, copy]) => (
+                <div className="trustItem" key={title}>
+                  <Icon type={icon} />
+                  <b>{title}</b>
+                  <small>{copy}</small>
+                </div>
+              ))}
+            </div>
+          </article>
+        </section>
+
+        <section className="resourceBand" id="resources">
+          <div>
+            <p className="eyebrow">Project Direction</p>
+            <h2>Match the system to the space.</h2>
+          </div>
+          <article>
+            <b>Garage And Shop Floors</b>
+            <span>Flake systems add texture, hide dust well, and bring the classic XPS garage look.</span>
+          </article>
+          <article>
+            <b>Commercial And Wet Areas</b>
+            <span>Quartz systems give a durable broadcast finish with grip and professional texture.</span>
+          </article>
+          <article>
+            <b>Showrooms And Feature Rooms</b>
+            <span>Metallic floors create movement, shine, and a more custom high-end finish.</span>
+          </article>
+        </section>
+
+        <section className="aboutBand" id="about">
+          <div>
+            <p className="eyebrow">Powered By XPS Standards</p>
+            <h2>National reach with a polished-floor specialist look.</h2>
+          </div>
+          <p>
+            National Epoxy Pros is built around Xtreme Polishing Systems product education, installer training, and digital bid workflows, so customers can choose a finish before the estimate and move faster with a clearer project direction.
+          </p>
+        </section>
+
+        <section className="contactBand" id="contact" aria-label="Digital bid contact path">
+          <div>
+            <p className="eyebrow">Digital Bid System</p>
+            <h2>Start Your National Epoxy Pros Digital Bid</h2>
+            <p>Submit project photos, choose your finish direction, and request the next step through the digital bid workflow.</p>
+          </div>
+          <div className="contactActions">
+            <a className="goldCta large" href="tel:+14808008246">
+              Call (480) 800-8246
+            </a>
+            <a className="outlineCta" href="/design-center">
+              Open Design Center
+            </a>
+          </div>
+        </section>
+      </main>
+    </>
+  );
+}

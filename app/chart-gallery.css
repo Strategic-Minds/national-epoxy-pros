@@ -1,0 +1,547 @@
+.installButton {
+  height: 32px;
+  padding: 0 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold2);
+  background: rgba(0, 0, 0, 0.34);
+  border: 1px solid rgba(214, 160, 17, 0.72);
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 950;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.installButton:hover {
+  color: #070707;
+  background: var(--gold2);
+}
+
+.chartGallerySection {
+  position: relative;
+  padding: 42px 40px 38px;
+  color: #fff;
+  background: radial-gradient(circle at 10% 0, rgba(214, 160, 17, 0.14), transparent 28%), linear-gradient(180deg, #111314, #050505);
+}
+
+.chartGallerySection.designCharts {
+  padding-top: 48px;
+}
+
+.chartHeader {
+  max-width: 900px;
+  margin-bottom: 22px;
+}
+
+.chartHeader h2 {
+  margin: 0;
+  color: #fff;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", Arial, sans-serif;
+  font-size: 42px;
+  line-height: 0.98;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.chartHeader p:not(.eyebrow) {
+  max-width: 720px;
+  color: #e8e8e8;
+  margin: 12px 0 0;
+  font-size: 16px;
+  line-height: 1.45;
+  font-weight: 700;
+}
+
+.chartGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.chartCard {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: #fff;
+  background: #0d0e0f;
+  border: 1px solid rgba(214, 160, 17, 0.42);
+  border-radius: 6px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.26);
+  cursor: zoom-in;
+}
+
+.chartCard:hover {
+  border-color: var(--gold2);
+  transform: translateY(-2px);
+}
+
+.chartImageFrame {
+  display: block;
+  aspect-ratio: 720 / 995;
+  overflow: hidden;
+  background: #060606;
+  border-bottom: 3px solid var(--gold);
+}
+
+.miniChart {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background: #f6f6f2;
+}
+
+.miniChartHeader {
+  min-height: 58px;
+  padding: 10px 12px 9px;
+  display: grid;
+  gap: 3px;
+  color: #fff;
+  background: #070707;
+  border-bottom: 5px solid var(--gold2);
+  text-transform: uppercase;
+}
+
+.miniChartHeader b {
+  font-size: 15px;
+  line-height: 0.98;
+  font-weight: 950;
+}
+
+.miniChartHeader small {
+  color: var(--gold2);
+  font-size: 8px;
+  line-height: 1.1;
+  font-weight: 950;
+}
+
+.miniChartGrid,
+.expandedSwatchGrid {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+}
+
+.miniChartGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.swatchTile {
+  min-width: 0;
+  min-height: 72px;
+  display: grid;
+  grid-template-rows: 1fr auto auto;
+  gap: 3px;
+  color: #111;
+  background: #fff;
+  border: 1px solid #dedede;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+.swatchTile i {
+  display: block;
+  min-height: 40px;
+}
+
+.swatchTile b,
+.swatchTile small {
+  padding: 0 6px;
+  overflow-wrap: anywhere;
+  text-transform: uppercase;
+}
+
+.swatchTile b {
+  font-size: 7px;
+  line-height: 1;
+  font-weight: 950;
+}
+
+.swatchTile small {
+  padding-bottom: 5px;
+  color: #555;
+  font-size: 6px;
+  line-height: 1;
+  font-weight: 800;
+}
+
+.chartCard:hover .miniChart {
+  transform: scale(1.018);
+}
+
+.chartCardMeta {
+  display: grid;
+  gap: 4px;
+  padding: 13px 14px 15px;
+}
+
+.chartCardMeta small {
+  color: var(--gold2);
+  font-size: 10px;
+  line-height: 1;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.chartCardMeta b {
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.08;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.chartCardMeta span {
+  color: #d9d9d9;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.chartGalleryCta {
+  min-height: 54px;
+  margin-top: 18px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  color: #090909;
+  background: linear-gradient(90deg, #d59b00, #efbe30 52%, #c98b00);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.chartGalleryCta .goldCta {
+  color: var(--gold2);
+  background: #050505;
+  box-shadow: none;
+}
+
+.chartLightbox {
+  display: none;
+}
+
+.chartLightbox:target {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.88);
+  overflow: auto;
+}
+
+.lightboxBackdrop {
+  position: absolute;
+  inset: 0;
+}
+
+.lightboxFrame {
+  position: relative;
+  z-index: 1;
+  width: min(960px, 96vw);
+  max-height: calc(100vh - 36px);
+  margin: 0;
+  overflow: hidden;
+  color: #fff;
+  background: #050505;
+  border: 1px solid rgba(214, 160, 17, 0.78);
+  border-radius: 7px;
+  box-shadow: 0 26px 90px rgba(0, 0, 0, 0.72);
+}
+
+.expandedChart {
+  max-height: calc(100vh - 142px);
+  overflow: auto;
+  background: #f6f6f2;
+}
+
+.expandedChart .miniChartHeader {
+  min-height: 82px;
+  padding: 16px 18px;
+}
+
+.expandedChart .miniChartHeader b {
+  font-size: 26px;
+}
+
+.expandedChart .miniChartHeader small {
+  font-size: 11px;
+}
+
+.expandedSwatchGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  padding: 18px;
+}
+
+.swatchTile.expanded {
+  min-height: 132px;
+}
+
+.swatchTile.expanded i {
+  min-height: 82px;
+}
+
+.swatchTile.expanded b {
+  font-size: 11px;
+}
+
+.swatchTile.expanded small {
+  font-size: 9px;
+}
+
+.lightboxFrame figcaption {
+  display: grid;
+  gap: 4px;
+  padding: 12px 16px 14px;
+  border-top: 1px solid rgba(214, 160, 17, 0.36);
+}
+
+.lightboxFrame figcaption b {
+  color: var(--gold2);
+  font-size: 15px;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.lightboxFrame figcaption span {
+  color: #e8e8e8;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.lightboxClose {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  height: 32px;
+  padding: 0 13px;
+  display: inline-flex;
+  align-items: center;
+  color: #070707;
+  background: var(--gold2);
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.resourceBand {
+  padding: 34px 40px;
+  display: grid;
+  grid-template-columns: 1.1fr repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  background: var(--soft);
+}
+
+.resourceBand > div,
+.resourceBand article {
+  min-height: 146px;
+  padding: 22px;
+  border-radius: 6px;
+}
+
+.resourceBand > div {
+  color: #fff;
+  background: linear-gradient(180deg, #141617, #050505);
+  border: 1px solid rgba(214, 160, 17, 0.42);
+}
+
+.resourceBand h2,
+.aboutBand h2,
+.contactBand h2 {
+  margin: 0;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", Arial, sans-serif;
+  font-size: 34px;
+  line-height: 0.98;
+  text-transform: uppercase;
+}
+
+.resourceBand article {
+  background: #fff;
+  border: 1px solid #dedede;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.08);
+}
+
+.resourceBand b {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 14px;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.resourceBand span {
+  color: #444;
+  font-size: 14px;
+  line-height: 1.45;
+  font-weight: 700;
+}
+
+.aboutBand,
+.contactBand {
+  padding: 44px 40px;
+  color: #fff;
+  background: linear-gradient(90deg, #050505, #151719);
+}
+
+.aboutBand {
+  display: grid;
+  grid-template-columns: 0.95fr 1.35fr;
+  gap: 34px;
+  align-items: center;
+  border-top: 1px solid rgba(214, 160, 17, 0.32);
+}
+
+.aboutBand p:last-child {
+  margin: 0;
+  color: #e9e9e9;
+  font-size: 17px;
+  line-height: 1.55;
+  font-weight: 700;
+}
+
+.contactBand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: radial-gradient(circle at 20% 0, rgba(214, 160, 17, 0.18), transparent 26%), #070707;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contactBand p:not(.eyebrow) {
+  max-width: 640px;
+  color: #ddd;
+  font-size: 16px;
+  line-height: 1.45;
+  font-weight: 700;
+}
+
+.contactActions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: max-content;
+}
+
+@media (max-width: 1280px) {
+  .chartGrid,
+  .expandedSwatchGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .resourceBand {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .aboutBand {
+    grid-template-columns: 1fr;
+  }
+
+  .contactBand {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 760px) {
+  .installButton {
+    padding: 0 14px;
+  }
+
+  .chartGallerySection {
+    padding: 30px 14px;
+  }
+
+  .chartHeader h2 {
+    font-size: 32px;
+  }
+
+  .chartHeader p:not(.eyebrow) {
+    font-size: 14px;
+  }
+
+  .chartGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .chartGalleryCta,
+  .contactActions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .chartGalleryCta {
+    text-align: center;
+  }
+
+  .chartGalleryCta .goldCta,
+  .contactActions .goldCta,
+  .contactActions .outlineCta {
+    width: 100%;
+  }
+
+  .chartLightbox:target {
+    padding: 10px;
+  }
+
+  .lightboxFrame {
+    width: 100%;
+    max-height: calc(100vh - 20px);
+  }
+
+  .expandedChart {
+    max-height: calc(100vh - 132px);
+  }
+
+  .expandedSwatchGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 12px;
+  }
+
+  .expandedChart .miniChartHeader b {
+    font-size: 20px;
+  }
+
+  .swatchTile.expanded {
+    min-height: 112px;
+  }
+
+  .swatchTile.expanded i {
+    min-height: 68px;
+  }
+
+  .lightboxFrame figcaption span {
+    font-size: 12px;
+  }
+
+  .resourceBand {
+    grid-template-columns: 1fr;
+    padding: 22px 14px;
+  }
+
+  .resourceBand h2,
+  .aboutBand h2,
+  .contactBand h2 {
+    font-size: 30px;
+  }
+
+  .aboutBand,
+  .contactBand {
+    padding: 32px 14px;
+  }
+
+  .aboutBand p:last-child,
+  .contactBand p:not(.eyebrow) {
+    font-size: 14px;
+  }
+}
