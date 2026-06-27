@@ -1,3 +1,6 @@
+import ColorChartGallery from "./color-chart-gallery";
+import PwaInstallButton from "./pwa-install-button";
+
 const utilityItems = [
   "Powered By Xtreme Polishing Systems",
   "America's #1 Epoxy Super Store",
@@ -17,6 +20,17 @@ const navItems = [
   "Contact",
 ];
 
+const navTargets = {
+  Services: "#systems",
+  "Floor Systems": "#systems",
+  "Design Center": "/design-center",
+  Visualizer: "#color-charts",
+  Resources: "#resources",
+  About: "#about",
+  Reviews: "#reviews",
+  Contact: "#contact",
+};
+
 const stats = [
   ["pin", "70+", "Locations", "Nationwide"],
   ["crew", "Monthly", "Crew Training", "Program"],
@@ -26,10 +40,10 @@ const stats = [
 ];
 
 const products = [
-  ["flake", "Top Flake", "Floor Systems", "Decorative, slip-resistant, and built to last.", "View Flake Colors"],
-  ["metallic", "Metallic", "Epoxy Floors", "High-gloss, custom metallic finishes.", "Explore Metallics"],
-  ["solid", "Solid Color", "Epoxy Floors", "Clean, modern, and seamless looks.", "View Solid Colors"],
-  ["design", "Design", "Center", "Visualize your floor before you buy.", "Start Designing"],
+  ["flake", "Top Flake", "Floor Systems", "Decorative, slip-resistant, and built to last.", "View Flake Colors", "#color-charts"],
+  ["metallic", "Metallic", "Epoxy Floors", "High-gloss, custom metallic finishes.", "Explore Metallics", "#color-charts"],
+  ["solid", "Solid Color", "Epoxy Floors", "Clean, modern, and seamless looks.", "View Solid Colors", "#color-charts"],
+  ["design", "Design", "Center", "Visualize your floor before you buy.", "Start Designing", "/design-center"],
 ];
 
 const process = [
@@ -80,13 +94,14 @@ export default function Home() {
 
         <div className="navLinks">
           {navItems.map((item) => (
-            <a key={item} href={item === "Design Center" ? "/design-center" : `#${item.toLowerCase().replaceAll(" ", "-")}`}>
+            <a key={item} href={navTargets[item]}>
               {item}
             </a>
           ))}
         </div>
 
         <div className="navCtas">
+          <PwaInstallButton />
           <a className="goldCta" href="#digital-bid">
             Start My Digital Bid
           </a>
@@ -143,7 +158,7 @@ export default function Home() {
           </article>
 
           <div className="productCards">
-            {products.map(([kind, title, subtitle, copy, link]) => (
+            {products.map(([kind, title, subtitle, copy, link, href]) => (
               <article className="productCard" key={kind}>
                 <div className={`productArt ${kind}`} aria-hidden="true">
                   <span />
@@ -153,11 +168,13 @@ export default function Home() {
                 <h2>{title}</h2>
                 <h3>{subtitle}</h3>
                 <p>{copy}</p>
-                <a href="#digital-bid">{link}</a>
+                <a href={href}>{link}</a>
               </article>
             ))}
           </div>
         </section>
+
+        <ColorChartGallery />
 
         <section className="bottomGrid" id="process">
           <article className="processPanel">
@@ -188,9 +205,49 @@ export default function Home() {
           </article>
         </section>
 
-        <section className="screenReaderTail" id="contact" aria-label="Digital bid contact path">
-          <h2>Start Your National Epoxy Pros Digital Bid</h2>
-          <p>Submit project photos, choose your finish direction, and request the next step through the digital bid workflow.</p>
+        <section className="resourceBand" id="resources">
+          <div>
+            <p className="eyebrow">Project Direction</p>
+            <h2>Match the system to the space.</h2>
+          </div>
+          <article>
+            <b>Garage And Shop Floors</b>
+            <span>Flake systems add texture, hide dust well, and bring the classic XPS garage look.</span>
+          </article>
+          <article>
+            <b>Commercial And Wet Areas</b>
+            <span>Quartz systems give a durable broadcast finish with grip and professional texture.</span>
+          </article>
+          <article>
+            <b>Showrooms And Feature Rooms</b>
+            <span>Metallic floors create movement, shine, and a more custom high-end finish.</span>
+          </article>
+        </section>
+
+        <section className="aboutBand" id="about">
+          <div>
+            <p className="eyebrow">Powered By XPS Standards</p>
+            <h2>National reach with a polished-floor specialist look.</h2>
+          </div>
+          <p>
+            National Epoxy Pros is built around Xtreme Polishing Systems product education, installer training, and digital bid workflows, so customers can choose a finish before the estimate and move faster with a clearer project direction.
+          </p>
+        </section>
+
+        <section className="contactBand" id="contact" aria-label="Digital bid contact path">
+          <div>
+            <p className="eyebrow">Digital Bid System</p>
+            <h2>Start Your National Epoxy Pros Digital Bid</h2>
+            <p>Submit project photos, choose your finish direction, and request the next step through the digital bid workflow.</p>
+          </div>
+          <div className="contactActions">
+            <a className="goldCta large" href="tel:+14808008246">
+              Call (480) 800-8246
+            </a>
+            <a className="outlineCta" href="/design-center">
+              Open Design Center
+            </a>
+          </div>
         </section>
       </main>
     </>
