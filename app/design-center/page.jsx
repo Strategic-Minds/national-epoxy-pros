@@ -41,13 +41,11 @@ export default function DesignCenter() {
   return (
     <>
       <nav className="mainNav" aria-label="Design center navigation">
-        <a className="siteBrand" href="/">
-          <span className="brandMark" aria-hidden="true">
-            NEP
-          </span>
+        <a className="brandLockup" href="/" aria-label="National Epoxy Pros home">
+          <span className="brandWings" aria-hidden="true">NEP</span>
           <span>
-            <b>NATIONAL</b>
-            <small>EPOXY PROS</small>
+            <b>National</b>
+            <small>Epoxy Pros</small>
           </span>
         </a>
         <div className="navLinks">
@@ -55,7 +53,7 @@ export default function DesignCenter() {
           <a href="#collections">Collections</a>
           <a href="/#digital-bid">Digital Bid</a>
         </div>
-        <a className="goldButton" href="/#digital-bid">
+        <a className="goldCta" href="/#digital-bid">
           Start My Digital Bid
         </a>
       </nav>
@@ -92,7 +90,7 @@ export default function DesignCenter() {
         <section className="designCta">
           <h2>Ready to see it on your floor?</h2>
           <p>Start the digital bid, upload photos, and let the system guide the next step.</p>
-          <a className="goldButton large" href="/#digital-bid">
+          <a className="goldCta large" href="/#digital-bid">
             Start My Digital Bid
           </a>
         </section>
