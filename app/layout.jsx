@@ -1,4 +1,5 @@
 import "./globals.css";
+import "./chart-gallery.css";
 
 export const metadata = {
   metadataBase: new URL("https://nationalepoxypros.com"),
