@@ -1,11 +1,25 @@
-export const metadata = { title: "About | National Epoxy Pros", description: "Learn about National Epoxy Pros — expert epoxy flooring services across the nation." };
+import { TopBars, XpsPowered } from "../components";
+
 export default function AboutPage() {
   return (
-    <main style={{minHeight:"100vh",background:"#0a0a0a",color:"#fff",padding:"80px 20px",maxWidth:"900px",margin:"0 auto"}}>
-      <h1 style={{fontSize:"2.5rem",fontWeight:900,color:"#F6B800",marginBottom:"20px"}}>About National Epoxy Pros</h1>
-      <p style={{fontSize:"1.1rem",lineHeight:1.7,marginBottom:"20px",color:"#ccc"}}>National Epoxy Pros is powered by Xtreme Polishing Systems — 20+ years of epoxy and polished concrete expertise. We operate in 70+ cities nationwide.</p>
-      <p style={{fontSize:"1.1rem",lineHeight:1.7,color:"#ccc"}}>Our mission: deliver the highest quality epoxy flooring at competitive prices, backed by industry-leading technology and AI-powered design tools.</p>
-      <a href="/get-quote" style={{display:"inline-block",marginTop:"30px",background:"#F6B800",color:"#000",padding:"14px 32px",borderRadius:"8px",fontWeight:700,textDecoration:"none",fontSize:"1rem"}}>Get a Free Quote</a>
+    <main>
+      <TopBars active="About" />
+      <section className="pageHero splitHero">
+        <div>
+          <XpsPowered dark={false} />
+          <h1>The Leader In Epoxy Flooring Solutions</h1>
+          <p>National Epoxy Pros combines local certified crews, XPS-backed product standards, digital bidding, visualizer tools, and customer dashboard transparency.</p>
+        </div>
+        <img src="/images/concrete-grinder.webp" alt="XPS surface preparation equipment" />
+      </section>
+      <section className="contentBand valueGrid">
+        {["XPS-backed standards", "70+ nationwide locations", "Certified professional installers", "Digital bid and dashboard workflow"].map((item) => (
+          <article key={item}>
+            <h3>{item}</h3>
+            <p>Built to reduce uncertainty, improve project clarity, and create a premium floor-buying experience.</p>
+          </article>
+        ))}
+      </section>
     </main>
   );
 }
