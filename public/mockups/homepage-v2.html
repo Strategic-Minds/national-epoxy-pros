@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>National Epoxy Pros | America's Most Advanced Epoxy Floor System</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#F6B800;--gold-dark:#D4A000;--gold-glow:rgba(246,184,0,.15);
+  --black:#0A0A0A;--dark:#111111;--dark2:#1A1A1A;--dark3:#222;
+  --white:#FAFAFA;--gray:#F4F4F4;--gray2:#E8E8E8;--gray6:#666;--gray8:#333;
+  --display:Impact,Haettenschweiler,'Arial Narrow',sans-serif;
+  --body:system-ui,-apple-system,'Helvetica Neue',sans-serif;
+  --r:8px;--r2:14px;--r3:20px;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--white);color:var(--black);font-size:17px;line-height:1.6}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:800;font-size:14px;padding:13px 26px;border-radius:var(--r);transition:.2s;white-space:nowrap;text-transform:uppercase;letter-spacing:.04em;border:none;cursor:pointer;font-family:var(--body)}
+.btn-gold{background:var(--gold);color:var(--black)}
+.btn-gold:hover{background:var(--gold-dark);transform:translateY(-1px);box-shadow:0 4px 18px rgba(246,184,0,.45)}
+.btn-outline{background:transparent;color:var(--white);border:2px solid rgba(255,255,255,.5)}
+.btn-outline:hover{border-color:var(--white);background:rgba(255,255,255,.08)}
+.btn-lg{font-size:16px;padding:16px 36px}
+
+/* HEADER */
+.header{position:sticky;top:0;z-index:200;height:66px;background:var(--black);border-bottom:1px solid rgba(255,255,255,.07);display:flex;align-items:center;padding:0 clamp(16px,4vw,52px);gap:20px}
+.header-brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.header-dot{width:10px;height:10px;border-radius:50%;background:var(--gold)}
+.header-name{font-family:var(--display);font-size:18px;color:var(--white);text-transform:uppercase;letter-spacing:.04em;line-height:1}
+.header-name span{color:var(--gold)}
+.header-nav{display:flex;align-items:center;gap:2px;margin-left:auto}
+.header-nav a{padding:7px 13px;color:rgba(255,255,255,.65);font-size:13.5px;font-weight:500;border-radius:6px;transition:.18s}
+.header-nav a:hover{color:var(--white);background:rgba(255,255,255,.07)}
+.header-phone{color:var(--gold)!important;font-weight:700!important}
+.header-cta{margin-left:10px;padding:10px 20px;font-size:13px}
+
+/* HERO */
+.hero{position:relative;background:var(--black);min-height:min(90svh,760px);display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+.hero-img{grid-column:2;grid-row:1;position:relative;overflow:hidden}
+.hero-img img{width:100%;height:100%;object-fit:cover;opacity:.72}
+.hero-img::after{content:'';position:absolute;inset:0;background:linear-gradient(270deg,transparent 0%,rgba(10,10,10,.55) 55%,var(--black) 100%)}
+.hero-content{grid-column:1;grid-row:1;position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:clamp(40px,6vw,80px) clamp(28px,4vw,64px)}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--gold-glow);border:1px solid rgba(246,184,0,.4);color:var(--gold);font-size:11.5px;font-weight:700;padding:6px 14px;border-radius:20px;text-transform:uppercase;letter-spacing:.07em;margin-bottom:22px;width:fit-content}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0}
+.hero h1{font-family:var(--display);font-size:clamp(46px,5.2vw,86px);color:var(--white);line-height:.9;text-transform:uppercase;margin-bottom:10px}
+.hero h1 em{color:var(--gold);font-style:normal;display:block}
+.hero-sub{font-size:clamp(15px,1.3vw,18px);color:rgba(255,255,255,.68);max-width:500px;margin-bottom:30px;line-height:1.65}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:36px}
+.hero-checks{display:flex;flex-direction:column;gap:8px}
+.hero-check{display:flex;align-items:center;gap:10px;font-size:13.5px;color:rgba(255,255,255,.6)}
+.hero-check-dot{width:18px;height:18px;border-radius:50%;background:rgba(246,184,0,.2);border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--gold);flex-shrink:0}
+
+/* FLOATING LEAD FORM */
+.lead-card{position:absolute;bottom:clamp(20px,3vw,36px);right:clamp(16px,3vw,40px);background:var(--white);border-radius:var(--r3);padding:22px 24px;width:min(370px,88vw);box-shadow:0 8px 48px rgba(0,0,0,.5);z-index:10}
+.lead-card-coupon{display:flex;align-items:center;gap:10px;background:#fffdf0;border:1.5px solid var(--gold);border-radius:var(--r);padding:10px 14px;margin-bottom:16px}
+.lead-card-coupon strong{font-size:22px;color:var(--gold);font-family:var(--display);line-height:1}
+.lead-card-coupon span{font-size:12px;font-weight:700;color:var(--black);line-height:1.3}
+.lead-card h3{font-size:16px;font-weight:800;margin-bottom:3px;color:var(--black)}
+.lead-card p{font-size:12.5px;color:var(--gray6);margin-bottom:14px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:9px}
+.form-group{display:flex;flex-direction:column;gap:3px}
+.form-group label{font-size:10.5px;font-weight:700;color:var(--gray6);text-transform:uppercase;letter-spacing:.04em}
+.form-group input,.form-group select{border:1.5px solid var(--gray2);border-radius:6px;padding:9px 11px;font-size:13.5px;color:var(--black);width:100%;background:var(--white);transition:.18s}
+.form-group input:focus,.form-group select:focus{border-color:var(--gold);outline:none}
+.form-full{margin-bottom:9px}
+.form-submit{width:100%;margin-top:10px;padding:13px}
+.form-note{font-size:11px;color:var(--gray6);text-align:center;margin-top:7px}
+
+/* TRUST BAR */
+.trust-bar{background:var(--dark);border-bottom:1px solid rgba(255,255,255,.06);padding:14px clamp(16px,4vw,52px);display:flex;align-items:center;gap:8px;flex-wrap:wrap;overflow:hidden}
+.trust-item{display:flex;align-items:center;gap:10px;flex:1;min-width:120px}
+.trust-num{font-family:var(--display);font-size:28px;color:var(--gold);line-height:1;white-space:nowrap}
+.trust-label{font-size:11.5px;color:rgba(255,255,255,.55);line-height:1.35;font-weight:500}
+.trust-div{width:1px;height:36px;background:rgba(255,255,255,.1);flex-shrink:0}
+
+/* SECTIONS */
+.section{padding:clamp(56px,7vw,96px) clamp(16px,4vw,52px)}
+.sec-tag{display:inline-block;font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
+.sec-head{font-family:var(--display);font-size:clamp(30px,3.6vw,56px);line-height:.92;text-transform:uppercase}
+.sec-sub{font-size:17px;color:var(--gray6);max-width:580px;margin-top:10px;line-height:1.65}
+
+/* SERVICES */
+.services{background:var(--white)}
+.services-header{margin-bottom:44px}
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.service-card{border-radius:var(--r2);overflow:hidden;border:1px solid var(--gray2);transition:.2s;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.service-card:hover{transform:translateY(-4px);box-shadow:0 10px 36px rgba(0,0,0,.12)}
+.service-card-img{aspect-ratio:16/10;overflow:hidden}
+.service-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.service-card:hover .service-card-img img{transform:scale(1.05)}
+.service-card-body{padding:18px 20px}
+.service-card-title{font-size:16px;font-weight:800;margin-bottom:5px}
+.service-card-text{font-size:13.5px;color:var(--gray6);line-height:1.6}
+
+/* PROCESS */
+.process{background:var(--dark)}
+.process .sec-head{color:var(--white)}
+.process .sec-sub{color:rgba(255,255,255,.55)}
+.process-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:2px;margin-top:44px}
+.proc-step{background:rgba(255,255,255,.035);padding:22px 18px;transition:.18s}
+.proc-step:first-child{border-radius:var(--r2) 0 0 var(--r2)}
+.proc-step:last-child{border-radius:0 var(--r2) var(--r2) 0}
+.proc-step:hover{background:rgba(246,184,0,.07)}
+.proc-img{aspect-ratio:4/3;border-radius:var(--r);overflow:hidden;margin-bottom:14px}
+.proc-img img{width:100%;height:100%;object-fit:cover}
+.proc-num{font-family:var(--display);font-size:52px;color:rgba(246,184,0,.2);line-height:1;margin-bottom:10px}
+.proc-step h3{font-size:14px;font-weight:800;color:var(--white);margin-bottom:6px}
+.proc-step p{font-size:12.5px;color:rgba(255,255,255,.5);line-height:1.6}
+
+/* COLOR CHARTS */
+.colors{background:var(--gray)}
+.colors-note{display:flex;align-items:center;gap:12px;background:var(--white);border:1.5px solid var(--gold);border-radius:var(--r);padding:14px 20px;margin-bottom:36px;font-size:14px;font-weight:600}
+.colors-note::before{content:'🎨';font-size:18px}
+.colors-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.color-card{background:var(--white);border-radius:var(--r2);overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.color-card img{width:100%;display:block}
+.color-card-info{padding:14px 18px}
+.color-card-info h3{font-size:14.5px;font-weight:800;margin-bottom:3px}
+.color-card-info p{font-size:12.5px;color:var(--gray6)}
+
+/* ESTIMATOR CTA */
+.est-cta{background:linear-gradient(130deg,var(--black) 0%,#1a0e00 100%);padding:clamp(56px,7vw,96px) clamp(16px,4vw,52px);display:grid;grid-template-columns:1fr auto;align-items:center;gap:48px}
+.est-cta h2{font-family:var(--display);font-size:clamp(34px,4vw,62px);color:var(--white);text-transform:uppercase;line-height:.9;margin-bottom:14px}
+.est-cta h2 em{color:var(--gold);font-style:normal}
+.est-cta p{color:rgba(255,255,255,.65);font-size:17px;max-width:520px;margin-bottom:30px}
+.coupon-circle{width:148px;height:148px;border-radius:50%;background:var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 0 12px rgba(246,184,0,.15)}
+.coupon-pct{font-family:var(--display);font-size:52px;color:var(--black);line-height:1}
+.coupon-off{font-size:12px;font-weight:800;color:var(--black);text-transform:uppercase;letter-spacing:.06em}
+.coupon-sub{font-size:11px;color:rgba(255,255,255,.4);text-align:center;margin-top:10px;max-width:148px}
+
+/* GALLERY */
+.gallery{background:var(--white)}
+.gallery-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:auto auto;gap:8px;margin-top:40px}
+.gal-item{border-radius:var(--r);overflow:hidden}
+.gal-item:first-child{grid-row:span 2;aspect-ratio:3/4}
+.gal-item:not(:first-child){aspect-ratio:16/10}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gal-item:hover img{transform:scale(1.04)}
+.gallery-cta{text-align:center;margin-top:32px}
+
+/* PORTAL */
+.portal{background:var(--dark)}
+.portal .sec-head{color:var(--white)}
+.portal .sec-sub{color:rgba(255,255,255,.55)}
+.portal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.portal-card{padding:26px 22px;border:1px solid rgba(255,255,255,.09);border-radius:var(--r2);background:rgba(255,255,255,.03);transition:.2s}
+.portal-card:hover{border-color:rgba(246,184,0,.35);background:rgba(246,184,0,.04)}
+.portal-icon{font-size:28px;margin-bottom:14px}
+.portal-card h3{font-size:16px;font-weight:800;color:var(--white);margin-bottom:7px}
+.portal-card p{font-size:13.5px;color:rgba(255,255,255,.55);line-height:1.65}
+.portal-actions{margin-top:40px;display:flex;gap:14px;flex-wrap:wrap}
+
+/* FOOTER */
+.footer{background:var(--black);color:rgba(255,255,255,.6);padding:52px clamp(16px,4vw,52px) 26px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand h3{font-family:var(--display);font-size:22px;color:var(--white);text-transform:uppercase;margin-bottom:8px}
+.footer-brand h3 span{color:var(--gold)}
+.footer-brand p{font-size:13.5px;line-height:1.65;max-width:300px}
+.footer-brand .footer-contact{margin-top:14px;font-size:13.5px}
+.footer-brand .footer-contact a{color:var(--gold);font-weight:600}
+.footer-col h4{font-size:12px;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:.07em;margin-bottom:14px}
+.footer-col a{display:block;font-size:13.5px;color:rgba(255,255,255,.55);margin-bottom:8px;transition:.18s}
+.footer-col a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.footer-bottom p{font-size:12.5px;color:rgba(255,255,255,.35)}
+.footer-xps{font-size:12.5px;color:rgba(255,255,255,.35)}
+.footer-xps strong{color:var(--gold)}
+
+/* RESPONSIVE */
+@media(max-width:1100px){.services-grid{grid-template-columns:repeat(2,1fr)}.process-grid{grid-template-columns:repeat(3,1fr)}.portal-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.hero-img{grid-column:1;grid-row:1;height:340px}.hero-content{grid-column:1;grid-row:1;background:linear-gradient(to bottom,rgba(10,10,10,.9),rgba(10,10,10,.75))}.lead-card{position:static;width:100%;border-radius:0;box-shadow:none}.header-nav{display:none}.est-cta{grid-template-columns:1fr}.coupon-circle{display:none}.footer-grid{grid-template-columns:1fr 1fr}.colors-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.services-grid{grid-template-columns:1fr}.process-grid{grid-template-columns:1fr 1fr}.portal-grid{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr}.gal-item:first-child{grid-row:span 1}.footer-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <a href="/" class="header-brand">
+    <div class="header-dot"></div>
+    <div class="header-name">NATIONAL <span>EPOXY</span> PROS</div>
+  </a>
+  <nav class="header-nav">
+    <a href="/estimate">Digital Estimate</a>
+    <a href="#colors">Design Center</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#portal">Customer Portal</a>
+    <a href="/about">About</a>
+    <a href="tel:18009773799" class="header-phone">800-NEP-EPXY</a>
+  </nav>
+  <a href="/estimate" class="btn btn-gold header-cta">Free Estimate</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Powered by Xtreme Polishing Systems</div>
+    <h1>America's Most<br><em>Advanced Epoxy</em><br>Floor System</h1>
+    <p class="hero-sub">Professional floor coating systems for garages, commercial spaces, patios, and concrete repair — backed by XPS, America's #1 epoxy super store.</p>
+    <div class="hero-actions">
+      <a href="/estimate" class="btn btn-gold btn-lg">Get Free Estimate →</a>
+      <a href="#colors" class="btn btn-outline">Browse Finish Options</a>
+    </div>
+    <div class="hero-checks">
+      <div class="hero-check"><div class="hero-check-dot">✓</div>15% off with online estimate + photos</div>
+      <div class="hero-check"><div class="hero-check-dot">✓</div>Estimate delivered within 24 hours</div>
+      <div class="hero-check"><div class="hero-check-dot">✓</div>No commitment required to start</div>
+    </div>
+  </div>
+  <div class="hero-img">
+    <img src="https://cdn.shopify.com/s/files/1/0754/8905/0678/files/phoenix-epoxy-pros-service-garage.webp?v=1781648581" alt="National Epoxy Pros professional garage floor coating">
+  </div>
+
+  <!-- FLOATING LEAD FORM -->
+  <div class="lead-card">
+    <div class="lead-card-coupon">
+      <strong>15%</strong>
+      <span>Online Estimate<br>Discount with Photos</span>
+    </div>
+    <h3>Start Your Free Estimate</h3>
+    <p>Takes 2 minutes. Estimate within 24 hours.</p>
+    <form>
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="John" required>
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Smith" required>
+        </div>
+      </div>
+      <div class="form-group form-full">
+        <label>Phone</label>
+        <input type="tel" placeholder="(555) 000-0000" required>
+      </div>
+      <div class="form-group form-full">
+        <label>Email</label>
+        <input type="email" placeholder="john@example.com" required>
+      </div>
+      <div class="form-group form-full">
+        <label>Service Needed</label>
+        <select>
+          <option value="">Select a service…</option>
+          <option>Garage Floor Coating</option>
+          <option>Commercial Floor</option>
+          <option>Patio / Outdoor</option>
+          <option>Concrete Repair</option>
+          <option>Not Sure Yet</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-gold form-submit">Get My Free Estimate →</button>
+    </form>
+    <p class="form-note">No spam. No commitment. Estimate within 24 hours.</p>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-num">15%</span><span class="trust-label">Online estimate<br>discount with photos</span></div>
+  <div class="trust-div"></div>
+  <div class="trust-item"><span class="trust-num">24hr</span><span class="trust-label">Estimate delivery<br>target time</span></div>
+  <div class="trust-div"></div>
+  <div class="trust-item"><span class="trust-num" style="font-size:18px;letter-spacing:.04em">XPS</span><span class="trust-label">America's #1<br>Epoxy Super Store</span></div>
+  <div class="trust-div"></div>
+  <div class="trust-item"><span class="trust-num">6</span><span class="trust-label">Step installation<br>process</span></div>
+  <div class="trust-div"></div>
+  <div class="trust-item"><span class="trust-num">A+</span><span class="trust-label">Pro-grade systems<br>only</span></div>
+</div>
+
+<!-- SERVICES -->
+<section class="section services">
+  <div class="services-header">
+    <div class="sec-tag">What We Install</div>
+    <h2 class="sec-head">Our Floor Coating Systems</h2>
+    <p class="sec-sub">Every project starts with a free digital estimate. We review your surface, recommend the right system, and send a full proposal before any commitment.</p>
+  </div>
+  <div class="services-grid">
+    <article class="service-card">
+      <div class="service-card-img"><img src="https://cdn.shopify.com/s/files/1/0754/8905/0678/files/phoenix-epoxy-pros-service-garage.webp?v=1781648581" alt="Garage floor epoxy coating" loading="lazy"></div>
+      <div class="service-card-body"><h3 class="service-card-title">Garage Floor Coatings</h3><p class="service-card-text">Diamond-grind prep, crack repair, full-broadcast flake, and durable polyaspartic topcoat for daily-use garages.</p></div>
+    </article>
+    <article class="service-card">
+      <div class="service-card-img"><img src="https://cdn.shopify.com/s/files/1/0754/8905/0678/files/phoenix-epoxy-pros-service-commercial.webp?v=1781648591" alt="Commercial floor coating" loading="lazy"></div>
+      <div class="service-card-body"><h3 class="service-card-title">Commercial Floor Systems</h3><p class="service-card-text">Flake, quartz, and high-performance coating systems for shops, showrooms, warehouses, and workspaces.</p></div>
+    </article>
+    <article class="service-card">
+      <div class="service-card-img"><img src="https://cdn.shopify.com/s/files/1/0754/8905/0678/files/phoenix-epoxy-pros-service-patio.webp?v=1781648601" alt="Patio outdoor coating" loading="lazy"></div>
+      <div class="service-card-body"><h3 class="service-card-title">Patios & Outdoor Concrete</h3><p class="service-card-text">UV-stable, heat-resistant exterior systems for patios, covered spaces, and walkways nationwide.</p></div>
+    </article>
+    <article class="service-card">
+      <div class="service-card-img"><img src="https://cdn.shopify.com/s/files/1/0754/8905/0678/files/phoenix-epoxy-pros-service-repair.webp?v=1781648616" alt="Concrete repair and prep" loading="lazy"></div>
+      <div class="service-card-body"><h3 class="service-card-title">Repair & Surface Prep</h3><p class="service-card-text">Crack repair, spalling, failed coating removal, grinding, patching, and slab-condition review.</p></div>
+    </article>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section process">
+  <div class="sec-tag">How It Works</div>
+  <h2 class="sec-head">The 6-Step Process</h2>
+  <p class="sec-sub">Every install follows the same professional sequence — from estimate to final walkthrough.</p>
+  <div class="process-grid">
+    <div class="proc-step">
+      <div class="proc-img"><img src="https://cdn.shopify.com/s/files/1/0754/8905/0678/files/nashville-resin-worx-process-01-sign-up-schedule.png?v=1781036561" alt="Sign up and schedule" loading="lazy"></div>
+      <div class="proc-num">01</div><h3>Sign Up & Schedule</h3><p>Start your digital estimate and choose your finish direction. No commitment required.</p>
+    </div>
+    <div class="proc-step">
+      <div class="proc-img"><img src="https://cdn.shopify.com/s/files/1/0754/8905/0678/files/nashville-resin-worx-process-02-prep-work.png?v=1781036569" alt="Prep work" loading="lazy"></div>
+      <div class="proc-num">02</div><h3>Prep Work</h3><p>Concrete is diamond-ground and patched for a correct bond profile.</p>
+    </div>
+    <div class="proc-step">
+      <div class="proc-img"><img src="https://cdn.shopify.com/s/files/1/0754/8905/0678/files/nashville-resin-worx-process-03-base-coat.png?v=1781036578" alt="Base coat" loading="lazy"></div>
+      <div class="proc-num">03</div><h3>Base Coat</h3><p>The base coat is matched to your slab, use case, and broadcast system.</p>
+    </div>
+    <div class="proc-step">
+      <div class="proc-img"><img src="https://cdn.shopify.com/s/files/1/0754/8905/0678/files/nashville-resin-worx-process-04-beauty-coat.png?v=1781036586" alt="Beauty coat" loading="lazy"></div>
+      <div class="proc-num">04</div><h3>Beauty Coat</h3><p>Flake, metallic, or quartz creates your visual finish and texture profile.</p>
+    </div>
+    <div class="proc-step">
+      <div class="proc-img"><img src="https://cdn.shopify.com/s/files/1/0754/8905/0678/files/nashville-resin-worx-process-05-topcoat-finish.png?v=1781036595" alt="Topcoat finish" loading="lazy"></div>
+      <div class="proc-num">05</div><h3>Topcoat Finish</h3><p>Polyaspartic topcoat locks in the system for durability and sheen.</p>
+    </div>
+    <div class="proc-step">
+      <div class="proc-img"><img src="https://cdn.shopify.com/s/files/1/0754/8905/0678/files/nashville-resin-worx-process-06-final-inspection.png?v=1781036605" alt="Final inspection" loading="lazy"></div>
+      <div class="proc-num">06</div><h3>Final Inspection</h3><p>Walkthrough, cure guidance, and care instructions. Job reviewed for quality.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COLOR CHARTS -->
+<section class="section colors" id="colors">
+  <div class="sec-tag">Color Selection</div>
+  <h2 class="sec-head">XPS Color Chart System</h2>
+  <p class="sec-sub">Synchronized with the Xtreme Polishing Systems parent catalog. Flake, metallic, quartz, solid color, dye, and glitter. Don't see your color? We have many more custom options.</p>
+  <div class="colors-note">Don't see your color? Contact us — we have hundreds of custom options available.</div>
+  <div class="colors-grid">
+    <div class="color-card"><img src="https://cdn.shopify.com/s/files/1/0754/8905/0678/files/xps-top-flake-colors-approved.png?v=1781670774" alt="XPS flake colors" loading="lazy"><div class="color-card-info"><h3>Top Flake Colors</h3><p>Full-broadcast flake — most popular system.</p></div></div>
+    <div class="color-card"><img src="https://cdn.shopify.com/s/files/1/0754/8905/0678/files/xps-top-metallic-colors-standardized.png?v=1781670766" alt="XPS metallic colors" loading="lazy"><div class="color-card-info"><h3>Metallic Colors</h3><p>Decorative metallic epoxy finish options.</p></div></div>
+    <div class="color-card"><img src="https://cdn.shopify.com/s/files/1/0754/8905/0678/files/xps-top-quartz-colors-standardized.png?v=1781670783" alt="XPS quartz colors" loading="lazy"><div class="color-card-info"><h3>Quartz Colors</h3><p>Durable quartz texture finish options.</p></div></div>
+    <div class="color-card"><img src="https://cdn.shopify.com/s/files/1/0754/8905/0678/files/xps-solid-color-epoxy-base-coats.png?v=1781680330" alt="XPS solid color base coats" loading="lazy"><div class="color-card-info"><h3>Solid Color Base Coats</h3><p>Solid epoxy base coat options for custom systems.</p></div></div>
+    <div class="color-card"><img src="https://cdn.shopify.com/s/files/1/0754/8905/0678/files/xps-top-glitter-additive-colors.png?v=1781670793" alt="XPS glitter colors" loading="lazy"><div class="color-card-info"><h3>Glitter Additives</h3><p>Premium glitter additive options.</p></div></div>
+    <div class="color-card"><img src="https://cdn.shopify.com/s/files/1/0754/8905/0678/files/xps-concrete-dye-stain-colors.png?v=1781670802" alt="XPS dye stain colors" loading="lazy"><div class="color-card-info"><h3>Concrete Dye & Stain</h3><p>Penetrating dye and acid stain options.</p></div></div>
+  </div>
+</section>
+
+<!-- ESTIMATOR CTA -->
+<section class="est-cta">
+  <div>
+    <div class="sec-tag">Free Digital Estimate</div>
+    <h2>Get Your <em>Free Digital</em><br>Estimate Today</h2>
+    <p>Submit your project details, surface photos, and finish preferences online. We review everything and send your proposal within 24 hours. Complete the full intake with photos to qualify for 15% off.</p>
+    <a href="/estimate" class="btn btn-gold btn-lg">Start Free Estimate →</a>
+  </div>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+    <div class="coupon-circle">
+      <span class="coupon-pct">15%</span>
+      <span class="coupon-off">Off Online</span>
+    </div>
+    <p class="coupon-sub">With full estimate + photo submission</p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section gallery" id="gallery">
+  <div class="sec-tag">Our Work</div>
+  <h2 class="sec-head">Project Gallery</h2>
+  <p class="sec-sub">Professional installations across garages, commercial spaces, patios, and concrete repair projects.</p>
+  <div class="gallery-grid">
+    <div class="gal-item"><img src="https://cdn.shopify.com/s/files/1/0754/8905/0678/files/phoenix-epoxy-pros-service-garage.webp?v=1781648581" alt="Garage floor" loading="lazy"></div>
+    <div class="gal-item"><img src="https://cdn.shopify.com/s/files/1/0754/8905/0678/files/phoenix-epoxy-pros-service-commercial.webp?v=1781648591" alt="Commercial floor" loading="lazy"></div>
+    <div class="gal-item"><img src="https://cdn.shopify.com/s/files/1/0754/8905/0678/files/phoenix-epoxy-pros-service-patio.webp?v=1781648601" alt="Outdoor patio" loading="lazy"></div>
+    <div class="gal-item"><img src="https://cdn.shopify.com/s/files/1/0754/8905/0678/files/phoenix-epoxy-pros-service-repair.webp?v=1781648616" alt="Concrete repair" loading="lazy"></div>
+  </div>
+  <div class="gallery-cta"><a href="/gallery" class="btn btn-gold">View Full Gallery →</a></div>
+</section>
+
+<!-- PORTAL -->
+<section class="section portal" id="portal">
+  <div class="sec-tag">Customer System</div>
+  <h2 class="sec-head">Your Digital <span style="color:var(--gold)">Job Portal</span></h2>
+  <p class="sec-sub">From first estimate to final walkthrough — every step, document, and approval in one place. No app download required.</p>
+  <div class="portal-grid">
+    <div class="portal-card"><div class="portal-icon">📋</div><h3>Digital Bid System</h3><p>Submit project details, photos, measurements, and finish preferences online. No phone call needed to start.</p></div>
+    <div class="portal-card"><div class="portal-icon">📊</div><h3>Real-Time Job Tracker</h3><p>See every step, approval, and document attached to your job from estimate to install.</p></div>
+    <div class="portal-card"><div class="portal-icon">🎨</div><h3>Finish Visualizer</h3><p>Browse flake, metallic, quartz, and solid options. See how each system works before you decide.</p></div>
+    <div class="portal-card"><div class="portal-icon">💳</div><h3>Proposal & Payment</h3><p>Review your proposal, approve selections, and pay securely. Warranty information included.</p></div>
+  </div>
+  <div class="portal-actions">
+    <a href="/customer-portal" class="btn btn-gold">Access Your Portal →</a>
+    <a href="/estimate" class="btn btn-outline">Start New Estimate</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>NATIONAL <span>EPOXY</span> PROS</h3>
+      <p>America's most advanced epoxy floor coating system. Powered by Xtreme Polishing Systems — America's #1 epoxy super store and training authority.</p>
+      <div class="footer-contact">
+        <a href="tel:18009773799">800-NEP-EPXY</a> &nbsp;·&nbsp;
+        <a href="mailto:support@nationalepoxypros.com">support@nationalepoxypros.com</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="/estimate?service=garage">Garage Floors</a>
+      <a href="/estimate?service=commercial">Commercial Floors</a>
+      <a href="/estimate?service=patio">Patios & Outdoor</a>
+      <a href="/estimate?service=repair">Concrete Repair</a>
+    </div>
+    <div class="footer-col">
+      <h4>Customer</h4>
+      <a href="/estimate">Free Estimate</a>
+      <a href="/customer-portal">Job Portal</a>
+      <a href="#colors">Design Center</a>
+      <a href="/gallery">Gallery</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="/about">About Us</a>
+      <a href="/contact">Contact</a>
+      <a href="https://xtremepolishingsystems.com" target="_blank" rel="noopener">XPS Products</a>
+      <a href="https://xtremepolishingsystems.com/training" target="_blank" rel="noopener">Contractor Training</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 National Epoxy Pros. Professional floor coating systems nationwide.</p>
+    <div class="footer-xps">Powered by <strong>Xtreme Polishing Systems</strong></div>
+  </div>
+</footer>
+
+</body>
+</html>
