@@ -1,6 +1,6 @@
 {
   "name": "national-epoxy-pros",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -12,12 +12,12 @@
     "next": "14.2.23",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "next-pwa": "5.6.0",
-    "lucide-react": "^0.400.0",
-    "framer-motion": "^11.0.0"
+    "next-pwa": "5.6.0"
   },
   "devDependencies": {
     "eslint": "^8",
-    "eslint-config-next": "14.2.23"
+    "eslint-config-next": "14.2.23",
+    "@types/node": "^20",
+    "@types/react": "^18"
   }
 }
