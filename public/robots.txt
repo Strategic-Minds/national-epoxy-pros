@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
+Sitemap: https://nationalepoxypros.com/sitemap.xml
+
 Disallow: /api/
-Sitemap: https://national-epoxy-pros-strategic-minds-advisory.vercel.app/sitemap.xml
+Disallow: /admin/
+Disallow: /owner/
+Disallow: /crew/
