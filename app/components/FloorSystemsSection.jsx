@@ -1,31 +1,29 @@
 import Link from "next/link";
-
-const SYSTEMS = [
-  { title: "Flake Systems", desc: "Durable. Decorative. Slip-resistant.", img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=75", icon: "🪨", href: "/flake-systems" },
-  { title: "Metallic Epoxy", desc: "High-gloss. Stunning 3D finishes.", img: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&q=75", icon: "✨", href: "/metallic-epoxy" },
-  { title: "Quartz Systems", desc: "Textured. Tough. Natural elegance.", img: "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?w=400&q=75", icon: "💎", href: "/quartz-systems" },
-  { title: "Solid Colors", desc: "Clean. Seamless. Modern. Minimal.", img: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&q=75", icon: "🎨", href: "/solid-colors" },
-  { title: "Stained Concrete", desc: "Rich. Natural. Timeless beauty.", img: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=400&q=75", icon: "🏔️", href: "/stained-concrete" },
-  { title: "Polished Concrete", desc: "Industrial grade. Effortlessly sleek.", img: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=75", icon: "⚡", href: "/polished-concrete" },
+const SYS = [
+  { t:"Flake Systems", d:"Durable. Decorative. Slip-resistant.", img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=75", ico:"🪨", href:"/flake-systems" },
+  { t:"Metallic Epoxy", d:"High-gloss. Stunning 3D finishes.", img:"https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&q=75", ico:"✨", href:"/metallic-epoxy" },
+  { t:"Quartz Systems", d:"Textured. Tough. Natural elegance.", img:"https://images.unsplash.com/photo-1541123437800-1bb1317badc2?w=400&q=75", ico:"💎", href:"/quartz-systems" },
+  { t:"Solid Colors", d:"Clean. Seamless. Modern. Minimal.", img:"https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&q=75", ico:"🎨", href:"/solid-colors" },
+  { t:"Stained Concrete", d:"Rich. Natural. Timeless beauty.", img:"https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=400&q=75", ico:"🏔️", href:"/stained-concrete" },
+  { t:"Polished Concrete", d:"Industrial grade. Effortlessly sleek.", img:"https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=75", ico:"⚡", href:"/polished-concrete" },
 ];
-
 export function FloorSystemsSection() {
   return (
-    <section className="systems-section" id="floor-systems">
-      <div className="container">
-        <div className="section-heading">
-          <h2>Premium <span className="gold">Epoxy</span> Floor Systems</h2>
+    <section className="sys" id="floor-systems">
+      <div className="w">
+        <div className="sec-hd">
+          <h2>Premium <span className="g">Epoxy</span> Floor Systems</h2>
         </div>
-        <div className="systems-grid">
-          {SYSTEMS.map((s) => (
-            <Link href={s.href} key={s.title} className="sys-card">
-              <div className="sys-card-img">
-                <img src={s.img} alt={s.title} loading="lazy" />
-                <div className="sys-card-icon">{s.icon}</div>
+        <div className="sys-grid">
+          {SYS.map(s => (
+            <Link href={s.href} key={s.t} className="sys-card">
+              <div className="sys-img">
+                <img src={s.img} alt={s.t} loading="lazy" />
+                <div className="sys-ico-b">{s.ico}</div>
               </div>
-              <div className="sys-card-body">
-                <div className="sys-card-title">{s.title}</div>
-                <p className="sys-card-desc">{s.desc}</p>
+              <div className="sys-body">
+                <div className="sys-t">{s.t}</div>
+                <p className="sys-d">{s.d}</p>
               </div>
             </Link>
           ))}
