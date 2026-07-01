@@ -1,73 +1,52 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { UtilityBar } from "./UtilityBar";
-
-const LINKS = [
-  { label: "Services", href: "/#services" },
-  { label: "Floor Systems", href: "/#floor-systems" },
-  { label: "Design Center", href: "/design-center" },
-  { label: "Visualizer", href: "/visualizer" },
-  { label: "Resources", href: "#" },
-  { label: "About", href: "/about" },
-  { label: "Reviews", href: "#reviews" },
-  { label: "Contact", href: "/contact" },
-];
-
+const NAV = ["Services","Floor Systems","Design Center","Visualizer","Resources","About","Reviews","Contact"];
+const HREFS = ["/services","/#floor-systems","/design-center","/visualizer","#","about","/","contact"];
 export function MainNavbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
-  }, [menuOpen]);
-
+  const [open, setOpen] = useState(false);
+  useEffect(() => { document.body.style.overflow = open ? "hidden" : ""; return () => { document.body.style.overflow = ""; }; }, [open]);
   return (
     <>
-      <UtilityBar />
-      <nav className="nav" style={{ boxShadow: scrolled ? "0 4px 30px rgba(0,0,0,0.5)" : "none" }}>
-        <div className="nav-inner">
-          <Link href="/" className="nav-logo" onClick={() => setMenuOpen(false)}>
-            <div className="logo-badge">NEP</div>
-            <div className="logo-text">
-              <div className="name">National <span>Epoxy</span> Pros</div>
-              <div className="sub">Powered by XPS</div>
+      {/* UTILITY BAR */}
+      <div className="util">
+        <div className="w">
+          <div className="util-l">
+            <a href="tel:8779588408" className="util-item"><span className="ico">📞</span>877-958-8408</a>
+            <a href="mailto:support@nationalepoxypros.com" className="util-item"><span className="ico">✉️</span>support@nationalepoxypros.com</a>
+            <a href="https://wa.me/18779588408" className="util-item"><span className="ico">💬</span>WhatsApp Us</a>
+          </div>
+          <div className="util-c"><span>⚡</span>POWERED BY XTREME POLISHING SYSTEMS</div>
+          <div className="util-r">America&apos;s #1 Epoxy Super Store</div>
+        </div>
+      </div>
+      {/* NAV */}
+      <nav className="nav">
+        <div className="w">
+          <Link href="/" className="nav-logo">
+            <div className="logo-sq">NEP</div>
+            <div>
+              <div className="logo-name">National <em>Epoxy</em> Pros</div>
+              <div className="logo-tag">Powered by XPS</div>
             </div>
           </Link>
           <div className="nav-links">
-            {LINKS.map((l) => (
-              <Link key={l.label} href={l.href} className="nav-link">{l.label}</Link>
-            ))}
+            {NAV.map((l,i) => <Link key={l} href={HREFS[i]} className="nav-a">{l}</Link>)}
           </div>
-          <div className="nav-right">
-            <a href="tel:8779588408" className="nav-phone-icon" title="Call us">📞</a>
-            <Link href="/digital-bid" className="btn-gold" style={{padding:"9px 18px",fontSize:"0.75rem"}}>
-              Start My Digital Bid
-            </Link>
-            <button className="hamburger" onClick={() => setMenuOpen(true)} aria-label="Menu">
-              <span/><span/><span/>
-            </button>
+          <div className="nav-r">
+            <a href="tel:8779588408" style={{color:"var(--gold)",fontSize:"18px"}}>📞</a>
+            <Link href="/digital-bid" className="btn btn-gold" style={{padding:"9px 16px",fontSize:"11px"}}>Start My Digital Bid</Link>
+            <button className="burger" onClick={() => setOpen(true)}><span/><span/><span/></button>
           </div>
         </div>
       </nav>
-
-      <div className={`mobile-menu${menuOpen ? " open" : ""}`}>
-        <button className="mobile-close" onClick={() => setMenuOpen(false)}>✕</button>
-        {LINKS.map((l) => (
-          <Link key={l.label} href={l.href} className="mobile-nav-link" onClick={() => setMenuOpen(false)}>{l.label}</Link>
-        ))}
+      {/* MOBILE MENU */}
+      <div className={`mob${open?" open":""}`}>
+        <button className="mob-x" onClick={() => setOpen(false)}>✕</button>
+        {NAV.map((l,i) => <Link key={l} href={HREFS[i]} className="mob-a" onClick={() => setOpen(false)}>{l}</Link>)}
         <div style={{marginTop:"auto",display:"flex",flexDirection:"column",gap:"10px",paddingTop:"24px"}}>
-          <Link href="/digital-bid" className="btn-gold btn-gold-lg" style={{justifyContent:"center"}} onClick={() => setMenuOpen(false)}>
-            ⚡ Start My Digital Bid — Save 15%
-          </Link>
-          <a href="tel:8779588408" className="btn-outline" style={{justifyContent:"center"}}>📞 877-958-8408</a>
+          <Link href="/digital-bid" className="btn btn-gold btn-lg" style={{justifyContent:"center"}} onClick={() => setOpen(false)}>⚡ Start My Digital Bid — Save 15%</Link>
+          <a href="tel:8779588408" className="btn btn-outline btn-lg" style={{justifyContent:"center"}}>📞 877-958-8408</a>
         </div>
       </div>
     </>
