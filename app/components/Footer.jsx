@@ -1,51 +1,83 @@
 import Link from "next/link";
 
 export function Footer() {
-  const year = new Date().getFullYear();
+  const yr = new Date().getFullYear();
   return (
     <footer className="footer">
-      <div className="footerGrid">
-        <div className="footerBrand">
-          <div className="footerLogoText">National <span style={{color:"#F6B800"}}>Epoxy</span> Pros</div>
-          <div className="footerLogoSub">Powered by Xtreme Polishing Systems</div>
-          <p className="footerDesc">America's premier epoxy floor network. Serving 70+ cities nationwide with high-performance floor systems, certified crews, and the backing of the #1 epoxy products brand.</p>
-          <div style={{marginTop:"20px",display:"flex",gap:"12px"}}>
-            <a href="tel:4808008246" style={{color:"#F6B800",fontWeight:700,fontSize:"0.875rem"}}>📞 (480) 800-8246</a>
+      <div className="footer-top">
+        <div className="footer-grid">
+          {/* Brand */}
+          <div className="footer-brand">
+            <div className="logo-name">National <span>Epoxy</span> Pros</div>
+            <div className="logo-sub-text"><span className="status-dot"/> System Online</div>
+            <p>The leader in premium epoxy floor systems. Built for performance. Backed by pros. Trusted nationwide.</p>
+            <div className="footer-socials">
+              {["f","📸","▶","♪"].map((s,i)=><div key={i} className="f-social">{s}</div>)}
+            </div>
           </div>
-        </div>
-        <div>
-          <div className="footerColTitle">Services</div>
-          <div className="footerLinks">
-            {["Garage Floor Epoxy","Metallic Epoxy","Solid Color Epoxy","Polished Concrete","Commercial Floors","Industrial Coatings"].map(l=>(
-              <Link key={l} href="/services" className="footerLink">{l}</Link>
-            ))}
+          {/* Services */}
+          <div>
+            <div className="footer-col-title">Services</div>
+            <div className="footer-links">
+              {["Flake Systems","Metallic Epoxy","Quartz Blends","Solid Colors","Stain Systems","Polished Concrete"].map(l=>(
+                <Link key={l} href="/services" className="footer-link">{l}</Link>
+              ))}
+            </div>
           </div>
-        </div>
-        <div>
-          <div className="footerColTitle">Company</div>
-          <div className="footerLinks">
-            {[["About","about"],["Gallery","gallery"],["Training","training"],["Design Center","design-center"],["Locations","locations"],["Reviews","reviews"]].map(([l,h])=>(
-              <Link key={l} href={`/${h}`} className="footerLink">{l}</Link>
-            ))}
+          {/* Floor Systems */}
+          <div>
+            <div className="footer-col-title">Floor Systems</div>
+            <div className="footer-links">
+              {["Top Flake","Metallic Epoxy","Quartz Blends","Solid Colors","Stain Systems","Seals & Topcoats"].map(l=>(
+                <Link key={l} href="#" className="footer-link">{l}</Link>
+              ))}
+            </div>
           </div>
-        </div>
-        <div>
-          <div className="footerColTitle">Get Started</div>
-          <div className="footerLinks">
-            {[["Free Digital Bid","estimate"],["Contact Us","contact"],["Partner Program","partners"],["Contractor Training","training"],["XPS Products","https://xtremepolishingsystems.com"]].map(([l,h])=>(
-              <a key={l} href={h.startsWith("http")?h:`/${h}`} className="footerLink" target={h.startsWith("http")?"_blank":""}>{l}</a>
-            ))}
+          {/* Design Center */}
+          <div>
+            <div className="footer-col-title">Design Center</div>
+            <div className="footer-links">
+              {["Color Charts","Gallery","Inspiration","Compare","Finishes"].map(l=>(
+                <Link key={l} href="/design-center" className="footer-link">{l}</Link>
+              ))}
+            </div>
           </div>
-          <div style={{marginTop:"24px"}}>
-            <Link href="/estimate" style={{display:"block",background:"#F6B800",color:"#0a0a0a",fontWeight:800,fontSize:"0.8rem",textTransform:"uppercase",letterSpacing:"0.08em",padding:"12px 20px",borderRadius:"8px",textAlign:"center"}}>
-              Get 15% Off — Digital Bid
-            </Link>
+          {/* Company */}
+          <div>
+            <div className="footer-col-title">Company</div>
+            <div className="footer-links">
+              {[["About Us","/about"],["Our Process","/about"],["Design Center","/design-center"],["Training","/training"],["Guides","#"],["FAQs","#"]].map(([l,h])=>(
+                <Link key={l} href={h} className="footer-link">{l}</Link>
+              ))}
+            </div>
+          </div>
+          {/* CTA Box */}
+          <div>
+            <div className="footer-col-title">Contact</div>
+            <div className="footer-contact-item">📞 877-958-8408</div>
+            <div className="footer-contact-item">✉️ support@nationalepoxypros.com</div>
+            <div className="footer-contact-item">💬 WhatsApp Us</div>
+            <div className="footer-contact-item">📍 Phoenix, AZ 85040</div>
+            <div style={{marginTop:"16px"}}>
+              <div className="footer-cta-box">
+                <div className="footer-cta-title">Start Your Project</div>
+                <p className="footer-cta-desc">Get your fast, accurate epoxy floor estimate today.</p>
+                <Link href="/digital-bid" className="btn-gold" style={{display:"flex",justifyContent:"center",width:"100%"}}>
+                  Start Digital Bid →
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div className="footerBottom">
-        <p className="footerCopyright">© {year} National Epoxy Pros. All rights reserved.</p>
-        <p className="footerXps">Powered by Xtreme Polishing Systems · America's #1 Epoxy Super Store</p>
+      <div className="footer-bottom">
+        <div className="footer-bottom-inner">
+          <div className="footer-copy">© {yr} National Epoxy Pros. All rights reserved.</div>
+          <div className="footer-legal">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
+        </div>
       </div>
     </footer>
   );
