@@ -1,6 +1,6 @@
 {
-  "name": "xps-v2",
-  "version": "0.1.0",
+  "name": "national-epoxy-pros",
+  "version": "3.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,9 +11,13 @@
   "dependencies": {
     "next": "14.2.23",
     "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "react-dom": "18.3.1",
+    "next-pwa": "5.6.0"
   },
-  "engines": {
-    "node": "20.x"
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "14.2.23",
+    "@types/node": "^20",
+    "@types/react": "^18"
   }
 }
