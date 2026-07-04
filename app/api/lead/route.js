@@ -1,14 +1,19 @@
 import { NextResponse } from "next/server";
 
+const BASE44_LEAD_ENDPOINT = "https://superagent-5dd22ea4.base44.app/functions/receiveNepLead";
+
 export async function POST(req) {
   try {
     const data = await req.json();
-    // Log lead — extend to HubSpot/Supabase/email as needed
-    console.log("LEAD:", JSON.stringify(data));
-    // TODO: POST to HubSpot portal 245655125
-    // TODO: INSERT to Supabase outreach_queue
-    return NextResponse.json({ success: true, message: "Bid request received" }, { status: 200 });
+    const r = await fetch(BASE44_LEAD_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...data, formType: "lead" }),
+    });
+    const result = await r.json();
+    return NextResponse.json({ success: true, message: "Bid request received", ...result }, { status: 200 });
   } catch (e) {
+    console.error("LEAD forward failed:", e);
     return NextResponse.json({ success: false }, { status: 500 });
   }
 }
