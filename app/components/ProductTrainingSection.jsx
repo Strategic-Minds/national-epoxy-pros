@@ -3,7 +3,7 @@ export function ProductTrainingSection() {
   return (
     <section className="pt">
       <div className="pt-half">
-        <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=200&q=75" alt="Products" className="pt-img"/>
+        <img src="/images/xps-poly-products.png" alt="Products" className="pt-img"/>
         <div>
           <div className="pt-lbl">Premium Products &amp; Equipment</div>
           <div className="pt-t">Premium Products &amp; Equipment</div>
@@ -12,7 +12,7 @@ export function ProductTrainingSection() {
         </div>
       </div>
       <div className="pt-half">
-        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=200&q=75" alt="Training" className="pt-img" style={{opacity:.7}}/>
+        <img src="/images/xps-flake-boxes.png" alt="Training" className="pt-img" style={{opacity:.7}}/>
         <div>
           <div className="pt-lbl">Training &amp; Contractor Success</div>
           <div className="pt-t">Training &amp; Contractor Success</div>

@@ -1,19 +1,14 @@
-import { MainNavbar } from '../components/MainNavbar';
-import { Footer } from '../components/Footer';
-export const metadata = { title: 'Solid Colors | National Epoxy Pros' };
+import { CategoryPageTemplate } from "../components/CategoryPageTemplate";
+export const metadata = { title: "Solid Color Epoxy | National Epoxy Pros" };
 export default function Page() {
   return (
-    <>
-      <MainNavbar />
-      <div style={{background:'#050505',minHeight:'80vh',display:'flex',alignItems:'center',justifyContent:'center',flexDirection:'column',gap:'16px',padding:'80px 24px',textAlign:'center'}}>
-        <div style={{color:'#F5A900',fontSize:'0.65rem',fontWeight:800,letterSpacing:'0.15em',textTransform:'uppercase',marginBottom:'8px'}}>National Epoxy Pros</div>
-        <h1 style={{fontFamily:'Bebas Neue,Oswald,Impact,sans-serif',fontSize:'clamp(2.5rem,5vw,4rem)',fontWeight:400,textTransform:'uppercase',lineHeight:0.92,color:'#fff'}}>
-          Solid Colors
-        </h1>
-        <p style={{color:'#B8B8B8',fontSize:'0.95rem',maxWidth:'500px',lineHeight:1.7}}>This section is coming soon. <a href='/digital-bid' style={{color:'#F5A900',fontWeight:700}}>Start your digital bid</a> while we finish building.</p>
-        <a href='/' style={{display:'inline-flex',alignItems:'center',gap:'6px',background:'#F5A900',color:'#050505',fontWeight:800,fontSize:'0.75rem',letterSpacing:'0.08em',textTransform:'uppercase',padding:'12px 24px',borderRadius:'5px',marginTop:'8px',textDecoration:'none'}}>← Back to Home</a>
-      </div>
-      <Footer />
-    </>
+    <CategoryPageTemplate
+      title="Solid Color Epoxy"
+      tagline="Clean, seamless, monochromatic epoxy base coats for a modern, minimal finish."
+      heroImg="/images/chart-solid-color-base-coats.webp"
+      description="Solid color epoxy delivers a clean, uniform, seamless look — ideal as a standalone finish or as the foundation layer for custom systems. A modern, minimal aesthetic that works in garages, warehouses, and commercial spaces alike."
+      benefits={["Uniform, seamless, professional finish","Wide range of standard and custom colors","Cost-effective standalone or base-coat option","Fast install, fast cure, fast turnaround"]}
+      galleryImgs={["/images/chart-solid-color-base-coats.webp","/images/system-mockup.png","/images/homepage-reference.png"]}
+    />
   );
 }

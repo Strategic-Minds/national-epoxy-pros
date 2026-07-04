@@ -1,11 +1,11 @@
 "use client";
 import Link from "next/link";
 const PHOTOS = [
-  { src:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=75", cap:"Garage Floor · Phoenix, AZ" },
-  { src:"https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=700&q=75", cap:"Metallic Epoxy · Scottsdale, AZ" },
-  { src:"https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=700&q=75", cap:"Commercial · Mesa, AZ" },
-  { src:"https://images.unsplash.com/photo-1541123437800-1bb1317badc2?w=700&q=75", cap:"Polished Concrete · Tempe, AZ" },
-  { src:"https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=700&q=75", cap:"Residential · Chandler, AZ" },
+  { src:"/images/rockhard-epoxy.png", cap:"Rock Hard Epoxy System · XPS" },
+  { src:"/images/homepage-reference.png", cap:"Full Flake System · Installed" },
+  { src:"/images/system-mockup.png", cap:"Commercial Floor System" },
+  { src:"/images/xps-flake-boxes.png", cap:"XPS Flake Product Line" },
+  { src:"/images/xps-poly-products.png", cap:"Polyaspartic Topcoat Systems" },
 ];
 export function GallerySection() {
   const scroll = () => document.getElementById("gs")?.scrollBy({left:300,behavior:"smooth"});

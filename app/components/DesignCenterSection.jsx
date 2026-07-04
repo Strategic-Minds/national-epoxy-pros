@@ -1,7 +1,7 @@
 import Link from "next/link";
 const COLS = [
-  { t:"Flake Systems", imgs:["https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=160&q=65","https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=160&q=65","https://images.unsplash.com/photo-1541123437800-1bb1317badc2?w=160&q=65","https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=160&q=65"] },
-  { t:"Metallic Epoxy", imgs:["https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=160&q=65","https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=160&q=65","https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=160&q=65","https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=160&q=65"] },
+  { t:"Flake Systems", imgs:["/images/chart-approved-flake.webp","/images/chart-top-12-flake.png","/images/xps-flake-boxes.png","/images/chart-approved-flake.webp"] },
+  { t:"Metallic Epoxy", imgs:["/images/chart-metallic-colors.webp","/images/rockhard-epoxy.png","/images/chart-metallic-colors.webp","/images/system-mockup.png"] },
   { t:"Quartz Epoxy", dots:["#D1D5DB","#1E3A5F","#B45309","#065F46","#6B7280","#374151"] },
   { t:"Solid Colors", dots:["#1a1a1a","#1E3A5F","#065F46","#B91C1C","#FFC107","#374151","#9CA3AF","#7C3AED"] },
 ];

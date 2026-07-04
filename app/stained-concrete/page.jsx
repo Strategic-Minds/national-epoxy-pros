@@ -1,19 +1,14 @@
-import { MainNavbar } from '../components/MainNavbar';
-import { Footer } from '../components/Footer';
-export const metadata = { title: 'Stained Concrete | National Epoxy Pros' };
+import { CategoryPageTemplate } from "../components/CategoryPageTemplate";
+export const metadata = { title: "Stained Concrete | National Epoxy Pros" };
 export default function Page() {
   return (
-    <>
-      <MainNavbar />
-      <div style={{background:'#050505',minHeight:'80vh',display:'flex',alignItems:'center',justifyContent:'center',flexDirection:'column',gap:'16px',padding:'80px 24px',textAlign:'center'}}>
-        <div style={{color:'#F5A900',fontSize:'0.65rem',fontWeight:800,letterSpacing:'0.15em',textTransform:'uppercase',marginBottom:'8px'}}>National Epoxy Pros</div>
-        <h1 style={{fontFamily:'Bebas Neue,Oswald,Impact,sans-serif',fontSize:'clamp(2.5rem,5vw,4rem)',fontWeight:400,textTransform:'uppercase',lineHeight:0.92,color:'#fff'}}>
-          Stained Concrete
-        </h1>
-        <p style={{color:'#B8B8B8',fontSize:'0.95rem',maxWidth:'500px',lineHeight:1.7}}>This section is coming soon. <a href='/digital-bid' style={{color:'#F5A900',fontWeight:700}}>Start your digital bid</a> while we finish building.</p>
-        <a href='/' style={{display:'inline-flex',alignItems:'center',gap:'6px',background:'#F5A900',color:'#050505',fontWeight:800,fontSize:'0.75rem',letterSpacing:'0.08em',textTransform:'uppercase',padding:'12px 24px',borderRadius:'5px',marginTop:'8px',textDecoration:'none'}}>← Back to Home</a>
-      </div>
-      <Footer />
-    </>
+    <CategoryPageTemplate
+      title="Stained Concrete"
+      tagline="Penetrating dye and acid stain systems that bring out the rich, natural character of concrete."
+      heroImg="/images/chart-concrete-dye-stain.webp"
+      description="Concrete stain and dye systems penetrate the slab to create rich, variegated, natural-stone-like coloration — a timeless option for patios, walkways, and interior spaces that want texture and warmth without a high-gloss coating."
+      benefits={["Penetrates concrete — will not peel or chip","Natural, variegated, one-of-a-kind coloration","Ideal for patios, walkways, interior floors","Sealed finish protects against wear and moisture"]}
+      galleryImgs={["/images/chart-concrete-dye-stain.webp","/images/homepage-reference.png","/images/concrete-grinder.webp"]}
+    />
   );
 }

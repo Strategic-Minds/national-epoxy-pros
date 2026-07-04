@@ -1,11 +1,11 @@
 import Link from "next/link";
 const SYS = [
-  { t:"Flake Systems", d:"Durable. Decorative. Slip-resistant.", img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=75", ico:"🪨", href:"/flake-systems" },
-  { t:"Metallic Epoxy", d:"High-gloss. Stunning 3D finishes.", img:"https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&q=75", ico:"✨", href:"/metallic-epoxy" },
-  { t:"Quartz Systems", d:"Textured. Tough. Natural elegance.", img:"https://images.unsplash.com/photo-1541123437800-1bb1317badc2?w=400&q=75", ico:"💎", href:"/quartz-systems" },
-  { t:"Solid Colors", d:"Clean. Seamless. Modern. Minimal.", img:"https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&q=75", ico:"🎨", href:"/solid-colors" },
-  { t:"Stained Concrete", d:"Rich. Natural. Timeless beauty.", img:"https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=400&q=75", ico:"🏔️", href:"/stained-concrete" },
-  { t:"Polished Concrete", d:"Industrial grade. Effortlessly sleek.", img:"https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=75", ico:"⚡", href:"/polished-concrete" },
+  { t:"Flake Systems", d:"Durable. Decorative. Slip-resistant.", img:"/images/xps-flake-boxes.png", ico:"🪨", href:"/flake-systems" },
+  { t:"Metallic Epoxy", d:"High-gloss. Stunning 3D finishes.", img:"/images/chart-metallic-colors.webp", ico:"✨", href:"/metallic-epoxy" },
+  { t:"Quartz Systems", d:"Textured. Tough. Natural elegance.", img:"/images/xps-poly-products.png", ico:"💎", href:"/quartz-systems" },
+  { t:"Solid Colors", d:"Clean. Seamless. Modern. Minimal.", img:"/images/chart-solid-color-base-coats.webp", ico:"🎨", href:"/solid-colors" },
+  { t:"Stained Concrete", d:"Rich. Natural. Timeless beauty.", img:"/images/chart-concrete-dye-stain.webp", ico:"🏔️", href:"/stained-concrete" },
+  { t:"Polished Concrete", d:"Industrial grade. Effortlessly sleek.", img:"/images/concrete-grinder.webp", ico:"⚡", href:"/polished-concrete" },
 ];
 export function FloorSystemsSection() {
   return (

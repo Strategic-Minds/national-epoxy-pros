@@ -23,7 +23,7 @@ export function VisualizerSection() {
           <button className="btn btn-dark-out">Try The Visualizer →</button>
         </div>
         <div className="viz-scene">
-          <img className="bg-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=75" alt="Floor preview" />
+          <img className="bg-img" src="/images/homepage-reference.png" alt="Floor preview" />
           <div className="viz-tint" style={{background:`linear-gradient(135deg,${tint}60 0%,${tint}25 100%)`}}/>
           <div className="viz-ctrl">
             <div className="vc-l">* Floor System</div>
