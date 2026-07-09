@@ -1,0 +1,26 @@
+{
+  "phase": "VALIDATE",
+  "step": "WORKBOOK_INSTALL",
+  "repo": "Strategic-Minds/national-epoxy-pros",
+  "branch": "auto-builder/install-nep-emergency-launch-workbook",
+  "workbook_name": "NATIONAL_EPOXY_PROS_EMERGENCY_LAUNCH_VALIDATION_WORKBOOK.xlsx",
+  "workbook_repo_path": "01_Builder_Docs/national-epoxy-pros-emergency-launch/NATIONAL_EPOXY_PROS_EMERGENCY_LAUNCH_VALIDATION_WORKBOOK.xlsx",
+  "binary_status": "PENDING_BINARY_UPLOAD",
+  "connector_limitation": "GitHub connector supports UTF-8 text writes in this run; binary xlsx upload must be done by Codex/Git CLI/GitHub web upload.",
+  "source_truth": {
+    "package_name": "national-epoxy-pros-complete-replacement-package",
+    "next": "15.5.20",
+    "react": "19.1.1",
+    "homepage": "app/page.tsx",
+    "reference_page_import": true
+  },
+  "branch_changes": [
+    "Add engines.node = 20.x to package.json on branch",
+    "Install workbook controller docs",
+    "Add Base44/Codex handoff prompts",
+    "Add rollback and receipt docs",
+    "Register workbook in WORKBOOK_OS_MANIFEST.json"
+  ],
+  "production_gate": "LOCKED_UNTIL_PREVIEW_BUILD_ROUTE_SCREENSHOT_OPERATOR_APPROVAL",
+  "result": "PARTIAL_PASS_BINARY_PENDING"
+}
