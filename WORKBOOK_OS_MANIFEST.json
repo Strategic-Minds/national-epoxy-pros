@@ -1,0 +1,18 @@
+{
+  "manifest_version": "1.0",
+  "repo": "Strategic-Minds/national-epoxy-pros",
+  "updated_by": "AUTO_BUILDER_OS",
+  "workbooks": [
+    {
+      "workbook_id": "NEP-EMERGENCY-LAUNCH-VALIDATION",
+      "workbook_name": "NATIONAL_EPOXY_PROS_EMERGENCY_LAUNCH_VALIDATION_WORKBOOK.xlsx",
+      "workbook_type": "EMERGENCY_LAUNCH_VALIDATION_WORKBOOK",
+      "repo_path": "01_Builder_Docs/national-epoxy-pros-emergency-launch/NATIONAL_EPOXY_PROS_EMERGENCY_LAUNCH_VALIDATION_WORKBOOK.xlsx",
+      "controller_path": "01_Builder_Docs/national-epoxy-pros-emergency-launch/README.md",
+      "status": "pending_binary_upload",
+      "source_of_truth_rank": "support/launch_validation_primary",
+      "production_gate": "locked_until_preview_route_screenshot_operator_approval",
+      "notes": "Binary xlsx must be uploaded by Codex/Git CLI/GitHub web upload. Text controller files are installed on branch auto-builder/install-nep-emergency-launch-workbook."
+    }
+  ]
+}
