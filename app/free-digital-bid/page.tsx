@@ -1,2 +1,5 @@
-import ReferencePage from '@/components/ReferencePage';
-export default function Page(){return <ReferencePage pageKey="bid" mode="bid"/>}
+import ApprovedMockupRoute from '@/components/ApprovedMockupRoute';
+
+export default function Page() {
+  return <ApprovedMockupRoute page="digitalBid" />;
+}
