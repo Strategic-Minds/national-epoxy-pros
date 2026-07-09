@@ -1,0 +1,25 @@
+PHASE: VALIDATE
+STEP: WORKBOOK INSTALL
+
+RESULT: PARTIAL PASS / BINARY PENDING
+
+Verified:
+- Repo Strategic-Minds/national-epoxy-pros is the correct rescue target because it is tied to the National Epoxy Pros domain and replacement package.
+- Current package.json on main contains national-epoxy-pros-complete-replacement-package, Next 15.5.20, React 19.1.1, and validate/build scripts.
+- Current app/page.tsx imports ReferencePage from '@/components/ReferencePage'.
+- Branch auto-builder/install-nep-emergency-launch-workbook was created from main.
+- Branch pins engines.node to 20.x to force Vercel Node 20 on preview builds.
+
+Could not verify:
+- Direct binary .xlsx upload through this GitHub connector is not supported.
+- Vercel branch preview result is not yet verified.
+- Live domain still needs post-deploy route and screenshot checks.
+
+Blocked:
+- Workbook binary must be uploaded by Git CLI, Codex with filesystem access, or GitHub web upload.
+
+Next:
+1. Upload NATIONAL_EPOXY_PROS_EMERGENCY_LAUNCH_VALIDATION_WORKBOOK.xlsx to this folder.
+2. Let Vercel build the branch preview.
+3. Validate routes and screenshots.
+4. Merge only after operator approval.
