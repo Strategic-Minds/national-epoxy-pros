@@ -1,0 +1,31 @@
+# NEP V2 Route Map
+
+- `/`
+- `/free-digital-bid`
+- `/digital-bid`
+- `/design-center`
+- `/color-charts`
+- `/floor-systems`
+- `/floor-systems/metallic`
+- `/metallic-epoxy`
+- `/floor-systems/garage-floors`
+- `/flake-garage-floors`
+- `/garage-floor-coatings`
+- `/floor-systems/polished-concrete`
+- `/polished-concrete`
+- `/floor-systems/exterior-coatings`
+- `/exterior-coatings`
+- `/contact`
+- `/reviews`
+- `/about`
+- `/service-areas`
+- `/epoxy-flooring`
+- `/quartz-flooring`
+- `/commercial-flooring`
+- `/residential-flooring`
+- `/gallery`
+- `/floor-visualizer`
+- `/privacy`
+- `/terms`
+- `/faq`
+- `/offline`

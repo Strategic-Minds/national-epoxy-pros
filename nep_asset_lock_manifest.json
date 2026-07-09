@@ -1,0 +1,396 @@
+{
+  "generated_at": "2026-07-08T01:46:23.940877Z",
+  "asset_count": 39,
+  "entries": [
+    {
+      "category": "verified_public",
+      "source": "assets/VERIFIED/public/color-charts/nep-color-chart-glitter-v1.webp",
+      "repo_destination": "/public/color-charts/nep-color-chart-glitter-v1.webp",
+      "filename": "nep-color-chart-glitter-v1.webp",
+      "bytes": 576018,
+      "sha256": "ff645627dd348f5d5f379fba02a4ac9a94b04cfba69b1dd2fb9d345d9cde6237",
+      "locked": "YES",
+      "note": "Install exact verified brand/PWA asset"
+    },
+    {
+      "category": "verified_public",
+      "source": "assets/VERIFIED/public/color-charts/nep-color-chart-metallic-v1.webp",
+      "repo_destination": "/public/color-charts/nep-color-chart-metallic-v1.webp",
+      "filename": "nep-color-chart-metallic-v1.webp",
+      "bytes": 200696,
+      "sha256": "fc06ce47960ef0a42aaa85eaa53a91cda54f98d5b1d66c4a385a5b80991016f1",
+      "locked": "YES",
+      "note": "Install exact verified brand/PWA asset"
+    },
+    {
+      "category": "verified_public",
+      "source": "assets/VERIFIED/public/color-charts/nep-color-chart-quartz-v1.webp",
+      "repo_destination": "/public/color-charts/nep-color-chart-quartz-v1.webp",
+      "filename": "nep-color-chart-quartz-v1.webp",
+      "bytes": 268638,
+      "sha256": "3c6aa80757eb1836c4191183852dfc4a9faf4774bb021136f3baae36e64a08f2",
+      "locked": "YES",
+      "note": "Install exact verified brand/PWA asset"
+    },
+    {
+      "category": "verified_public",
+      "source": "assets/VERIFIED/public/color-charts/nep-color-chart-top-flake-v1.webp",
+      "repo_destination": "/public/color-charts/nep-color-chart-top-flake-v1.webp",
+      "filename": "nep-color-chart-top-flake-v1.webp",
+      "bytes": 427272,
+      "sha256": "ccf6721bc5be0ab3642025fb6b63a2bd754b14d4a12489bc921eb4bba267f41d",
+      "locked": "YES",
+      "note": "Install exact verified brand/PWA asset"
+    },
+    {
+      "category": "verified_public",
+      "source": "assets/VERIFIED/public/icons/icon-128x128.png",
+      "repo_destination": "/public/icons/icon-128x128.png",
+      "filename": "icon-128x128.png",
+      "bytes": 9026,
+      "sha256": "bf6a9e40c28dbfbab8c171f39e3b1f67de0386d9a4ce088c452afea98f78a68a",
+      "locked": "YES",
+      "note": "Install exact verified brand/PWA asset"
+    },
+    {
+      "category": "verified_public",
+      "source": "assets/VERIFIED/public/icons/icon-144x144.png",
+      "repo_destination": "/public/icons/icon-144x144.png",
+      "filename": "icon-144x144.png",
+      "bytes": 10744,
+      "sha256": "d570a1e39f2dec8f1081e20fcc5225ad1b9a7ac6b686198c6586ed8f347535ae",
+      "locked": "YES",
+      "note": "Install exact verified brand/PWA asset"
+    },
+    {
+      "category": "verified_public",
+      "source": "assets/VERIFIED/public/icons/icon-152x152.png",
+      "repo_destination": "/public/icons/icon-152x152.png",
+      "filename": "icon-152x152.png",
+      "bytes": 11639,
+      "sha256": "2687b0a8b0ea8be11264d41364bacef84e2903a3f86b11fee61d0d2fc48697ea",
+      "locked": "YES",
+      "note": "Install exact verified brand/PWA asset"
+    },
+    {
+      "category": "verified_public",
+      "source": "assets/VERIFIED/public/icons/icon-167x167.png",
+      "repo_destination": "/public/icons/icon-167x167.png",
+      "filename": "icon-167x167.png",
+      "bytes": 13352,
+      "sha256": "3a097923aa2c47976a84e9fdbe544dd64c45f4563e0cca44e7b83870cb93244b",
+      "locked": "YES",
+      "note": "Install exact verified brand/PWA asset"
+    },
+    {
+      "category": "verified_public",
+      "source": "assets/VERIFIED/public/icons/icon-180x180.png",
+      "repo_destination": "/public/icons/icon-180x180.png",
+      "filename": "icon-180x180.png",
+      "bytes": 14765,
+      "sha256": "80bb200f994f9912285fd2e25a72cefd4444abc3bbc3f5d9ed7e9d9c74031601",
+      "locked": "YES",
+      "note": "Install exact verified brand/PWA asset"
+    },
+    {
+      "category": "verified_public",
+      "source": "assets/VERIFIED/public/icons/icon-192x192.png",
+      "repo_destination": "/public/icons/icon-192x192.png",
+      "filename": "icon-192x192.png",
+      "bytes": 16368,
+      "sha256": "45b44cb9e83a7e32c90ff2e2324f22a776b0d0d17f669564b9f5ead52b3b789b",
+      "locked": "YES",
+      "note": "Install exact verified brand/PWA asset"
+    },
+    {
+      "category": "verified_public",
+      "source": "assets/VERIFIED/public/icons/icon-384x384.png",
+      "repo_destination": "/public/icons/icon-384x384.png",
+      "filename": "icon-384x384.png",
+      "bytes": 42774,
+      "sha256": "0ee4e4f8c5d36e498cb2a2ee712fa7491e5ed635f15dfffcc76b925d77ac6d8a",
+      "locked": "YES",
+      "note": "Install exact verified brand/PWA asset"
+    },
+    {
+      "category": "verified_public",
+      "source": "assets/VERIFIED/public/icons/icon-512x512.png",
+      "repo_destination": "/public/icons/icon-512x512.png",
+      "filename": "icon-512x512.png",
+      "bytes": 61610,
+      "sha256": "a0e90061c6f097d3e3c6f5c833df4c4c0525be27e585b9334d1b2ab502a28969",
+      "locked": "YES",
+      "note": "Install exact verified brand/PWA asset"
+    },
+    {
+      "category": "verified_public",
+      "source": "assets/VERIFIED/public/icons/icon-72x72.png",
+      "repo_destination": "/public/icons/icon-72x72.png",
+      "filename": "icon-72x72.png",
+      "bytes": 3954,
+      "sha256": "752ce06f4dae03ccb9e467cf13169986f27724c3c299c9e036c50955a5eb9dd4",
+      "locked": "YES",
+      "note": "Install exact verified brand/PWA asset"
+    },
+    {
+      "category": "verified_public",
+      "source": "assets/VERIFIED/public/icons/icon-96x96.png",
+      "repo_destination": "/public/icons/icon-96x96.png",
+      "filename": "icon-96x96.png",
+      "bytes": 6027,
+      "sha256": "35326abc9cd7bfbc85470bbf8c8876ade94f37c7cffb02aaa88ca931967d50fc",
+      "locked": "YES",
+      "note": "Install exact verified brand/PWA asset"
+    },
+    {
+      "category": "verified_public",
+      "source": "assets/VERIFIED/public/icons/maskable-icon-192x192.png",
+      "repo_destination": "/public/icons/maskable-icon-192x192.png",
+      "filename": "maskable-icon-192x192.png",
+      "bytes": 16368,
+      "sha256": "45b44cb9e83a7e32c90ff2e2324f22a776b0d0d17f669564b9f5ead52b3b789b",
+      "locked": "YES",
+      "note": "Install exact verified brand/PWA asset"
+    },
+    {
+      "category": "verified_public",
+      "source": "assets/VERIFIED/public/icons/maskable-icon-512x512.png",
+      "repo_destination": "/public/icons/maskable-icon-512x512.png",
+      "filename": "maskable-icon-512x512.png",
+      "bytes": 61610,
+      "sha256": "a0e90061c6f097d3e3c6f5c833df4c4c0525be27e585b9334d1b2ab502a28969",
+      "locked": "YES",
+      "note": "Install exact verified brand/PWA asset"
+    },
+    {
+      "category": "verified_public",
+      "source": "assets/VERIFIED/public/icons/nep-us-network-icon-dark.svg",
+      "repo_destination": "/public/icons/nep-us-network-icon-dark.svg",
+      "filename": "nep-us-network-icon-dark.svg",
+      "bytes": 26362,
+      "sha256": "0fc11d05dcfee589543f84512f26647710795b8fc12153dfa9b1595776f78209",
+      "locked": "YES",
+      "note": "Install exact verified brand/PWA asset"
+    },
+    {
+      "category": "verified_public",
+      "source": "assets/VERIFIED/public/icons/nep-us-network-icon-light.svg",
+      "repo_destination": "/public/icons/nep-us-network-icon-light.svg",
+      "filename": "nep-us-network-icon-light.svg",
+      "bytes": 26305,
+      "sha256": "807d7db51c297237bcbd16784415046815c82b404962d3fc3059f42aa3286247",
+      "locked": "YES",
+      "note": "Install exact verified brand/PWA asset"
+    },
+    {
+      "category": "verified_public",
+      "source": "assets/VERIFIED/public/icons/pwa-icon-source.svg",
+      "repo_destination": "/public/icons/pwa-icon-source.svg",
+      "filename": "pwa-icon-source.svg",
+      "bytes": 26392,
+      "sha256": "7c290d476102c8cc50d7c69b9a009561d47c84f9eaadf3bfe3f3e0df124f58b2",
+      "locked": "YES",
+      "note": "Install exact verified brand/PWA asset"
+    },
+    {
+      "category": "verified_public",
+      "source": "assets/VERIFIED/public/images/approved/nep-approved-pwa-launch-pack-v1.webp",
+      "repo_destination": "/public/images/approved/nep-approved-pwa-launch-pack-v1.webp",
+      "filename": "nep-approved-pwa-launch-pack-v1.webp",
+      "bytes": 206418,
+      "sha256": "f4227501a069ae3ded6be847a4faa75b861bec0b5dab416b57d1be09fd1648bf",
+      "locked": "YES",
+      "note": "Install exact verified brand/PWA asset"
+    },
+    {
+      "category": "verified_public",
+      "source": "assets/VERIFIED/public/images/nep-hero-metallic-showroom-v1.webp",
+      "repo_destination": "/public/images/nep-hero-metallic-showroom-v1.webp",
+      "filename": "nep-hero-metallic-showroom-v1.webp",
+      "bytes": 326560,
+      "sha256": "b0c4c2361f34aeaefad1db38234a194e635ccbe6f4b594fa5c1592d7c7575602",
+      "locked": "YES",
+      "note": "Install exact verified brand/PWA asset"
+    },
+    {
+      "category": "verified_public",
+      "source": "assets/VERIFIED/public/logos/nep-logo-horizontal-black-gold-v1-preview.png",
+      "repo_destination": "/public/logos/nep-logo-horizontal-black-gold-v1-preview.png",
+      "filename": "nep-logo-horizontal-black-gold-v1-preview.png",
+      "bytes": 136291,
+      "sha256": "b73d50f2e2a01cd32da83fbd4f5731ea543d880920232b8470e871b39c6a7c70",
+      "locked": "YES",
+      "note": "Install exact verified brand/PWA asset"
+    },
+    {
+      "category": "verified_public",
+      "source": "assets/VERIFIED/public/logos/nep-logo-horizontal-black-gold-v1.svg",
+      "repo_destination": "/public/logos/nep-logo-horizontal-black-gold-v1.svg",
+      "filename": "nep-logo-horizontal-black-gold-v1.svg",
+      "bytes": 27049,
+      "sha256": "5e711d1a9fa886821e1f17e72e3ca1480539142ba36b725f6210abaab7108d7c",
+      "locked": "YES",
+      "note": "Install exact verified brand/PWA asset"
+    },
+    {
+      "category": "verified_public",
+      "source": "assets/VERIFIED/public/manifest.json",
+      "repo_destination": "/public/manifest.json",
+      "filename": "manifest.json",
+      "bytes": 1511,
+      "sha256": "1b624d3f9e8c2266fdb0a738ee06ff7d687d778eb75d0b5c460eb3ee172d148d",
+      "locked": "YES",
+      "note": "Install exact verified brand/PWA asset"
+    },
+    {
+      "category": "xps_exact_chart",
+      "source": "assets/color_charts/xps-concrete-dye-stain-colors.webp",
+      "repo_destination": "/public/color-charts/xps-concrete-dye-stain-colors.webp",
+      "filename": "xps-concrete-dye-stain-colors.webp",
+      "bytes": 177180,
+      "sha256": "9eb4aa4b1f6a4b7c8bddae1b1a0cd05e73933079b6dafc44dbcad099bb827e3c",
+      "locked": "YES",
+      "note": "Exact XPS chart required by locked asset manifest"
+    },
+    {
+      "category": "xps_exact_chart",
+      "source": "assets/color_charts/xps-solid-color-epoxy-base-coats.webp",
+      "repo_destination": "/public/color-charts/xps-solid-color-epoxy-base-coats.webp",
+      "filename": "xps-solid-color-epoxy-base-coats.webp",
+      "bytes": 96430,
+      "sha256": "40fa02cbab0cd2277995952918477214d2ba26f7e1784a8848b9d1b034dff8e8",
+      "locked": "YES",
+      "note": "Exact XPS chart required by locked asset manifest"
+    },
+    {
+      "category": "xps_exact_chart",
+      "source": "assets/color_charts/xps-top-flake-colors-approved.webp",
+      "repo_destination": "/public/color-charts/xps-top-flake-colors-approved.webp",
+      "filename": "xps-top-flake-colors-approved.webp",
+      "bytes": 324674,
+      "sha256": "589a16f888a048a311ee7eaae2625ed08ec75e5fbc930ecbe5d915683a9db6c8",
+      "locked": "YES",
+      "note": "Exact XPS chart required by locked asset manifest"
+    },
+    {
+      "category": "xps_exact_chart",
+      "source": "assets/color_charts/xps-top-glitter-additive-colors.webp",
+      "repo_destination": "/public/color-charts/xps-top-glitter-additive-colors.webp",
+      "filename": "xps-top-glitter-additive-colors.webp",
+      "bytes": 494996,
+      "sha256": "3ecabf791ebddb6d609a7b845a97c301ed58ef3d2f136a020d3eb0f258218c62",
+      "locked": "YES",
+      "note": "Exact XPS chart required by locked asset manifest"
+    },
+    {
+      "category": "xps_exact_chart",
+      "source": "assets/color_charts/xps-top-metallic-colors-standardized.webp",
+      "repo_destination": "/public/color-charts/xps-top-metallic-colors-standardized.webp",
+      "filename": "xps-top-metallic-colors-standardized.webp",
+      "bytes": 167112,
+      "sha256": "c2a64957b1add04bb4abeff55a5099abc9b73423a7c6c74f14ccd0f8d87c83a3",
+      "locked": "YES",
+      "note": "Exact XPS chart required by locked asset manifest"
+    },
+    {
+      "category": "xps_exact_chart",
+      "source": "assets/color_charts/xps-top-quartz-colors-standardized.webp",
+      "repo_destination": "/public/color-charts/xps-top-quartz-colors-standardized.webp",
+      "filename": "xps-top-quartz-colors-standardized.webp",
+      "bytes": 226810,
+      "sha256": "0c564ba1262e12c3ff248b3c29fb0eeeb97dd085b808a81dc8ce0c3fd677fb4b",
+      "locked": "YES",
+      "note": "Exact XPS chart required by locked asset manifest"
+    },
+    {
+      "category": "approved_floor_image",
+      "source": "assets/floor_images/nep-hero-flake-garage-sports-cars.png",
+      "repo_destination": "/public/images/hero/nep-hero-flake-garage-sports-cars.png",
+      "filename": "nep-hero-flake-garage-sports-cars.png",
+      "bytes": 3875619,
+      "sha256": "0c1fc4d31c5a538a03781008fc5e4cfd7ab38cafa5ef99a9ac27654ddd337e8b",
+      "locked": "YES",
+      "note": "Locked role/aspect asset. Do not substitute without operator approval"
+    },
+    {
+      "category": "approved_floor_image",
+      "source": "assets/floor_images/nep-polished-concrete-commercial-lobby.png",
+      "repo_destination": "/public/images/floor-systems/nep-polished-concrete-commercial-lobby.png",
+      "filename": "nep-polished-concrete-commercial-lobby.png",
+      "bytes": 3023682,
+      "sha256": "d0bcb0e5e1a77af5a53eb61d11c03bf510102f6a1578fa9d76669547147a3516",
+      "locked": "YES",
+      "note": "Locked role/aspect asset. Do not substitute without operator approval"
+    },
+    {
+      "category": "approved_floor_image",
+      "source": "assets/floor_images/nep-metallic-epoxy-luxury-lounge.png",
+      "repo_destination": "/public/images/floor-systems/nep-metallic-epoxy-luxury-lounge.png",
+      "filename": "nep-metallic-epoxy-luxury-lounge.png",
+      "bytes": 3614890,
+      "sha256": "77aaeee9b1b026a695e529ac9dc2cfb8a2ce6b6dda763404499c5c5f95df1273",
+      "locked": "YES",
+      "note": "Locked role/aspect asset. Do not substitute without operator approval"
+    },
+    {
+      "category": "approved_floor_image",
+      "source": "assets/floor_images/nep-polished-concrete-retail.png",
+      "repo_destination": "/public/images/floor-systems/nep-polished-concrete-retail.png",
+      "filename": "nep-polished-concrete-retail.png",
+      "bytes": 3425096,
+      "sha256": "10e378d31efa6cc97f975b2f082664b11624c753cac13d60346d17ba278d9086",
+      "locked": "YES",
+      "note": "Locked role/aspect asset. Do not substitute without operator approval"
+    },
+    {
+      "category": "approved_floor_image",
+      "source": "assets/floor_images/nep-decorative-concrete-countertop.png",
+      "repo_destination": "/public/images/floor-systems/nep-decorative-concrete-countertop.png",
+      "filename": "nep-decorative-concrete-countertop.png",
+      "bytes": 3638671,
+      "sha256": "5d7402c2fcef487b7c9e20423f2997d94a836a8c4b5621df5ed82d20f6edf265",
+      "locked": "YES",
+      "note": "Locked role/aspect asset. Do not substitute without operator approval"
+    },
+    {
+      "category": "approved_floor_image",
+      "source": "assets/floor_images/nep-metallic-epoxy-residential.png",
+      "repo_destination": "/public/images/floor-systems/nep-metallic-epoxy-residential.png",
+      "filename": "nep-metallic-epoxy-residential.png",
+      "bytes": 2924995,
+      "sha256": "604b9c359938c2790c429f64479fb25a9000bba243c5d0d9d891b2a02ab32e64",
+      "locked": "YES",
+      "note": "Locked role/aspect asset. Do not substitute without operator approval"
+    },
+    {
+      "category": "approved_floor_image",
+      "source": "assets/floor_images/nep-solid-color-commercial-epoxy.png",
+      "repo_destination": "/public/images/floor-systems/nep-solid-color-commercial-epoxy.png",
+      "filename": "nep-solid-color-commercial-epoxy.png",
+      "bytes": 4055940,
+      "sha256": "2f76b1b318f2d7bde3c4fdc073d307b662baf6ae4e648df1a8974531227a05a2",
+      "locked": "YES",
+      "note": "Locked role/aspect asset. Do not substitute without operator approval"
+    },
+    {
+      "category": "approved_floor_image",
+      "source": "assets/floor_images/nep-exterior-patio-coating.png",
+      "repo_destination": "/public/images/floor-systems/nep-exterior-patio-coating.png",
+      "filename": "nep-exterior-patio-coating.png",
+      "bytes": 4192609,
+      "sha256": "62234916c90fbb78342f438bf234fd9d694745bf17372477b192cab656acce54",
+      "locked": "YES",
+      "note": "Locked role/aspect asset. Do not substitute without operator approval"
+    },
+    {
+      "category": "approved_floor_image",
+      "source": "assets/floor_images/nep-exterior-driveway-coating.png",
+      "repo_destination": "/public/images/floor-systems/nep-exterior-driveway-coating.png",
+      "filename": "nep-exterior-driveway-coating.png",
+      "bytes": 2317177,
+      "sha256": "45960f2bbcdd53975a0c7b80f35f670437e2af9299a884e2695bf303257a5430",
+      "locked": "YES",
+      "note": "Locked role/aspect asset. Do not substitute without operator approval"
+    }
+  ]
+}

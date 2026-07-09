@@ -1,0 +1,14 @@
+/ 200
+/contact 200
+/floor-systems 200
+/flake-garage-floors 200
+/metallic-epoxy 200
+/exterior-coatings 200
+/color-charts 200
+/free-digital-bid 200
+/digital-bid 200
+/robots.txt 200
+/sitemap.xml 200
+/privacy 200
+/terms 200
+/offline 200

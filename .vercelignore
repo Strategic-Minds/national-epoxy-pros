@@ -1,0 +1,11 @@
+node_modules
+.next
+validation/screenshots
+validation/receipts/*.tmp
+docs/workbooks
+docs/locked-source
+outputs
+receipts
+repo_public
+*.log
+tsconfig.tsbuildinfo

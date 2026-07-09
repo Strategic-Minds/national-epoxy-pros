@@ -1,0 +1,63 @@
+
+> build
+> next build
+
+   ▲ Next.js 15.5.20
+   - Experiments (use with caution):
+     · cpus: 1
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 6.0s
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/35) ...
+   Generating static pages (8/35) 
+   Generating static pages (17/35) 
+   Generating static pages (26/35) 
+ ✓ Generating static pages (35/35)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                 Size  First Load JS
+┌ ○ /                                    1.42 kB         107 kB
+├ ○ /_not-found                            992 B         103 kB
+├ ○ /about                               1.42 kB         107 kB
+├ ƒ /api/digital-bid                       139 B         103 kB
+├ ○ /color-charts                        1.42 kB         107 kB
+├ ○ /commercial-flooring                 1.42 kB         107 kB
+├ ○ /contact                             1.42 kB         107 kB
+├ ○ /design-center                       1.42 kB         107 kB
+├ ○ /digital-bid                         1.42 kB         107 kB
+├ ○ /epoxy-flooring                      1.42 kB         107 kB
+├ ○ /exterior-coatings                   1.42 kB         107 kB
+├ ○ /faq                                   139 B         103 kB
+├ ○ /flake-garage-floors                 1.42 kB         107 kB
+├ ○ /floor-systems                       1.42 kB         107 kB
+├ ○ /floor-systems/exterior-coatings     1.42 kB         107 kB
+├ ○ /floor-systems/garage-floors         1.42 kB         107 kB
+├ ○ /floor-systems/metallic              1.42 kB         107 kB
+├ ○ /floor-systems/polished-concrete     1.42 kB         107 kB
+├ ○ /floor-visualizer                    1.42 kB         107 kB
+├ ○ /free-digital-bid                    1.42 kB         107 kB
+├ ○ /gallery                             1.42 kB         107 kB
+├ ○ /garage-floor-coatings               1.42 kB         107 kB
+├ ○ /metallic-epoxy                      1.42 kB         107 kB
+├ ○ /offline                               139 B         103 kB
+├ ○ /polished-concrete                   1.42 kB         107 kB
+├ ○ /privacy                               139 B         103 kB
+├ ○ /quartz-flooring                     1.42 kB         107 kB
+├ ○ /residential-flooring                1.42 kB         107 kB
+├ ○ /reviews                             1.42 kB         107 kB
+├ ○ /robots.txt                            139 B         103 kB
+├ ○ /service-areas                       1.42 kB         107 kB
+├ ○ /sitemap.xml                           139 B         103 kB
+└ ○ /terms                                 139 B         103 kB
++ First Load JS shared by all             102 kB
+  ├ chunks/255-3981a3d1f3561bd8.js       46.2 kB
+  ├ chunks/4bd1b696-c023c6e3521b1417.js  54.2 kB
+  └ other shared chunks (total)           1.9 kB
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

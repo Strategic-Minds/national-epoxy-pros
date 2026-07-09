@@ -1,0 +1,350 @@
+[
+  {
+    "path": "public/locked-references/E_metallic_epoxy.png",
+    "bytes": 1802527,
+    "sha256": "fe375c63a83d26069085f63110bb32703ce417813f6f01ed02dd9a1e4ba8d939",
+    "width": 1055,
+    "height": 1491,
+    "format": "PNG"
+  },
+  {
+    "path": "public/locked-references/C_design_center_color_charts.png",
+    "bytes": 1925314,
+    "sha256": "95c7ee4338c64faec4e8f486ba3b0fbaed6e2c309bed8b25e9ac6b1d8213f643",
+    "width": 1055,
+    "height": 1491,
+    "format": "PNG"
+  },
+  {
+    "path": "public/locked-references/D_floor_systems.png",
+    "bytes": 1729340,
+    "sha256": "86962482ae72ed7b11450ba48a53c4e8552e651aed850970f32b2a174cdafec8",
+    "width": 1055,
+    "height": 1491,
+    "format": "PNG"
+  },
+  {
+    "path": "public/locked-references/G_polished_concrete.png",
+    "bytes": 1712651,
+    "sha256": "f2143525c94618455f5e82dbe87afd0be5e9b559a008ad36bf026e73754b536c",
+    "width": 1055,
+    "height": 1491,
+    "format": "PNG"
+  },
+  {
+    "path": "public/locked-references/F_garage_flake.png",
+    "bytes": 1778754,
+    "sha256": "115bf5e535f247f9689209301c1212b4ae3c70e5d285f4fe6185e0d5a67dd34c",
+    "width": 1055,
+    "height": 1491,
+    "format": "PNG"
+  },
+  {
+    "path": "public/locked-references/I_contact.png",
+    "bytes": 1640008,
+    "sha256": "ec5a255e97d5cef718e72378449b1ab40343ba015624ef589f2204c18f8859aa",
+    "width": 1055,
+    "height": 1491,
+    "format": "PNG"
+  },
+  {
+    "path": "public/locked-references/H_exterior_coatings.png",
+    "bytes": 2117568,
+    "sha256": "5a0d6c43a60edeb9ea87408e4914a7d9af00bec8f195fe115e4b3959d0e13eb9",
+    "width": 1055,
+    "height": 1491,
+    "format": "PNG"
+  },
+  {
+    "path": "public/locked-references/A_homepage.png",
+    "bytes": 1810685,
+    "sha256": "dea6bd5e463b2114ae155e630ed403701dab6c362763dfe1fc72394d7ecb56a9",
+    "width": 1055,
+    "height": 1491,
+    "format": "PNG"
+  },
+  {
+    "path": "public/locked-references/B_free_digital_bid.png",
+    "bytes": 1513354,
+    "sha256": "b30c1b46a3adeb5c1ca13955b7bbdf311034fcbcc30c4ca0e7e2acc204a7874b",
+    "width": 1055,
+    "height": 1491,
+    "format": "PNG"
+  },
+  {
+    "path": "public/color-charts/nep-color-chart-glitter-v1.webp",
+    "bytes": 576018,
+    "sha256": "ff645627dd348f5d5f379fba02a4ac9a94b04cfba69b1dd2fb9d345d9cde6237",
+    "width": 1536,
+    "height": 2048,
+    "format": "WEBP"
+  },
+  {
+    "path": "public/color-charts/nep-color-chart-metallic-v1.webp",
+    "bytes": 200696,
+    "sha256": "fc06ce47960ef0a42aaa85eaa53a91cda54f98d5b1d66c4a385a5b80991016f1",
+    "width": 1536,
+    "height": 2048,
+    "format": "WEBP"
+  },
+  {
+    "path": "public/color-charts/nep-color-chart-quartz-v1.webp",
+    "bytes": 268638,
+    "sha256": "3c6aa80757eb1836c4191183852dfc4a9faf4774bb021136f3baae36e64a08f2",
+    "width": 1536,
+    "height": 2048,
+    "format": "WEBP"
+  },
+  {
+    "path": "public/color-charts/nep-color-chart-top-flake-v1.webp",
+    "bytes": 427272,
+    "sha256": "ccf6721bc5be0ab3642025fb6b63a2bd754b14d4a12489bc921eb4bba267f41d",
+    "width": 1536,
+    "height": 2048,
+    "format": "WEBP"
+  },
+  {
+    "path": "public/color-charts/xps-concrete-dye-stain-colors.webp",
+    "bytes": 177180,
+    "sha256": "9eb4aa4b1f6a4b7c8bddae1b1a0cd05e73933079b6dafc44dbcad099bb827e3c",
+    "width": 1536,
+    "height": 2048,
+    "format": "WEBP"
+  },
+  {
+    "path": "public/color-charts/xps-solid-color-epoxy-base-coats.webp",
+    "bytes": 96430,
+    "sha256": "40fa02cbab0cd2277995952918477214d2ba26f7e1784a8848b9d1b034dff8e8",
+    "width": 1536,
+    "height": 2048,
+    "format": "WEBP"
+  },
+  {
+    "path": "public/color-charts/xps-top-flake-colors-approved.webp",
+    "bytes": 324674,
+    "sha256": "589a16f888a048a311ee7eaae2625ed08ec75e5fbc930ecbe5d915683a9db6c8",
+    "width": 1536,
+    "height": 2048,
+    "format": "WEBP"
+  },
+  {
+    "path": "public/color-charts/xps-top-glitter-additive-colors.webp",
+    "bytes": 494996,
+    "sha256": "3ecabf791ebddb6d609a7b845a97c301ed58ef3d2f136a020d3eb0f258218c62",
+    "width": 1536,
+    "height": 2048,
+    "format": "WEBP"
+  },
+  {
+    "path": "public/color-charts/xps-top-metallic-colors-standardized.webp",
+    "bytes": 167112,
+    "sha256": "c2a64957b1add04bb4abeff55a5099abc9b73423a7c6c74f14ccd0f8d87c83a3",
+    "width": 1536,
+    "height": 2048,
+    "format": "WEBP"
+  },
+  {
+    "path": "public/color-charts/xps-top-quartz-colors-standardized.webp",
+    "bytes": 226810,
+    "sha256": "0c564ba1262e12c3ff248b3c29fb0eeeb97dd085b808a81dc8ce0c3fd677fb4b",
+    "width": 1536,
+    "height": 2048,
+    "format": "WEBP"
+  },
+  {
+    "path": "public/images/floor-systems/nep-polished-concrete-commercial-lobby.png",
+    "bytes": 3023682,
+    "sha256": "d0bcb0e5e1a77af5a53eb61d11c03bf510102f6a1578fa9d76669547147a3516",
+    "width": 1536,
+    "height": 1024,
+    "format": "PNG"
+  },
+  {
+    "path": "public/images/floor-systems/nep-metallic-epoxy-luxury-lounge.png",
+    "bytes": 3614890,
+    "sha256": "77aaeee9b1b026a695e529ac9dc2cfb8a2ce6b6dda763404499c5c5f95df1273",
+    "width": 1536,
+    "height": 1024,
+    "format": "PNG"
+  },
+  {
+    "path": "public/images/floor-systems/nep-polished-concrete-retail.png",
+    "bytes": 3425096,
+    "sha256": "10e378d31efa6cc97f975b2f082664b11624c753cac13d60346d17ba278d9086",
+    "width": 1536,
+    "height": 1024,
+    "format": "PNG"
+  },
+  {
+    "path": "public/images/floor-systems/nep-decorative-concrete-countertop.png",
+    "bytes": 3638671,
+    "sha256": "5d7402c2fcef487b7c9e20423f2997d94a836a8c4b5621df5ed82d20f6edf265",
+    "width": 1536,
+    "height": 1024,
+    "format": "PNG"
+  },
+  {
+    "path": "public/images/floor-systems/nep-metallic-epoxy-residential.png",
+    "bytes": 2924995,
+    "sha256": "604b9c359938c2790c429f64479fb25a9000bba243c5d0d9d891b2a02ab32e64",
+    "width": 1536,
+    "height": 1024,
+    "format": "PNG"
+  },
+  {
+    "path": "public/images/floor-systems/nep-solid-color-commercial-epoxy.png",
+    "bytes": 4055940,
+    "sha256": "2f76b1b318f2d7bde3c4fdc073d307b662baf6ae4e648df1a8974531227a05a2",
+    "width": 1672,
+    "height": 941,
+    "format": "PNG"
+  },
+  {
+    "path": "public/images/floor-systems/nep-exterior-patio-coating.png",
+    "bytes": 4192609,
+    "sha256": "62234916c90fbb78342f438bf234fd9d694745bf17372477b192cab656acce54",
+    "width": 1672,
+    "height": 941,
+    "format": "PNG"
+  },
+  {
+    "path": "public/images/floor-systems/nep-exterior-driveway-coating.png",
+    "bytes": 2317177,
+    "sha256": "45960f2bbcdd53975a0c7b80f35f670437e2af9299a884e2695bf303257a5430",
+    "width": 1672,
+    "height": 941,
+    "format": "PNG"
+  },
+  {
+    "path": "public/images/floor-systems/nep-hero-flake-garage-sports-cars.png",
+    "bytes": 3875619,
+    "sha256": "0c1fc4d31c5a538a03781008fc5e4cfd7ab38cafa5ef99a9ac27654ddd337e8b",
+    "width": 1672,
+    "height": 941,
+    "format": "PNG"
+  },
+  {
+    "path": "public/logos/nep-logo-horizontal-black-gold-v1-preview.png",
+    "bytes": 136291,
+    "sha256": "b73d50f2e2a01cd32da83fbd4f5731ea543d880920232b8470e871b39c6a7c70",
+    "width": 1800,
+    "height": 520,
+    "format": "PNG"
+  },
+  {
+    "path": "public/logos/nep-logo-horizontal-black-gold-v1.svg",
+    "bytes": 27049,
+    "sha256": "5e711d1a9fa886821e1f17e72e3ca1480539142ba36b725f6210abaab7108d7c"
+  },
+  {
+    "path": "public/icons/icon-128x128.png",
+    "bytes": 9026,
+    "sha256": "bf6a9e40c28dbfbab8c171f39e3b1f67de0386d9a4ce088c452afea98f78a68a",
+    "width": 128,
+    "height": 128,
+    "format": "PNG"
+  },
+  {
+    "path": "public/icons/icon-144x144.png",
+    "bytes": 10744,
+    "sha256": "d570a1e39f2dec8f1081e20fcc5225ad1b9a7ac6b686198c6586ed8f347535ae",
+    "width": 144,
+    "height": 144,
+    "format": "PNG"
+  },
+  {
+    "path": "public/icons/icon-152x152.png",
+    "bytes": 11639,
+    "sha256": "2687b0a8b0ea8be11264d41364bacef84e2903a3f86b11fee61d0d2fc48697ea",
+    "width": 152,
+    "height": 152,
+    "format": "PNG"
+  },
+  {
+    "path": "public/icons/icon-167x167.png",
+    "bytes": 13352,
+    "sha256": "3a097923aa2c47976a84e9fdbe544dd64c45f4563e0cca44e7b83870cb93244b",
+    "width": 167,
+    "height": 167,
+    "format": "PNG"
+  },
+  {
+    "path": "public/icons/icon-180x180.png",
+    "bytes": 14765,
+    "sha256": "80bb200f994f9912285fd2e25a72cefd4444abc3bbc3f5d9ed7e9d9c74031601",
+    "width": 180,
+    "height": 180,
+    "format": "PNG"
+  },
+  {
+    "path": "public/icons/icon-192x192.png",
+    "bytes": 16368,
+    "sha256": "45b44cb9e83a7e32c90ff2e2324f22a776b0d0d17f669564b9f5ead52b3b789b",
+    "width": 192,
+    "height": 192,
+    "format": "PNG"
+  },
+  {
+    "path": "public/icons/icon-384x384.png",
+    "bytes": 42774,
+    "sha256": "0ee4e4f8c5d36e498cb2a2ee712fa7491e5ed635f15dfffcc76b925d77ac6d8a",
+    "width": 384,
+    "height": 384,
+    "format": "PNG"
+  },
+  {
+    "path": "public/icons/icon-512x512.png",
+    "bytes": 61610,
+    "sha256": "a0e90061c6f097d3e3c6f5c833df4c4c0525be27e585b9334d1b2ab502a28969",
+    "width": 512,
+    "height": 512,
+    "format": "PNG"
+  },
+  {
+    "path": "public/icons/icon-72x72.png",
+    "bytes": 3954,
+    "sha256": "752ce06f4dae03ccb9e467cf13169986f27724c3c299c9e036c50955a5eb9dd4",
+    "width": 72,
+    "height": 72,
+    "format": "PNG"
+  },
+  {
+    "path": "public/icons/icon-96x96.png",
+    "bytes": 6027,
+    "sha256": "35326abc9cd7bfbc85470bbf8c8876ade94f37c7cffb02aaa88ca931967d50fc",
+    "width": 96,
+    "height": 96,
+    "format": "PNG"
+  },
+  {
+    "path": "public/icons/maskable-icon-192x192.png",
+    "bytes": 16368,
+    "sha256": "45b44cb9e83a7e32c90ff2e2324f22a776b0d0d17f669564b9f5ead52b3b789b",
+    "width": 192,
+    "height": 192,
+    "format": "PNG"
+  },
+  {
+    "path": "public/icons/maskable-icon-512x512.png",
+    "bytes": 61610,
+    "sha256": "a0e90061c6f097d3e3c6f5c833df4c4c0525be27e585b9334d1b2ab502a28969",
+    "width": 512,
+    "height": 512,
+    "format": "PNG"
+  },
+  {
+    "path": "public/icons/nep-us-network-icon-dark.svg",
+    "bytes": 26362,
+    "sha256": "0fc11d05dcfee589543f84512f26647710795b8fc12153dfa9b1595776f78209"
+  },
+  {
+    "path": "public/icons/nep-us-network-icon-light.svg",
+    "bytes": 26305,
+    "sha256": "807d7db51c297237bcbd16784415046815c82b404962d3fc3059f42aa3286247"
+  },
+  {
+    "path": "public/icons/pwa-icon-source.svg",
+    "bytes": 26392,
+    "sha256": "7c290d476102c8cc50d7c69b9a009561d47c84f9eaadf3bfe3f3e0df124f58b2"
+  }
+]

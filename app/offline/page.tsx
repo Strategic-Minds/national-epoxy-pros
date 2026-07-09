@@ -1,0 +1,1 @@
+export default function Page(){return <main className="section legal"><h1>Offline</h1><p>This National Epoxy Pros page is available as a PWA fallback shell. Reconnect to submit digital bid details.</p></main>}

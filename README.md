@@ -1,34 +1,68 @@
-# National Epoxy Pros
+# National Epoxy Pros V2 Locked Visual Full Production Build Packet
 
-Pixel-match Next.js build for the National Epoxy Pros website and operating dashboard.
+This packet merges the production bootstrap code with the approved locked Codex visual package. The locked A-I references govern the build.
 
-## Stack
+## Required commands
 
-- Next.js 14 App Router
-- React 18
-- Safe backend route handlers for digital bids, uploads, and project records
-- Local/static data only until production integrations are explicitly approved
+```bash
+npm install
+npm run validate:assets
+npm run validate:claims
+npm run smoke
+npm run typecheck
+npm run build
+npm run score
+```
 
-## Routes
+## Production gate
 
-- `/` homepage
-- `/design-center`
-- `/visualizer`
-- `/products`
-- `/dashboard`
-- `/admin`
-- `/owner`
-- `/crew`
-- `/projects`
-- `/gallery`
-- `/about`
-- `/contact`
+This package is branch/preview-ready. Production requires Vercel build, desktop screenshots, mobile screenshots, form tests, PWA checks, and operator claim approval.
 
-## Backend API
 
-- `POST /api/bids`
-- `GET /api/projects`
-- `GET /api/uploads`
-- `POST /api/uploads`
+---
 
-Production CRM, SMS, payment, database, and messaging integrations are intentionally approval-gated.
+# Complete Launch Package Instructions
+
+## Install
+
+```bash
+npm ci
+```
+
+## Validate locally
+
+```bash
+npm run validate:assets
+npm run validate:claims
+npm run validate:visual-strategy
+npm run smoke
+npm run typecheck
+npm run build
+npm run score
+npm run validate:all
+```
+
+## Deploy Vercel preview
+
+```bash
+vercel
+```
+
+## Capture preview screenshots
+
+```bash
+BASE_URL="https://YOUR-VERCEL-PREVIEW.vercel.app" node scripts/capture-screenshots.mjs
+npm run score
+```
+
+## Production promotion
+
+Approval required before running:
+
+```bash
+vercel --prod
+```
+
+## Current status
+
+The package is preview-ready. Production remains blocked until Vercel preview, browser screenshots, claim approval, and operator approval are recorded.
