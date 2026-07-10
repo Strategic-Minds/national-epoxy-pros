@@ -170,6 +170,8 @@ export const site = {
   rating: '4.4',
   reviewCount: '500+',
   locationCount: '70+',
+  tagline: 'Premium epoxy, flake garage floors, metallic epoxy, exterior coatings, polished concrete, color charts, and mock-safe digital bid intake.',
+  hero: CDN.hero,
 } as const;
 
 /** Trust bar items (alias) */
