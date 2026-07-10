@@ -156,3 +156,93 @@ export const PROJECT_TYPES = [
   'Solid Color Epoxy',
   'Other',
 ] as const;
+
+
+// ── MISSING EXPORTS (required by existing pages) ──────────────────────
+
+/** Alias for SITE (backwards-compat) */
+export const site = {
+  name: 'National Epoxy Pros',
+  phone: '(877) 958-6408',
+  phoneHref: 'tel:+18779586408',
+  email: 'leads@nationalepoxypros.com',
+  address: '2200 NW 32nd St #700, Pompano Beach, FL 33069',
+  rating: '4.4',
+  reviewCount: '500+',
+  locationCount: '70+',
+} as const;
+
+/** Trust bar items (alias) */
+export const trustItems = TRUST_BAR_ITEMS;
+
+/** Services list */
+export const services = [
+  { title: 'Flake Garage Floors', href: '/flake-garage-floors', image: CDN.flake },
+  { title: 'Metallic Epoxy', href: '/metallic-epoxy', image: CDN.metallic },
+  { title: 'Polished Concrete', href: '/floor-systems', image: CDN.polished },
+  { title: 'Solid Color Epoxy', href: '/floor-systems', image: CDN.solidColor },
+  { title: 'Exterior Coatings', href: '/exterior-coatings', image: CDN.garage },
+  { title: 'Commercial Floors', href: '/floor-systems', image: CDN.commercial },
+] as const;
+
+/** Site pages for navigation / sitemap */
+export const pages = [
+  { title: 'Home', href: '/' },
+  { title: 'Floor Systems', href: '/floor-systems' },
+  { title: 'Flake Garage Floors', href: '/flake-garage-floors' },
+  { title: 'Metallic Epoxy', href: '/metallic-epoxy' },
+  { title: 'Exterior Coatings', href: '/exterior-coatings' },
+  { title: 'Design Center', href: '/design-center' },
+  { title: 'Color Charts', href: '/color-charts' },
+  { title: 'Free Digital Bid', href: '/free-digital-bid' },
+  { title: 'Reviews', href: '/reviews' },
+  { title: 'About', href: '/about' },
+  { title: 'Contact', href: '/contact' },
+  { title: 'FAQ', href: '/faq' },
+] as const;
+
+/** Color chart assets */
+export const chartAssets = [
+  { title: 'Flake Color Chips', image: CDN.flake, href: '/color-charts#flake' },
+  { title: 'Metallic Pigments', image: CDN.metallic, href: '/color-charts#metallic' },
+  { title: 'Solid Color Epoxy', image: CDN.solidColor, href: '/color-charts#solid' },
+  { title: 'Polished Concrete', image: CDN.polished, href: '/color-charts#polished' },
+] as const;
+
+/** Gallery images */
+export const gallery = [
+  { title: 'Garage Floor', image: CDN.garage, category: 'Garage' },
+  { title: 'Metallic Epoxy', image: CDN.metallic, category: 'Metallic' },
+  { title: 'Full Flake System', image: CDN.flake, category: 'Flake' },
+  { title: 'Commercial Floor', image: CDN.commercial, category: 'Commercial' },
+  { title: 'Polished Concrete', image: CDN.polished, category: 'Polished' },
+  { title: 'Solid Color', image: CDN.solidColor, category: 'Solid' },
+] as const;
+
+/** FAQ entries */
+export const faqs = [
+  {
+    q: 'How long does an epoxy floor installation take?',
+    a: 'Most residential installations are completed in 1–2 days. Larger commercial projects may take 3–5 days.',
+  },
+  {
+    q: 'How durable is epoxy flooring?',
+    a: 'Our systems are engineered for 10+ years of performance under normal use, backed by our system warranty.',
+  },
+  {
+    q: 'Can epoxy floors be installed over existing concrete?',
+    a: 'Yes. We prepare the existing concrete surface using diamond grinding to ensure a strong, lasting bond.',
+  },
+  {
+    q: 'What is the cost of epoxy flooring?',
+    a: 'Pricing depends on square footage, floor condition, and system selected. Get a free quote using our Digital Bid tool.',
+  },
+  {
+    q: 'Do you offer a warranty?',
+    a: 'Yes — we offer a 10-year system warranty on all residential installations and a lifetime warranty on select systems.',
+  },
+  {
+    q: 'How do I get started?',
+    a: 'Use our Free Digital Bid tool to get an accurate quote, or call us at (877) 958-6408 for same-day scheduling.',
+  },
+] as const;
