@@ -44,7 +44,7 @@ export const lockedReferences = {
 export const pages = {
   home:{route:'/', ref:'A_homepage.png', eyebrow:'Premium epoxy, concrete coating and floor systems', title:'Premium Epoxy Floors Built National. Made to Last.', copy:'A fast digital-bid experience for garage floors, metallic epoxy, color charts, exterior coatings, polished concrete, and commercial floor systems.', image:'/images/floor-systems/nep-hero-flake-garage-sports-cars.png'},
   bid:{route:'/free-digital-bid', ref:'B_free_digital_bid.png', eyebrow:'Free digital bid', title:'Get Your Free Digital Bid.', copy:'Upload photos, project details, measurements, and finish preferences. The system prepares your request for specialist review in mock-safe mode.', image:'/images/floor-systems/nep-hero-flake-garage-sports-cars.png'},
-  design:{route:'/design-center', ref:'C_design_center_color_charts.png', eyebrow:'Design Center', title:'Color Charts & Finish Collections.', copy:'Explore flake, metallic, quartz, solid base, glitter, and concrete dye/stain collections without mixing categories or losing source truth.', image:'/color-charts/xps-top-flake-colors-approved.webp'},
+  design:{route:'/design-center', ref:'C_design_center_color_charts.png', eyebrow:'Design Center', title:'Color Charts & Finish Collections.', copy:'Explore flake, metallic, quartz, solid base, glitter, and concrete dye/stain collections without mixing categories or losing source truth.', image:'/color-charts/nep-color-chart-top-flake-v1.webp'},
   systems:{route:'/floor-systems', ref:'D_floor_systems.png', eyebrow:'Floor Systems', title:'Built for Performance. Designed to Upgrade.', copy:'Compare flake garage floors, metallic epoxy, polished concrete, exterior coatings, quartz, solid epoxy, and decorative concrete systems.', image:'/images/floor-systems/nep-polished-concrete-retail.png'},
   metallic:{route:'/floor-systems/metallic', ref:'E_metallic_epoxy.png', eyebrow:'Metallic Epoxy Floors', title:'Metallic Epoxy Floors That Transform Spaces.', copy:'A premium interior finish for showrooms, salons, retail spaces, lounges, and design-led homes where movement and finish matter.', image:'/images/floor-systems/nep-metallic-epoxy-luxury-lounge.png'},
   garage:{route:'/floor-systems/garage-floors', ref:'F_garage_flake.png', eyebrow:'Flake Garage Floors', title:'Flake Garage Floors Built to Impress.', copy:'A premium garage coating path for homeowners, car collectors, cabinets, storage, and high-impact garage transformations.', image:'/images/floor-systems/nep-hero-flake-garage-sports-cars.png'},
@@ -58,15 +58,15 @@ export const services = [
   {title:'Metallic Epoxy', href:'/metallic-epoxy', image:'/images/floor-systems/nep-metallic-epoxy-luxury-lounge.png', copy:'Statement floors for showrooms, interiors, lounges, salons, and luxury spaces.'},
   {title:'Polished Concrete', href:'/polished-concrete', image:'/images/floor-systems/nep-polished-concrete-commercial-lobby.png', copy:'Modern concrete refinement for commercial, retail, and architectural environments.'},
   {title:'Exterior Coatings', href:'/exterior-coatings', image:'/images/floor-systems/nep-exterior-patio-coating.png', copy:'Patio and driveway coating review with traction, UV, and exposure considerations.'},
-  {title:'Color Charts', href:'/color-charts', image:'/color-charts/xps-top-flake-colors-approved.webp', copy:'Locked chart assets for flake, metallic, quartz, solid base, glitter, and stain systems.'},
+  {title:'Color Charts', href:'/color-charts', image:'/color-charts/nep-color-chart-top-flake-v1.webp', copy:'Locked chart assets for flake, metallic, quartz, solid base, glitter, and stain systems.'},
   {title:'Digital Bid', href:'/free-digital-bid', image:'/images/floor-systems/nep-polished-concrete-retail.png', copy:'Step-by-step intake for project photos, details, measurements, finish selections, and review.'},
 ];
 
 export const chartAssets = [
-  ['/color-charts/xps-top-flake-colors-approved.webp','Top Flake Colors'],
-  ['/color-charts/xps-top-metallic-colors-standardized.webp','Metallic Colors'],
-  ['/color-charts/xps-top-quartz-colors-standardized.webp','Quartz Colors'],
-  ['/color-charts/xps-top-glitter-additive-colors.webp','Glitter Additives'],
+  ['/color-charts/nep-color-chart-top-flake-v1.webp','Top Flake Colors'],
+  ['/color-charts/nep-color-chart-metallic-v1.webp','Metallic Colors'],
+  ['/color-charts/nep-color-chart-quartz-v1.webp','Quartz Colors'],
+  ['/color-charts/nep-color-chart-glitter-v1.webp','Glitter Additives'],
   ['/color-charts/xps-solid-color-epoxy-base-coats.webp','Solid Epoxy Base Coats'],
   ['/color-charts/xps-concrete-dye-stain-colors.webp','Concrete Dye & Stain Colors'],
   ['/color-charts/nep-color-chart-top-flake-v1.webp','NEP Flake Chart'],
