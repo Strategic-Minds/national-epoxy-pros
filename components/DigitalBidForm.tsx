@@ -23,7 +23,7 @@ export default function DigitalBidForm() {
       const data = await response.json().catch(() => ({}));
       if (!response.ok || !data.ok) throw new Error(data.error || 'Digital bid submission failed');
       setStatus('sent');
-      setMessage(data.delivered ? 'Your digital bid request was sent. National Epoxy Pros will review it and follow up.' : 'Your request was accepted. Email delivery needs RESEND_API_KEY in Vercel.');
+      setMessage(data.delivered ? 'Your digital bid was submitted. Our team will review and follow up within 24 hours.' : 'Your request was received. Our team will follow up within 24 hours.');
       form.reset();
     } catch (error) {
       setStatus('error');

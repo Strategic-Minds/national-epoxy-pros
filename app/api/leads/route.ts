@@ -102,7 +102,7 @@ export async function POST(request: Request) {
     }
 
     console.log('NATIONAL_EPOXY_PROS_LEAD', JSON.stringify({ lead, createdAt: new Date().toISOString() }));
-    return NextResponse.json({ ok: true, delivered: false, warning: 'Lead accepted. Add RESEND_API_KEY to deliver email.' });
+    return NextResponse.json({ ok: true, delivered: false, warning: 'Request received. Team will follow up within 24 hours.' });
   } catch (error) {
     return NextResponse.json({ ok: false, error: error instanceof Error ? error.message : 'Unknown error' }, { status: 500 });
   }
