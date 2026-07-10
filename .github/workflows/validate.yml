@@ -1,0 +1,37 @@
+name: Validate National Epoxy Pros
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - emergency/**
+
+jobs:
+  validate:
+    name: Typecheck, build, and static validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Build
+        run: npm run build
+
+      - name: Static anti-regression checks
+        run: |
+          ! grep -R "approved-surface-page\|approved-image-stage\|approved-page-image\|ApprovedHotspots\|baseHotspot\|approved-floating-actions" -n app components lib || exit 1
+          ! grep -R "10,000+\|5-Star Rated\|Licensed & Insured\|(480) 800-8246" -n app components lib || exit 1
