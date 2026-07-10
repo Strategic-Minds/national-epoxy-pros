@@ -1,106 +1,60 @@
 'use client';
-
+import Link from 'next/link';
 import { useState } from 'react';
-import { NAV_LINKS, TRUST_BAR_ITEMS, CDN, SITE } from '@/lib/site';
 
-function TrustBarIcon({ name }: { name: string }) {
-  const icons: Record<string, React.ReactNode> = {
-    clock: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <circle cx="12" cy="12" r="10" />
-        <polyline points="12 6 12 12 16 14" />
-      </svg>
-    ),
-    pin: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-        <circle cx="12" cy="10" r="3" />
-      </svg>
-    ),
-    shield: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-      </svg>
-    ),
-    star: (
-      <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="1">
-        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-      </svg>
-    ),
-    award: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <circle cx="12" cy="8" r="7" />
-        <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
-      </svg>
-    ),
-  };
-  return <>{icons[name] || icons.star}</>;
-}
+const LOGO_DARK = 'https://base44.app/api/apps/6a3a1cc6fda8cc665dd22ea4/files/mp/public/6a3a1cc6fda8cc665dd22ea4/5e28d6604_logo-horizontal-dark.svg';
+const nav = [
+  ['Floor Systems','/floor-systems'],
+  ['Design Center','/color-charts'],
+  ['Digital Bid','/free-digital-bid'],
+  ['Reviews','/reviews'],
+  ['About','/about'],
+  ['Contact','/contact'],
+];
 
 export default function Header() {
-  const [mobileOpen, setMobileOpen] = useState(false);
-
+  const [open, setOpen] = useState(false);
   return (
     <>
-      {/* Trust Bar */}
       <div className="trust-bar">
         <div className="trust-bar-inner">
-          {TRUST_BAR_ITEMS.map((item, i) => (
-            <div key={i} className="trust-bar-item">
-              <TrustBarIcon name={item.icon} />
-              <span>{item.text}</span>
-            </div>
-          ))}
+          <span className="trust-bar-item">⏰ 24-Hour Quote Guarantee</span>
+          <span className="trust-bar-divider">|</span>
+          <span className="trust-bar-item">📍 Over 70 Locations Nationwide</span>
+          <span className="trust-bar-divider">|</span>
+          <span className="trust-bar-item">🛡 Licensed, Insured &amp; Bonded</span>
+          <span className="trust-bar-divider">|</span>
+          <span className="trust-bar-item">⭐ 4.4-Star Rated by Homeowners</span>
+          <span className="trust-bar-divider">|</span>
+          <span className="trust-bar-item">⚡ Powered by Xtreme Polishing Systems</span>
         </div>
       </div>
-
-      {/* Header */}
-      <header className="header">
+      <header className="site-header">
         <div className="header-inner">
-          <a href="/" className="header-logo" aria-label={SITE.businessName}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={CDN.logoDark} alt="National Epoxy Pros" />
-          </a>
-
-          <nav className="header-nav">
-            {NAV_LINKS.map((link) => (
-              <a key={link.href} href={link.href}>
-                {link.label}
-              </a>
+          <Link href="/" className="brand" aria-label="National Epoxy Pros">
+            <img src={LOGO_DARK} alt="National Epoxy Pros" />
+          </Link>
+          <nav className="main-nav">
+            {nav.map(([label, href]) => (
+              <Link key={href} href={href}>{label}</Link>
             ))}
           </nav>
-
-          <a href="/free-digital-bid" className="header-cta">
-            GET A QUOTE
-          </a>
-
-          <button
-            className={`mobile-menu-btn ${mobileOpen ? 'active' : ''}`}
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
+          <Link href="/free-digital-bid" className="header-cta">Get a Quote</Link>
+          <button className="hamburger" onClick={() => setOpen(true)} aria-label="Open menu">
+            <span /><span /><span />
           </button>
         </div>
       </header>
-
-      {/* Mobile Nav */}
-      <nav className={`mobile-nav ${mobileOpen ? 'active' : ''}`}>
-        {NAV_LINKS.map((link) => (
-          <a key={link.href} href={link.href} onClick={() => setMobileOpen(false)}>
-            {link.label}
-          </a>
-        ))}
-        <a
-          href="/free-digital-bid"
-          className="header-cta"
-          onClick={() => setMobileOpen(false)}
-        >
-          GET A QUOTE
-        </a>
-      </nav>
+      {open && (
+        <div className="mobile-nav-overlay" style={{position:'fixed',inset:0,background:'#050505',zIndex:200,display:'flex',flexDirection:'column',padding:'1.5rem 2rem',gap:'1.5rem'}}>
+          <button onClick={() => setOpen(false)} style={{alignSelf:'flex-end',background:'none',border:'none',color:'#fff',fontSize:'2rem',cursor:'pointer'}}>✕</button>
+          <Link href="/" className="brand"><img src={LOGO_DARK} alt="National Epoxy Pros" style={{height:40}} /></Link>
+          {nav.map(([label, href]) => (
+            <Link key={href} href={href} onClick={() => setOpen(false)} style={{fontSize:'1.3rem',fontWeight:700,color:'#fff',borderBottom:'1px solid rgba(255,255,255,.1)',paddingBottom:'1rem'}}>{label}</Link>
+          ))}
+          <Link href="/free-digital-bid" className="btn btn-gold" onClick={() => setOpen(false)}>Get a Quote</Link>
+        </div>
+      )}
     </>
   );
 }
