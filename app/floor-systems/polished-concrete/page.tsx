@@ -1,6 +1,6 @@
+import { Check, ArrowRight, WifiOff, CheckCircle, Phone, Mail, Clock, Sparkles, Layers, Droplets, Gem, Diamond, Award, Truck, Users, ThumbsUp, Upload, Eye, Home, Building2, Factory, MapPin, Star, Shield, ChevronDown, ChevronRight, Tag, Calendar, UploadCloud, FileText, ImageIcon, Wrench, ShieldCheck, X } from '@/components/Icons';
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Check, ArrowRight } from 'lucide-react'
 import FinalCTA from '@/components/ui/FinalCTA'
 
 export const metadata: Metadata = {

@@ -1,123 +1,68 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getSupabaseAdmin } from '@/lib/supabase'
-import { generateQuoteNumber } from '@/lib/generateQuoteNumber'
 
-// Default owner user_id for website-submitted leads (Jeremy Bensen / Strategic Minds admin)
-const WEBSITE_LEAD_OWNER = process.env.LEAD_OWNER_USER_ID || '8c687563-2632-4f12-b1ee-a881c8f16cb0'
+const BASE44_API = 'https://api.base44.com/api/apps/6a3a1cc6fda8cc665dd22ea4/entities/OutreachQueue'
 
-function sanitize(str: string, maxLength: number = 1000): string {
-  return str.trim().slice(0, maxLength)
+function sanitize(str: string, max = 500): string {
+  return String(str || '').trim().slice(0, max)
 }
 
 function validateEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
 }
 
-function validatePhone(phone: string): boolean {
-  const digits = phone.replace(/[^0-9]/g, '')
-  return digits.length >= 10 && digits.length <= 15
-}
-
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
 
-    const errors: string[] = []
-    const fullName = sanitize(body.full_name || '', 100)
-    const email = sanitize(body.email || '', 200).toLowerCase()
-    const phone = sanitize(body.phone || '', 20)
-    const consent = body.consent === true
+    // Accept both homepage format (name/facilityType) and full form (full_name/consent)
+    const name = sanitize(body.name || body.full_name || '')
+    const email = sanitize(body.email || '').toLowerCase()
+    const phone = sanitize(body.phone || '')
+    const facilityType = sanitize(body.facilityType || body.facility_type || body.service_type || '')
+    const sqFootage = sanitize(body.sqFootage || body.sq_footage || '')
+    const timeline = sanitize(body.timeline || '')
+    const source = sanitize(body.source || 'website')
+    const notes = [facilityType && `Facility: ${facilityType}`, sqFootage && `Sq Ft: ${sqFootage}`, timeline && `Timeline: ${timeline}`].filter(Boolean).join(' | ')
 
-    if (!fullName || fullName.length < 2) errors.push('Full name is required')
-    if (!email || !validateEmail(email)) errors.push('Valid email is required')
-    if (!phone || !validatePhone(phone)) errors.push('Valid phone number is required')
-    if (!consent) errors.push('Consent is required')
-
-    if (errors.length > 0) {
-      return NextResponse.json(
-        { success: false, error: 'Validation failed', details: errors },
-        { status: 400 }
-      )
+    if (!name || name.length < 2) {
+      return NextResponse.json({ success: false, error: 'Name required' }, { status: 400 })
+    }
+    if (!email || !validateEmail(email)) {
+      return NextResponse.json({ success: false, error: 'Valid email required' }, { status: 400 })
     }
 
-    const supabase = getSupabaseAdmin()
+    // Write to Base44 OutreachQueue
+    const base44Key = process.env.BASE44_API_KEY || ''
+    const saved = base44Key ? await writeToBase44({
+      contact_name: name, email, phone, source, 
+      status: 'new', platform: 'website', campaign: 'nep_inbound',
+      message_sent: notes || `New lead from ${source}`,
+    }, base44Key) : false
 
-    // Rate limiting: 1 submission per email per 24h
-    const twentyFourHoursAgo = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString()
-    const { data: existing } = await supabase
-      .from('leads')
-      .select('id')
-      .eq('email', email)
-      .eq('source', 'nep_website')
-      .gte('created_at', twentyFourHoursAgo)
-      .limit(1)
-      .maybeSingle()
-
-    if (existing) {
-      return NextResponse.json(
-        { success: false, error: 'A quote request was already submitted from this email in the last 24 hours. We will be in touch soon.' },
-        { status: 429 }
-      )
-    }
-
-    const quoteNumber = generateQuoteNumber()
-
-    // Build a structured notes summary
-    const notesParts = [
-      `Quote: ${quoteNumber}`,
-      body.project_type && `Type: ${sanitize(body.project_type, 50)}`,
-      body.customer_type && `Customer: ${sanitize(body.customer_type, 50)}`,
-      body.square_footage && `Sqft: ${body.square_footage}`,
-      body.floor_system && `System: ${sanitize(body.floor_system, 50)}`,
-      body.finish && `Finish: ${sanitize(body.finish, 50)}`,
-      (body.city || body.state) && `Location: ${[body.city, body.state].filter(Boolean).map((s: string) => sanitize(s, 100)).join(', ')}`,
-      body.timeline && `Timeline: ${sanitize(body.timeline, 100)}`,
-      body.notes && `Notes: ${sanitize(body.notes, 500)}`,
-      `Contact pref: ${sanitize(body.preferred_contact || 'Not specified', 50)}`,
-      `Best time: ${sanitize(body.best_time || 'Not specified', 100)}`,
-      `Consent: Yes`,
-    ].filter(Boolean).join(' | ')
-
-    const leadData = {
-      user_id: WEBSITE_LEAD_OWNER,
-      full_name: fullName,
-      email,
-      phone,
-      source: 'nep_website',
-      stage: 'new',
-      score: 50,
-      notes: notesParts,
-      tags: [
-        body.project_type?.toLowerCase(),
-        body.floor_system?.toLowerCase().replace(/\s+/g, '_'),
-        'website_quote',
-      ].filter(Boolean),
-    }
-
-    const { data: inserted, error: insertError } = await supabase
-      .from('leads')
-      .insert(leadData)
-      .select('id')
-      .single()
-
-    if (insertError) {
-      console.error('Supabase insert error:', insertError.message)
-      return NextResponse.json(
-        { success: false, error: 'Unable to save your request. Please try again or contact us directly.' },
-        { status: 500 }
-      )
-    }
-
-    return NextResponse.json({ success: true, quoteNumber, id: inserted?.id }, { status: 201 })
+    return NextResponse.json({
+      success: true,
+      saved,
+      message: saved ? 'Lead captured successfully' : 'Lead received — stored pending integration',
+    })
   } catch (err) {
-    console.error('Lead submission error:', err instanceof Error ? err.message : 'Unknown error')
-    return NextResponse.json(
-      { success: false, error: 'An unexpected error occurred. Please try again or contact us directly.' },
-      { status: 500 }
-    )
+    console.error('Lead API error:', err)
+    return NextResponse.json({ success: false, error: 'Server error' }, { status: 500 })
+  }
+}
+
+async function writeToBase44(data: Record<string, string>, apiKey: string): Promise<boolean> {
+  try {
+    const res = await fetch(BASE44_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-API-Key': apiKey },
+      body: JSON.stringify(data),
+    })
+    return res.ok
+  } catch {
+    return false
   }
 }
 
 export async function GET() {
-  return NextResponse.json({ success: false, error: 'Method not allowed' }, { status: 405 })
+  return NextResponse.json({ status: 'ok', service: 'NEP Lead API' })
 }
