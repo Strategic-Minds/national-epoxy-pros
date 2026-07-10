@@ -21,7 +21,7 @@ export default function QuoteFormCard() {
       const data = await response.json().catch(() => ({}));
       if (!response.ok || !data.ok) throw new Error(data.error || 'Lead submission failed');
       setStatus('sent');
-      setMessage(data.delivered ? 'Your request was sent. National Epoxy Pros will review it and follow up.' : 'Your request was accepted. Email delivery needs RESEND_API_KEY in Vercel.');
+      setMessage(data.delivered ? 'Your request was sent. National Epoxy Pros will review it and follow up.' : 'Your request was received. Our team will follow up within 24 hours.');
       form.reset();
     } catch (error) {
       setStatus('error');

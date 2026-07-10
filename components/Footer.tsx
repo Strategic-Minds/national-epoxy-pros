@@ -1,4 +1,55 @@
-
 import Link from 'next/link';
 import { site, trustItems } from '@/lib/site';
-export default function Footer(){return <footer className="footer"><div className="footer-trust"><div className="footer-trust-inner">{trustItems.map(([icon,label])=><div className="trust-item" key={label}><span className="trust-icon">{icon}</span><span>{label}</span></div>)}</div></div><div className="footer-inner"><div><img className="footer-logo" src={site.logo} alt="National Epoxy Pros"/><p>{site.tagline}</p><p className="muted">Launch-safe note: claims, warranties, and service coverage must be operator-verified before final production approval.</p></div><div><h3>Quick Links</h3><Link href="/floor-systems">Floor Systems</Link><Link href="/design-center">Design Center</Link><Link href="/free-digital-bid">Digital Bid</Link><Link href="/reviews">Reviews</Link><Link href="/about">About Us</Link><Link href="/contact">Contact</Link></div><div><h3>Services</h3><Link href="/flake-garage-floors">Flake Systems</Link><Link href="/metallic-epoxy">Metallic Epoxy</Link><Link href="/polished-concrete">Polished Concrete</Link><Link href="/exterior-coatings">Exterior Coating</Link><Link href="/color-charts">Color Charts</Link></div><div><h3>Contact Us</h3><a href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a><a href={`mailto:${site.leadsEmail}`}>{site.leadsEmail}</a><p>WhatsApp: {site.whatsapp}</p><p>Digital bid requests route through mock-safe mode until backend approval.</p></div></div><div className="footer-bottom">© 2026 National Epoxy Pros. <Link href="/privacy">Privacy Policy</Link> | <Link href="/terms">Terms of Service</Link> | <Link href="/sitemap.xml">Sitemap</Link></div></footer>}
+
+export default function Footer() {
+  return (
+    <footer className="footer">
+      <div className="footer-trust">
+        <div className="footer-trust-inner">
+          {trustItems.map(([icon, label]) => (
+            <div className="trust-item" key={label}>
+              <span className="trust-icon">{icon}</span>
+              <span>{label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="footer-inner">
+        <div>
+          <img className="footer-logo" src={site.logo} alt="National Epoxy Pros" />
+          <p>{site.tagline}</p>
+        </div>
+        <div>
+          <h3>Quick Links</h3>
+          <Link href="/floor-systems">Floor Systems</Link>
+          <Link href="/design-center">Design Center</Link>
+          <Link href="/free-digital-bid">Digital Bid</Link>
+          <Link href="/reviews">Reviews</Link>
+          <Link href="/about">About Us</Link>
+          <Link href="/contact">Contact</Link>
+        </div>
+        <div>
+          <h3>Services</h3>
+          <Link href="/flake-garage-floors">Flake Systems</Link>
+          <Link href="/metallic-epoxy">Metallic Epoxy</Link>
+          <Link href="/polished-concrete">Polished Concrete</Link>
+          <Link href="/exterior-coatings">Exterior Coating</Link>
+          <Link href="/color-charts">Color Charts</Link>
+        </div>
+        <div>
+          <h3>Contact Us</h3>
+          <a href={site.phoneHref}>{site.phone}</a>
+          <a href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a>
+          <a href={`mailto:${site.leadsEmail}`}>{site.leadsEmail}</a>
+          <p>{site.address}</p>
+        </div>
+      </div>
+      <div className="footer-bottom">
+        © 2026 National Epoxy Pros.{' '}
+        <Link href="/privacy">Privacy Policy</Link> |{' '}
+        <Link href="/terms">Terms of Service</Link> |{' '}
+        <Link href="/sitemap.xml">Sitemap</Link>
+      </div>
+    </footer>
+  );
+}

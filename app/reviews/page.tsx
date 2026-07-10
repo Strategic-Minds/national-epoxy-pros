@@ -1,2 +1,4 @@
 import ReferencePage from '@/components/ReferencePage';
-export default function Page(){return <ReferencePage pageKey="home" mode="reviews"/>}
+export default function Page() {
+  return <ReferencePage pageKey="home" mode="reviews" />;
+}
