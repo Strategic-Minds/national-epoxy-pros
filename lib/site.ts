@@ -9,7 +9,7 @@ export const site = {
   supportEmail: 'support@nationalepoxypros.com',
   leadsEmail: 'leads@nationalepoxypros.com',
   tagline: 'Premium epoxy, flake, metallic, quartz, exterior coating, and polished concrete systems built to perform.',
-  hero: '/images/floor-systems/nep-hero-flake-garage-sports-cars.png',
+  hero: '/images/gallery/flake-garage-floor-1.webp',
   logo: '/logos/nep-logo-horizontal-black-gold-v1.svg',
 };
 
@@ -49,7 +49,7 @@ export const pages = {
     eyebrow: 'Premium Epoxy Floor Systems',
     title: 'Built Nationwide. Made to Last.',
     copy: 'America\'s most advanced epoxy floor coating systems for garages, showrooms, patios, and commercial spaces. Powered by Xtreme Polishing Systems.',
-    image: '/images/floor-systems/nep-hero-flake-garage-sports-cars.png',
+    image: '/images/gallery/flake-garage-floor-1.webp',
   },
   bid: {
     route: '/free-digital-bid',
@@ -57,7 +57,7 @@ export const pages = {
     eyebrow: 'Free Digital Bid',
     title: 'Get Your Free Digital Bid.',
     copy: 'Upload photos, project details, measurements, and finish preferences. Our team reviews every submission personally.',
-    image: '/images/floor-systems/nep-hero-flake-garage-sports-cars.png',
+    image: '/images/gallery/flake-garage-floor-1.webp',
   },
   design: {
     route: '/design-center',
@@ -140,15 +140,15 @@ export const chartAssets: [string, string][] = [
 ];
 
 export const gallery = [
-  { src: '/images/floor-systems/nep-hero-flake-garage-sports-cars.png', title: 'Flake Garage Floor', tag: 'Garage' },
-  { src: '/images/floor-systems/nep-metallic-epoxy-luxury-lounge.png', title: 'Metallic Epoxy Luxury Lounge', tag: 'Metallic' },
-  { src: '/images/floor-systems/nep-polished-concrete-commercial-lobby.png', title: 'Polished Concrete Lobby', tag: 'Polished' },
-  { src: '/images/floor-systems/nep-polished-concrete-retail.png', title: 'Polished Concrete Retail', tag: 'Commercial' },
-  { src: '/images/floor-systems/nep-exterior-patio-coating.png', title: 'Exterior Patio Coating', tag: 'Exterior' },
-  { src: '/images/floor-systems/nep-exterior-driveway-coating.png', title: 'Exterior Driveway Coating', tag: 'Exterior' },
-  { src: '/images/floor-systems/nep-solid-color-commercial-epoxy.png', title: 'Solid Color Commercial Epoxy', tag: 'Commercial' },
-  { src: '/images/floor-systems/nep-metallic-epoxy-residential.png', title: 'Residential Metallic Epoxy', tag: 'Residential' },
-  { src: '/images/floor-systems/nep-decorative-concrete-countertop.png', title: 'Decorative Concrete Countertop', tag: 'Decorative' },
+  { src: '/images/gallery/metallic-epoxy-floor-1.webp', title: 'Metallic Epoxy Showroom Floor', tag: 'Metallic' },
+  { src: '/images/gallery/metallic-epoxy-floor-2.webp', title: 'Metallic Epoxy Lounge Floor', tag: 'Metallic' },
+  { src: '/images/gallery/metallic-epoxy-floor-3.webp', title: 'Metallic Epoxy Retail Floor', tag: 'Metallic' },
+  { src: '/images/gallery/flake-garage-floor-1.webp', title: 'Premium Flake Garage Floor', tag: 'Garage' },
+  { src: '/images/gallery/flake-garage-floor-2.webp', title: 'Custom Flake Garage Floor', tag: 'Garage' },
+  { src: '/images/gallery/flake-garage-floor-3.webp', title: 'Residential Flake Garage Floor', tag: 'Garage' },
+  { src: '/images/gallery/exterior-coating-1.webp', title: 'Exterior Patio Coating', tag: 'Exterior' },
+  { src: '/images/gallery/exterior-coating-2.webp', title: 'Exterior Driveway Coating', tag: 'Exterior' },
+  { src: '/images/gallery/polished-concrete-floor-1.webp', title: 'Polished Concrete Floor', tag: 'Polished' },
 ];
 
 export const faqs: [string, string][] = [
