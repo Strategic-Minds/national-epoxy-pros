@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getSupabaseAdmin } from '@/lib/supabase'
 import { generateQuoteNumber } from '@/lib/generateQuoteNumber'
 
+// Default owner user_id for website-submitted leads (Jeremy Bensen / Strategic Minds admin)
+const WEBSITE_LEAD_OWNER = process.env.LEAD_OWNER_USER_ID || '8c687563-2632-4f12-b1ee-a881c8f16cb0'
+
 function sanitize(str: string, maxLength: number = 1000): string {
   return str.trim().slice(0, maxLength)
 }
@@ -67,7 +70,7 @@ export async function POST(request: NextRequest) {
       body.square_footage && `Sqft: ${body.square_footage}`,
       body.floor_system && `System: ${sanitize(body.floor_system, 50)}`,
       body.finish && `Finish: ${sanitize(body.finish, 50)}`,
-      (body.city || body.state) && `Location: ${[body.city, body.state].filter(Boolean).map(s => sanitize(s, 100)).join(', ')}`,
+      (body.city || body.state) && `Location: ${[body.city, body.state].filter(Boolean).map((s: string) => sanitize(s, 100)).join(', ')}`,
       body.timeline && `Timeline: ${sanitize(body.timeline, 100)}`,
       body.notes && `Notes: ${sanitize(body.notes, 500)}`,
       `Contact pref: ${sanitize(body.preferred_contact || 'Not specified', 50)}`,
@@ -76,6 +79,7 @@ export async function POST(request: NextRequest) {
     ].filter(Boolean).join(' | ')
 
     const leadData = {
+      user_id: WEBSITE_LEAD_OWNER,
       full_name: fullName,
       email,
       phone,
