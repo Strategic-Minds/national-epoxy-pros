@@ -122,6 +122,17 @@ export const services = [
   { title: 'Digital Bid', href: '/free-digital-bid', image: editableImages.digitalBid, copy: 'Step-by-step intake for project photos, details, measurements, finish selections, and review.' },
 ];
 
+export const gallery = [
+  { src: editableImages.home, title: 'National Epoxy Pros visual direction', tag: 'Home' },
+  { src: editableImages.digitalBid, title: 'Digital bid visual direction', tag: 'Digital Bid' },
+  { src: editableImages.metallic, title: 'Metallic epoxy visual direction', tag: 'Metallic' },
+  { src: editableImages.floorSystems, title: 'Floor systems visual direction', tag: 'Systems' },
+  { src: editableImages.flakeGarage, title: 'Flake garage visual direction', tag: 'Garage' },
+  { src: editableImages.designCenter, title: 'Design center visual direction', tag: 'Charts' },
+  { src: editableImages.exterior, title: 'Exterior coatings visual direction', tag: 'Exterior' },
+  { src: editableImages.contact, title: 'Contact visual direction', tag: 'Contact' },
+];
+
 export const chartAssets = [
   ['/color-charts/xps-top-flake-colors-approved.webp', 'Top Flake Colors'],
   ['/color-charts/xps-top-metallic-colors-standardized.webp', 'Metallic Colors'],
