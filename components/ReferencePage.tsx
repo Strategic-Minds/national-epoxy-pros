@@ -1,20 +1,19 @@
 import Link from 'next/link';
-import DigitalBidForm from '@/components/DigitalBidForm';
 import QuoteFormCard from '@/components/QuoteFormCard';
-import { chartAssets, pages, services, site } from '@/lib/site';
+import DigitalBidForm from '@/components/DigitalBidForm';
+import { chartAssets, gallery, pages, services, site } from '@/lib/site';
 
-type Key = keyof typeof pages;
-
+type PageKey = keyof typeof pages;
 type Mode = 'home' | 'service' | 'charts' | 'bid' | 'contact' | 'reviews' | 'legal';
 
-export default function ReferencePage({ pageKey, mode = 'service' }: { pageKey: Key; mode?: Mode }) {
+export default function ReferencePage({ pageKey, mode = 'service' }: { pageKey: PageKey; mode?: Mode }) {
   const page = pages[pageKey];
 
   return (
     <main className="route-layout">
       <section className="hero-locked">
-        <div className="hero-bg" style={{ backgroundImage: `url(${page.image})` }} aria-hidden="true" />
-        <div className="hero-shade" aria-hidden="true" />
+        <div className="hero-bg" style={{ backgroundImage: `url(${page.image})` }} />
+        <div className="hero-shade" />
         <div className="hero-inner">
           <div>
             <span className="eyebrow">{page.eyebrow}</span>
@@ -22,50 +21,40 @@ export default function ReferencePage({ pageKey, mode = 'service' }: { pageKey: 
             <p className="hero-copy">{page.copy}</p>
             <div className="cta-row">
               <Link className="btn primary" href="/free-digital-bid">Start My Free Digital Bid</Link>
-              <a className="btn secondary" href={site.phoneHref}>Call {site.phone}</a>
-              <Link className="btn secondary" href="/color-charts">View Color Charts</Link>
+              <Link className="btn secondary" href="/floor-systems">Explore Floor Systems</Link>
             </div>
           </div>
           <QuoteFormCard />
         </div>
       </section>
-      <RealNav />
-      {mode === 'bid' ? <BidSections /> : mode === 'charts' ? <ChartSections /> : mode === 'contact' ? <ContactSections /> : <HomeSections />}
+      <TrustStrip />
+      {mode === 'bid' ? <BidSections /> : mode === 'charts' ? <ChartSections /> : mode === 'contact' ? <ContactSections /> : mode === 'reviews' ? <ReviewSections /> : <DefaultSections />}
     </main>
   );
 }
 
-function RealNav() {
-  const links = [
-    ['Floor Systems', '/floor-systems'],
-    ['Color Charts', '/color-charts'],
-    ['Garage Flake', '/flake-garage-floors'],
-    ['Metallic Epoxy', '/metallic-epoxy'],
-    ['Exterior Coatings', '/exterior-coatings'],
-    ['Contact', '/contact'],
-  ];
-
+function TrustStrip() {
   return (
-    <div className="trust-strip" aria-label="Floor system navigation">
+    <div className="trust-strip">
       <div className="trust-strip-inner">
-        {links.map(([label, href]) => (
-          <Link className="trust-item" href={href} key={href}>
-            <span className="trust-icon">•</span>{label}
-          </Link>
-        ))}
+        <div className="trust-item"><span className="trust-icon">⬢</span>System Review</div>
+        <div className="trust-item"><span className="trust-icon">☆</span>Premium Visuals</div>
+        <div className="trust-item"><span className="trust-icon">▤</span>Color Charts</div>
+        <div className="trust-item"><span className="trust-icon">✓</span>Digital Bid</div>
+        <div className="trust-item"><span className="trust-icon">⚡</span>XPS Powered</div>
       </div>
     </div>
   );
 }
 
-function HomeSections() {
+function DefaultSections() {
   return (
     <>
       <section className="section">
         <div className="section-head">
           <span className="eyebrow">Floor Systems</span>
-          <h2>Real Pages. Real Buttons. Real Forms.</h2>
-          <p className="muted">The approved black, white, and gold direction is rendered as HTML, CSS, and React components. Images are used only as normal hero and service imagery.</p>
+          <h2>Choose the system. Upload the details. Get a clearer bid path.</h2>
+          <p className="muted">These cards follow the locked route map and preserve editable content for future CMS use.</p>
         </div>
         <div className="grid-3">
           {services.map((service) => (
@@ -83,38 +72,35 @@ function HomeSections() {
       <section className="section alt">
         <div className="section-inner">
           <div className="section-head">
-            <span className="eyebrow">Digital Bid Workflow</span>
-            <h2>Fast Project Intake Without Fake Claims.</h2>
+            <span className="eyebrow">How It Works</span>
+            <h2>Digital Bid Workflow</h2>
           </div>
           <div className="grid-3">
-            <Process title="1. Choose" text="Pick the finish direction that fits the project." />
-            <Process title="2. Submit" text="Send photos, measurements, condition, timeline, and notes." />
-            <Process title="3. Review" text="National Epoxy Pros reviews the request before final scope." />
+            <div className="process-card"><div className="card-body"><h3>1. Upload</h3><p className="muted">Photos, project details, surface condition, and inspiration.</p></div></div>
+            <div className="process-card"><div className="card-body"><h3>2. Review</h3><p className="muted">Prep, repair, finish direction, and timeline are organized.</p></div></div>
+            <div className="process-card"><div className="card-body"><h3>3. Submit</h3><p className="muted">The request is prepared for specialist review with safe claim handling.</p></div></div>
           </div>
         </div>
       </section>
+      <GalleryPreview />
     </>
   );
-}
-
-function Process({ title, text }: { title: string; text: string }) {
-  return <div className="process-card"><div className="card-body"><h3>{title}</h3><p className="muted">{text}</p></div></div>;
 }
 
 function ChartSections() {
   return (
     <section className="section">
       <div className="section-head">
-        <span className="eyebrow">Editable Chart Assets</span>
-        <h2>Color Charts And Finish Collections</h2>
-        <p className="muted">Charts are loaded from the editable chart list in lib/site.ts.</p>
+        <span className="eyebrow">Locked Chart Assets</span>
+        <h2>Color Charts & Finish Collections</h2>
+        <p className="muted">Every chart is placed in its correct category to prevent flake, metallic, quartz, solid, glitter, and stain confusion.</p>
       </div>
       <div className="grid-3">
         {chartAssets.map(([src, label]) => (
           <div className="chart-card" key={src}>
             <img src={src} alt={label} />
             <h3>{label}</h3>
-            <Link className="btn primary" href="/free-digital-bid">Use In My Bid</Link>
+            <Link className="btn primary" href="/free-digital-bid">Use in My Bid</Link>
           </div>
         ))}
       </div>
@@ -126,9 +112,9 @@ function BidSections() {
   return (
     <section className="section">
       <div className="section-head">
-        <span className="eyebrow">Real Lead Intake</span>
+        <span className="eyebrow">7-Step Form</span>
         <h2>Submit Your Free Digital Bid</h2>
-        <p className="muted">This form posts to /api/leads and remains editable as a real React form.</p>
+        <p className="muted">Collect contact details, location, photos, measurements, finish preferences, and consent before review.</p>
       </div>
       <DigitalBidForm />
     </section>
@@ -141,9 +127,10 @@ function ContactSections() {
       <div className="split">
         <div>
           <span className="eyebrow">Contact</span>
-          <h2 className="page-title">Start Your Project.</h2>
-          <p className="muted">
-            <strong>Phone:</strong> {site.phone}<br />
+          <h2 className="page-title">We Route Projects Carefully.</h2>
+          <p className="muted">Use this page for support, lead routing, and project questions. Live integrations remain gated until verified.</p>
+          <p>
+            <strong>Phone:</strong> <a href={site.phoneHref}>{site.phone}</a><br />
             <strong>Address:</strong> {site.address}<br />
             <strong>Support:</strong> {site.supportEmail}<br />
             <strong>Leads:</strong> {site.leadsEmail}<br />
@@ -152,6 +139,52 @@ function ContactSections() {
           </p>
         </div>
         <QuoteFormCard />
+      </div>
+    </section>
+  );
+}
+
+function ReviewSections() {
+  return (
+    <section className="section">
+      <div className="section-head">
+        <span className="eyebrow">Reviews</span>
+        <h2>Trust Signals Require Verification.</h2>
+        <p className="muted">Review cards are structured for verified testimonials only. No fake 5-star claims are included.</p>
+      </div>
+      <div className="grid-3">
+        {[1, 2, 3].map((item) => (
+          <div className="review-card" key={item}>
+            <div className="card-body">
+              <span className="tag">Placeholder</span>
+              <h3>Verified review slot {item}</h3>
+              <p className="muted">Replace with a verified customer testimonial before production claim use.</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function GalleryPreview() {
+  return (
+    <section className="section">
+      <div className="section-head">
+        <span className="eyebrow">Design Gallery</span>
+        <h2>Approved Visual Inventory</h2>
+      </div>
+      <div className="grid-3">
+        {gallery.slice(0, 6).map((item) => (
+          <figure className="gallery-card" key={item.src}>
+            <img src={item.src} alt={item.title} />
+            <figcaption className="card-body">
+              <span className="tag">{item.tag}</span>
+              <h3>{item.title}</h3>
+              <p className="muted">Concept visual. Do not describe as completed work unless separately verified.</p>
+            </figcaption>
+          </figure>
+        ))}
       </div>
     </section>
   );
