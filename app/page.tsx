@@ -1,196 +1,100 @@
+import Link from 'next/link';
+import QuoteFormCard from '@/components/QuoteFormCard';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import QuoteFormCard from '@/components/QuoteFormCard';
-import {
-  CDN,
-  HERO_BULLETS,
-  HERO_TRUST_BADGES,
-  FEATURES_STRIP,
-  FLOOR_SYSTEMS_CARDS,
-  WHY_CHECKS,
-  REVIEWS,
-  SITE,
-} from '@/lib/site';
 
-/* ===== ICON COMPONENTS ===== */
+const HERO = 'https://base44.app/api/apps/6a3a1cc6fda8cc665dd22ea4/files/mp/public/6a3a1cc6fda8cc665dd22ea4/f50a9af63_hero-main.png';
+const GARAGE = 'https://base44.app/api/apps/6a3a1cc6fda8cc665dd22ea4/files/mp/public/6a3a1cc6fda8cc665dd22ea4/177dbda38_garage.png';
+const METALLIC = 'https://base44.app/api/apps/6a3a1cc6fda8cc665dd22ea4/files/mp/public/6a3a1cc6fda8cc665dd22ea4/d2640781c_metallic.png';
+const FLAKE = 'https://base44.app/api/apps/6a3a1cc6fda8cc665dd22ea4/files/mp/public/6a3a1cc6fda8cc665dd22ea4/67ccbd034_flake.png';
+const COMMERCIAL = 'https://base44.app/api/apps/6a3a1cc6fda8cc665dd22ea4/files/mp/public/6a3a1cc6fda8cc665dd22ea4/95159c28b_commercial.png';
+const POLISHED = 'https://base44.app/api/apps/6a3a1cc6fda8cc665dd22ea4/files/mp/public/6a3a1cc6fda8cc665dd22ea4/33088d54e_polished.png';
 
-function CheckIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-      <polyline points="20 6 9 17 4 12" />
-    </svg>
-  );
-}
+const SYSTEMS = [
+  { img: GARAGE, icon: '🏠', title: 'Garage Floors', desc: 'Durable, chemical-resistant coatings with high-gloss or flake finishes.', href: '/flake-garage-floors' },
+  { img: METALLIC, icon: '✨', title: 'Patio & Driveway', desc: 'UV-stable, slip-resistant outdoor coatings that won\'t fade or peel.', href: '/exterior-coatings' },
+  { img: FLAKE, icon: '💧', title: 'Metallic Epoxy', desc: 'Stunning, one-of-a-kind metallic finishes that turn heads.', href: '/metallic-epoxy' },
+  { img: COMMERCIAL, icon: '🏢', title: 'Commercial Spaces', desc: 'Heavy-duty, long-lasting solutions for retail, automotive, and industrial.', href: '/floor-systems' },
+];
 
-function StarIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="1">
-      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-    </svg>
-  );
-}
-
-function ShieldIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-    </svg>
-  );
-}
-
-function ArrowRightIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-      <line x1="5" y1="12" x2="19" y2="12" />
-      <polyline points="12 5 19 12 12 19" />
-    </svg>
-  );
-}
-
-function FeatureIcon({ name }: { name: string }) {
-  const icons: Record<string, React.ReactNode> = {
-    warranty: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-        <polyline points="9 12 11 14 15 10" />
-      </svg>
-    ),
-    nation: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <circle cx="12" cy="12" r="10" />
-        <line x1="2" y1="12" x2="22" y2="12" />
-        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-      </svg>
-    ),
-    star: <StarIcon />,
-    lifetime: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <circle cx="12" cy="12" r="10" />
-        <polyline points="12 6 12 12 16 14" />
-      </svg>
-    ),
-    shield: <ShieldIcon />,
-    expert: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <polyline points="17 11 19 13 23 9" />
-      </svg>
-    ),
-  };
-  return <>{icons[name] || icons.shield}</>;
-}
-
-function FloorCardIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-      <polyline points="9 22 9 12 15 12 15 22" />
-    </svg>
-  );
-}
-
-/* ===== PAGE ===== */
+const BADGES = [
+  { icon: '🛡', label: '10-Year System Warranty' },
+  { icon: '📍', label: 'Nationwide Service' },
+  { icon: '⭐', label: '5-Star Rated' },
+  { icon: '♾', label: 'Lifetime Warranty' },
+  { icon: '📋', label: 'Licensed & Insured' },
+  { icon: '👷', label: 'Expert Installers' },
+];
 
 export default function HomePage() {
   return (
     <>
       <Header />
-
-      {/* ===== HERO SECTION ===== */}
+      {/* HERO */}
       <section className="hero">
-        <div className="hero-bg">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={CDN.hero} alt="Premium epoxy flooring" />
-        </div>
+        <div className="hero-bg" style={{ backgroundImage: `url(${HERO})` }} />
         <div className="hero-overlay" />
-
         <div className="hero-inner">
-          {/* LEFT */}
           <div className="hero-left">
-            <span className="hero-eyebrow">PREMIUM EPOXY FLOORS</span>
+            <span className="eyebrow">Premium Epoxy Floors</span>
             <h1 className="hero-h1">
-              <span className="line1">BUILT NATIONWIDE.</span>
-              <span className="line2">MADE TO LAST.</span>
+              <span className="line-white">BUILT NATIONWIDE.</span>
+              <span className="line-gold">MADE TO LAST.</span>
             </h1>
-            <p className="hero-subtext">
-              Professional epoxy floor systems for garages, patios &amp; commercial
-              spaces. Source-controlled. Scalable. Secure. Ready to grow.
-            </p>
-
-            <div className="hero-bullets">
-              {HERO_BULLETS.map((bullet, i) => (
-                <div key={i} className="hero-bullet">
-                  <CheckIcon />
-                  <span>{bullet}</span>
-                </div>
-              ))}
+            <p className="hero-copy">Professional epoxy floor systems for garages, patios & commercial spaces. Source-controlled. Scalable. Secure. Ready to grow.</p>
+            <ul className="hero-checks">
+              <li>Source-controlled systems &amp; materials</li>
+              <li>Trained professionals. Consistent results.</li>
+              <li>Custom colors, flake blends &amp; metallics</li>
+              <li>Built for performance. Backed for life.</li>
+            </ul>
+            <div className="cta-row">
+              <Link href="/free-digital-bid" className="btn btn-gold">Get a Free Quote</Link>
+              <Link href="/floor-systems" className="btn btn-outline">Explore Floor Systems</Link>
             </div>
-
-            <div className="hero-ctas">
-              <a href="/free-digital-bid" className="btn-gold">
-                GET A FREE QUOTE
-              </a>
-              <a href="/floor-systems" className="btn-outline">
-                EXPLORE FLOOR SYSTEMS
-              </a>
-            </div>
-
-            <div className="hero-trust-badges">
-              {HERO_TRUST_BADGES.map((badge, i) => (
-                <div key={i} className="hero-trust-badge">
-                  <FeatureIcon name={badge.icon} />
-                  <span>{badge.text}</span>
+            <div className="trust-badges">
+              {[['🛡','10+ Year Warranty'],['♾','Lifetime Warranty'],['📋','Licensed & Insured'],['👷','Expert Installers']].map(([icon,label]) => (
+                <div key={label} className="trust-badge">
+                  <div className="trust-badge-icon">{icon}</div>
+                  <span>{label}</span>
                 </div>
               ))}
             </div>
           </div>
-
-          {/* RIGHT — Quote Form */}
-          <div className="hero-right">
-            <QuoteFormCard />
-          </div>
+          <QuoteFormCard title="Get Your Free Quote" />
         </div>
       </section>
 
-      {/* ===== FEATURES STRIP ===== */}
-      <section className="features-strip">
-        <div className="features-strip-inner">
-          {FEATURES_STRIP.map((feature, i) => (
-            <div key={i} className="feature-badge">
-              <FeatureIcon name={feature.icon} />
-              <span>{feature.text}</span>
+      {/* FEATURE STRIP */}
+      <div className="feature-strip">
+        <div className="feature-strip-inner">
+          {BADGES.map(b => (
+            <div key={b.label} className="feature-item">
+              <span className="feature-item-icon">{b.icon}</span>
+              <span>{b.label}</span>
             </div>
           ))}
         </div>
-      </section>
+      </div>
 
-      {/* ===== FLOOR SYSTEMS SECTION ===== */}
-      <section className="floor-systems">
+      {/* FLOOR SYSTEMS GRID */}
+      <section className="section section-dark">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">PREMIUM EPOXY FLOOR SYSTEMS</h2>
-            <p className="section-subtitle">
-              Engineered for beauty, built for performance. Installed by pros.
-            </p>
+            <h2 className="section-title">Premium Epoxy <span className="gold">Floor Systems</span></h2>
+            <p className="section-sub">Engineered for beauty, built for performance. Installed by pros.</p>
           </div>
-
-          <div className="floor-systems-grid">
-            {FLOOR_SYSTEMS_CARDS.map((card, i) => (
-              <div key={i} className="floor-card">
-                <div className="floor-card-image">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={card.image} alt={card.title} />
-                  <div className="floor-card-icon">
-                    <FloorCardIcon />
-                  </div>
+          <div className="cards-grid cards-grid-4">
+            {SYSTEMS.map(s => (
+              <div key={s.title} className="card">
+                <div className="card-img-wrap">
+                  <img src={s.img} alt={s.title} />
+                  <div className="card-icon-badge">{s.icon}</div>
                 </div>
-                <div className="floor-card-body">
-                  <h3 className="floor-card-title">{card.title}</h3>
-                  <p className="floor-card-desc">{card.desc}</p>
-                  <a href="/floor-systems" className="floor-card-link">
-                    EXPLORE SYSTEMS <ArrowRightIcon />
-                  </a>
+                <div className="card-body">
+                  <h3>{s.title}</h3>
+                  <p>{s.desc}</p>
+                  <Link href={s.href} className="card-link">Explore Systems →</Link>
                 </div>
               </div>
             ))}
@@ -198,90 +102,71 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== WHY HOMEOWNERS SECTION ===== */}
-      <section className="why-section">
+      {/* WHY TRUST US — SPLIT */}
+      <section className="section section-black">
         <div className="container">
-          <div className="why-grid">
-            {/* Left Panel */}
-            <div className="why-left">
-              <h2 className="why-headline">
-                WHY HOMEOWNERS &amp; BUSINESSES TRUST NATIONAL EPOXY PROS
-              </h2>
-              <div className="why-checks">
-                {WHY_CHECKS.map((check, i) => (
-                  <div key={i} className="why-check">
-                    <CheckIcon />
-                    <span>{check}</span>
-                  </div>
-                ))}
-              </div>
+          <div className="split">
+            <div>
+              <span className="eyebrow">Why Choose Us</span>
+              <h2 className="section-title">Why Homeowners &amp; Businesses<br /><span className="gold">Trust National Epoxy Pros</span></h2>
+              <ul className="check-list">
+                <li>Source-controlled systems &amp; materials</li>
+                <li>Trained professionals. Consistent results.</li>
+                <li>Custom colors, flake blends &amp; metallics</li>
+                <li>Fast installs with minimal downtime</li>
+                <li>Built for performance. Backed for life.</li>
+              </ul>
+              <Link href="/free-digital-bid" className="btn btn-gold" style={{marginTop:'1.5rem'}}>Get a Free Quote</Link>
             </div>
-
-            {/* Right Image Panel */}
-            <div className="why-right">
-              <div className="why-right-bg" />
-              <div className="why-right-overlay" />
-              <div className="why-right-text">
-                <h3>
-                  ONE SYSTEM. <span>ONE STANDARD.</span> <br />
-                  EVERY LOCATION.
-                </h3>
+            <div>
+              <div className="split-img" style={{position:'relative'}}>
+                <img src={POLISHED} alt="Polished concrete commercial floor" />
+                <div style={{position:'absolute',bottom:0,left:0,right:0,background:'linear-gradient(transparent,rgba(0,0,0,.85))',padding:'2rem 1.5rem',borderRadius:'0 0 12px 12px'}}>
+                  <p style={{color:'#fff',fontWeight:950,fontSize:'1.1rem',textTransform:'uppercase',letterSpacing:'.04em',lineHeight:1.2}}>One System.<br />One Standard.<br /><span style={{color:'#D4A017'}}>Every Location.</span></p>
+                  <p style={{color:'#aaa',fontSize:'.8rem',marginTop:'.5rem'}}>Consistent quality, Coast to coast. That&apos;s the National Epoxy Pros way.</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ===== REVIEWS SECTION ===== */}
-      <section className="reviews-section">
+      {/* REVIEWS */}
+      <section className="section section-dark">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">5-STAR RATED BY HOMEOWNERS</h2>
-            <p className="section-subtitle">Real results. Real reviews. Real people.</p>
+            <span className="eyebrow">Testimonials</span>
+            <h2 className="section-title">5-Star Rated <span className="gold">By Homeowners</span></h2>
+            <p className="section-sub">Real results. Real reviews. Real people.</p>
           </div>
-
           <div className="reviews-grid">
-            {REVIEWS.map((review, i) => (
-              <div key={i} className="review-card">
-                <div className="review-stars">
-                  {[...Array(5)].map((_, idx) => (
-                    <StarIcon key={idx} />
-                  ))}
-                </div>
-                <p className="review-text">&ldquo;{review.text}&rdquo;</p>
-                <div className="review-author">
-                  <div className="review-avatar">{review.initials}</div>
-                  <div>
-                    <div className="review-name">{review.name}</div>
-                    <div className="review-city">{review.city}</div>
-                  </div>
-                </div>
+            {[
+              { name:'Jason M.', loc:'Phoenix, AZ', text:'"The team was incredible from start to finish. Our garage looks better than we imagined!"' },
+              { name:'Sarah T.', loc:'Nashville, TN', text:'"Fast install, flawless finish, and super professional. Highly recommend!"' },
+              { name:'Mike R.', loc:'Orlando, FL', text:'"Best decision we made for our shop. Tough, easy to clean, and looks amazing."' },
+            ].map(r => (
+              <div key={r.name} className="review-card">
+                <div className="stars">★★★★★</div>
+                <p className="review-text">{r.text}</p>
+                <p className="reviewer">{r.name} — {r.loc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ===== CTA BANNER ===== */}
-      <section className="cta-banner">
-        <div className="container">
-          <div className="cta-banner-inner">
-            <ShieldIcon />
-            <h2 className="cta-banner-title">READY TO TRANSFORM YOUR SPACE?</h2>
-            <p className="cta-banner-subtitle">
-              Get a free, no-obligation quote from your local epoxy flooring experts.
-            </p>
-            <div className="cta-banner-buttons">
-              <a href="/free-digital-bid" className="btn-gold">
-                GET A FREE QUOTE
-              </a>
-              <a href={SITE.phoneHref} className="btn-outline">
-                1-800-EPOXY-PRO
-              </a>
-            </div>
+      {/* CTA BANNER */}
+      <div className="cta-banner">
+        <div className="cta-banner-inner">
+          <div className="cta-shield">🛡</div>
+          <h2>Ready to Transform Your Space?</h2>
+          <p>Get a free, no-obligation quote from your local epoxy flooring experts.</p>
+          <div className="cta-row" style={{justifyContent:'center'}}>
+            <Link href="/free-digital-bid" className="btn btn-gold">Get a Free Quote</Link>
+            <Link href="tel:18006e79769776" className="btn btn-outline">1-800-EPOXY-PRO</Link>
           </div>
         </div>
-      </section>
+      </div>
 
       <Footer />
     </>
