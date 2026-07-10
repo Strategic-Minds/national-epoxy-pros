@@ -48,11 +48,32 @@ export async function POST(request: NextRequest) {
       message_sent: notes || `New lead via ${source}`,
     }, apiKey) : false
 
+    // Fire email notification to leads@nationalepoxypros.com (non-blocking)
+    try {
+      const protocol = request.nextUrl.protocol
+      const host = request.headers.get('host')
+      fetch(`${protocol}//${host}/api/notify-lead`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          full_name: name,
+          email,
+          phone,
+          property_type: facilityType || 'N/A',
+          project_size_sqft: sqFootage || 0,
+          timeline: timeline || 'N/A',
+          message: notes || `New lead via ${source}`,
+        }),
+      }).catch((e) => console.error('[NEP Lead API] notify-lead error:', e))
+    } catch (notifyErr) {
+      console.error('[NEP Lead API] notify-lead trigger error:', notifyErr)
+    }
+
     return NextResponse.json({
       success: true,
       saved,
       message: saved
-        ? 'Your request has been submitted. We\'ll be in touch within 1 business day.'
+        ? "Your request has been submitted. We'll be in touch within 1 business day."
         : 'Request received — our team will follow up shortly.',
     })
   } catch (err) {
