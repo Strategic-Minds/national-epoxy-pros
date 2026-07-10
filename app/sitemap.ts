@@ -1,2 +1,9 @@
-import type { MetadataRoute } from 'next';
-export default function sitemap(): MetadataRoute.Sitemap {const routes=['/', '/free-digital-bid', '/digital-bid', '/design-center', '/color-charts', '/floor-systems', '/floor-systems/metallic', '/metallic-epoxy', '/floor-systems/garage-floors', '/flake-garage-floors', '/garage-floor-coatings', '/floor-systems/polished-concrete', '/polished-concrete', '/floor-systems/exterior-coatings', '/exterior-coatings', '/contact', '/reviews', '/about', '/service-areas', '/epoxy-flooring', '/quartz-flooring', '/commercial-flooring', '/residential-flooring', '/gallery', '/floor-visualizer', '/privacy', '/terms', '/faq', '/offline']; return routes.map((r)=>({url:'https://nationalepoxypros.com'+r,lastModified:new Date()}))}
+import { MetadataRoute } from 'next';
+export default function sitemap(): MetadataRoute.Sitemap {
+  const base = 'https://nationalepoxypros.com';
+  return [
+    '/','/floor-systems','/floor-systems/flake','/floor-systems/metallic','/floor-systems/solid-color',
+    '/floor-systems/quartz','/floor-systems/polished-concrete','/visualizer','/projects','/process',
+    '/service-areas','/about','/reviews','/faq','/quote','/contact','/privacy','/terms',
+  ].map(r => ({ url: base+r, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: r==='/'?1:0.8 }));
+}

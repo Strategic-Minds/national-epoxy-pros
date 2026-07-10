@@ -1,35 +1,36 @@
-import type { Metadata, Viewport } from 'next';
-import type { ReactNode } from 'react';
-import './globals.css';
-import TopTrustBar from '@/components/TopTrustBar';
+import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { site } from '@/lib/site';
+import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://nationalepoxypros.com'),
-  title: {
-    default: 'National Epoxy Pros | Premium Epoxy Floors Built to Perform',
-    template: '%s | National Epoxy Pros',
-  },
-  description: 'Premium epoxy, flake garage floors, metallic epoxy, exterior coatings, polished concrete, color charts, and digital bid intake.',
-  applicationName: 'National Epoxy Pros',
-  manifest: '/manifest.webmanifest',
+  title: { default: 'National Epoxy Pros — Premium Floors. Built Nationwide.', template: '%s | National Epoxy Pros' },
+  description: 'High-performance epoxy, concrete coating, and polished flooring solutions for garages, businesses, and industrial spaces. 70+ cities nationwide.',
+  keywords: ['epoxy floors','garage floor coating','metallic epoxy','flake floors','polished concrete','nationwide'],
   openGraph: {
-    title: 'National Epoxy Pros',
-    description: site.tagline,
-    images: [site.hero],
     type: 'website',
+    siteName: 'National Epoxy Pros',
+    title: 'National Epoxy Pros — Premium Floors. Built Nationwide.',
+    description: 'High-performance epoxy flooring for garages, businesses, and industrial spaces.',
+    images: [{ url: '/logos/nep-logo-horizontal-black-gold-v1-preview.png', width: 1200, height: 630 }],
   },
+  twitter: { card: 'summary_large_image', title: 'National Epoxy Pros', description: 'Premium floors. Built nationwide.' },
+  robots: { index: true, follow: true },
+  manifest: '/manifest.json',
+  appleWebApp: { capable: true, statusBarStyle: 'black', title: 'National Epoxy Pros' },
 };
 
-export const viewport: Viewport = { themeColor: '#0A0A0A' };
-
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="theme-color" content="#080808" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+        <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+      </head>
       <body>
-        <TopTrustBar />
         <Header />
         {children}
         <Footer />
