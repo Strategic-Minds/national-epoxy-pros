@@ -1,48 +1,33 @@
-import type { Metadata } from 'next'
-import { Sparkles, Layers, Droplets, Gem, Diamond } from 'lucide-react'
-import FloorSystemCard from '@/components/ui/FloorSystemCard'
-import FinalCTA from '@/components/ui/FinalCTA'
-
-export const metadata: Metadata = {
-  title: 'Floor Systems',
-  description: 'Explore our 5 premium epoxy floor systems: Flake, Metallic, Solid Color, Quartz, and Polished Concrete.',
-  alternates: { canonical: '/floor-systems' },
-}
-
-const systems = [
-  { href: '/floor-systems/flake', name: 'Flake Systems', description: 'Decorative vinyl flakes for a textured, slip-resistant finish. Great for garages and patios.', icon: Sparkles },
-  { href: '/floor-systems/metallic', name: 'Metallic Systems', description: 'Stunning pearlescent, 3D-like appearance. Perfect for showrooms and luxury spaces.', icon: Layers },
-  { href: '/floor-systems/solid-color', name: 'Solid Color', description: 'Clean, uniform color with a sleek modern look. Ideal for commercial and industrial floors.', icon: Droplets },
-  { href: '/floor-systems/quartz', name: 'Quartz Systems', description: 'Durable colored quartz aggregate for high-traffic and safety environments.', icon: Gem },
-  { href: '/floor-systems/polished-concrete', name: 'Polished Concrete', description: 'Grinded and polished concrete for a natural, low-maintenance premium finish.', icon: Diamond },
-]
-
-export default function FloorSystemsPage() {
-  return (
-    <>
-      <section className="dark-section section-padding">
-        <div className="container-custom text-center max-w-3xl mx-auto">
-          <h1 className="font-heading font-extrabold text-3xl md:text-4xl lg:text-5xl mb-4">
-            <span className="gold-text">Floor Systems</span>
-          </h1>
-          <p className="text-white/70 text-base md:text-lg">
-            We offer five premium epoxy and concrete flooring systems, each designed for specific environments,
-            aesthetics, and performance requirements. Explore each system to find the perfect fit for your space.
-          </p>
+import Link from 'next/link';
+const SYSTEMS=[
+  {slug:'flake',title:'Decorative Flake',desc:'Durable chip-broadcast systems for garages and commercial spaces.'},
+  {slug:'metallic',title:'Metallic Epoxy',desc:'Premium decorative metallic finish for high-end applications.'},
+  {slug:'solid-color',title:'Solid Color Epoxy',desc:'Single or multi-coat solid color systems for industrial use.'},
+  {slug:'quartz',title:'Quartz Flooring',desc:'Slip-resistant quartz broadcast for safety-critical environments.'},
+  {slug:'polished-concrete',title:'Polished Concrete',desc:'Mechanically densified and polished concrete for commercial facilities.'},
+];
+export default function FloorSystemsPage(){
+  return(
+    <main>
+      <div style={{background:'#0A0A0A',padding:'56px 0'}}>
+        <div className="container">
+          <div className="section-label">Floor System Catalog</div>
+          <h1 className="display-md" style={{color:'#fff'}}>ALL FLOOR SYSTEMS</h1>
         </div>
-      </section>
-
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {systems.map((system) => (
-              <FloorSystemCard key={system.href} {...system} />
-            ))}
-          </div>
+      </div>
+      <div className="container" style={{padding:'64px 24px'}}>
+        <div className="grid-3">
+          {SYSTEMS.map(s=>(
+            <Link key={s.slug} href={`/floor-systems/${s.slug}`} style={{textDecoration:'none'}}>
+              <div className="card">
+                <h2 style={{fontFamily:'var(--font-display)',fontSize:24,color:'#0A0A0A',marginBottom:10}}>{s.title}</h2>
+                <p style={{fontSize:14,color:'#6B7280',lineHeight:1.6,marginBottom:16}}>{s.desc}</p>
+                <span style={{fontSize:13,fontWeight:600,color:'#D4AF37'}}>View Specifications →</span>
+              </div>
+            </Link>
+          ))}
         </div>
-      </section>
-
-      <FinalCTA />
-    </>
-  )
+      </div>
+    </main>
+  );
 }

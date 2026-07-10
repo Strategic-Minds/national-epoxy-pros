@@ -1,344 +1,259 @@
-import Link from 'next/link'
-import {
-  Sparkles, Layers, Droplets, Gem, Diamond, ArrowRight,
-  Award, Truck, Users, ThumbsUp, Upload, Eye,
-  Home, Building2, Factory, Phone,
-} from 'lucide-react'
-import CTAButton from '@/components/ui/CTAButton'
-import TrustStrip from '@/components/ui/TrustStrip'
-import FloorSystemCard from '@/components/ui/FloorSystemCard'
-import BeforeAfterViewer from '@/components/ui/BeforeAfterViewer'
-import ProjectCard from '@/components/ui/ProjectCard'
-import TestimonialCard from '@/components/ui/TestimonialCard'
-import FAQAccordion from '@/components/ui/FAQAccordion'
-import FinalCTA from '@/components/ui/FinalCTA'
-import ServiceAreaCard from '@/components/ui/ServiceAreaCard'
+'use client';
+import Link from 'next/link';
+import { useState } from 'react';
 
-const floorSystems = [
-  { href: '/floor-systems/flake', name: 'Flake Systems', description: 'Decorative vinyl flakes for a textured, slip-resistant finish. Great for garages and patios.', icon: Sparkles },
-  { href: '/floor-systems/metallic', name: 'Metallic Systems', description: 'Stunning pearlescent, 3D-like appearance. Perfect for showrooms and luxury spaces.', icon: Layers },
-  { href: '/floor-systems/solid-color', name: 'Solid Color', description: 'Clean, uniform color with a sleek modern look. Ideal for commercial and industrial floors.', icon: Droplets },
-  { href: '/floor-systems/quartz', name: 'Quartz Systems', description: 'Durable colored quartz aggregate for high-traffic and safety environments.', icon: Gem },
-  { href: '/floor-systems/polished-concrete', name: 'Polished Concrete', description: 'Grinded and polished concrete for a natural, low-maintenance premium finish.', icon: Diamond },
-]
+const SECTORS = [
+  { icon: '🏭', title: 'Industrial & Manufacturing', desc: 'Heavy-duty systems for chemical resistance, impact tolerance and machinery loads.' },
+  { icon: '🏬', title: 'Warehouse & Logistics', desc: 'Seamless, forklift-rated floors that maximize durability and throughput.' },
+  { icon: '🏥', title: 'Healthcare & Pharmaceutical', desc: 'Hygienic, antimicrobial, slip-resistant systems meeting OSHA and FDA standards.' },
+  { icon: '🏢', title: 'Commercial & Office', desc: 'Polished concrete and decorative systems that project authority and reduce maintenance.' },
+  { icon: '🏪', title: 'Retail & Hospitality', desc: 'High-design, high-traffic floors that reinforce brand and withstand daily use.' },
+  { icon: '🔧', title: 'Auto Dealerships & Service', desc: 'Chemical-resistant, slip-safe systems built for automotive environments.' },
+];
 
-const pillars = [
-  { icon: Award, title: 'Expert Craftsmen', text: 'Our certified installers bring years of specialized experience to every project.' },
-  { icon: Gem, title: 'Premium Materials', text: 'We use only commercial-grade epoxies and coatings designed to last for decades.' },
-  { icon: Truck, title: 'Nationwide Reach', text: 'From coast to coast, our network of professionals serves customers everywhere.' },
-  { icon: ThumbsUp, title: 'Satisfaction Focused', text: 'We back our work with warranties and a commitment to your complete satisfaction.' },
-]
+const SYSTEMS = [
+  { slug:'flake', label:'Decorative Flake', spec:'100–400 sq ft/gal coverage', badge:'Most Popular' },
+  { slug:'metallic', label:'Metallic Epoxy', spec:'Premium decorative finish', badge:'High-End' },
+  { slug:'solid-color', label:'Solid Color Epoxy', spec:'Single or multi-coat', badge:'Cost Effective' },
+  { slug:'quartz', label:'Quartz Flooring', spec:'Slip-resistant broadcast', badge:'Safety First' },
+  { slug:'polished-concrete', label:'Polished Concrete', spec:'Densify & polish existing slab', badge:'Sustainable' },
+];
 
-const processSteps = [
-  { num: '01', title: 'Free Consultation', text: 'Tell us about your project. We assess your space and recommend the best system.' },
-  { num: '02', title: 'Custom Quote', text: 'Receive a detailed, transparent quote with no hidden fees or surprises.' },
-  { num: '03', title: 'Surface Prep', text: 'We diamond-grind and repair your concrete for optimal coating adhesion.' },
-  { num: '04', title: 'Installation', text: 'Our team applies your chosen system with precision and care.' },
-  { num: '05', title: 'Final Walkthrough', text: 'We inspect every detail and ensure you are 100% satisfied with the result.' },
-]
+const STATS = [
+  { num:'2,400+', label:'Commercial Projects' },
+  { num:'47', label:'States Served' },
+  { num:'15', label:'Years in Industry' },
+  { num:'98%', label:'Client Retention' },
+];
 
-const useCases = [
-  { icon: Home, title: 'Residential', text: 'Garages, basements, patios, and pool decks. Transform your home with durable, beautiful floors.', features: ['Garage Floors', 'Basements', 'Patios & Decks', 'Laundry Rooms'] },
-  { icon: Building2, title: 'Commercial', text: 'Retail spaces, restaurants, offices, and showrooms. Make a lasting impression on your customers.', features: ['Retail Stores', 'Restaurants', 'Office Spaces', 'Showrooms'] },
-  { icon: Factory, title: 'Industrial', text: 'Warehouses, manufacturing facilities, and heavy-duty environments. Floors that stand up to anything.', features: ['Warehouses', 'Manufacturing', 'Auto Shops', 'Healthcare'] },
-]
-
-const testimonials = [
-  { rating: 5, text: 'The team was professional from start to finish. My garage floor looks incredible — better than I imagined. The metallic system is absolutely stunning.', author: 'Verified Customer', projectType: 'Residential Garage', location: 'Texas' },
-  { rating: 5, text: 'Outstanding work on our showroom floor. The installation was quick, clean, and the results are exactly what we wanted. Highly recommend.', author: 'Verified Customer', projectType: 'Commercial Showroom', location: 'Florida' },
-  { rating: 5, text: 'Our warehouse floor has held up perfectly through forklift traffic and chemical spills. The quartz system is incredibly durable.', author: 'Verified Customer', projectType: 'Industrial Warehouse', location: 'Ohio' },
-]
-
-const faqItems = [
-  { question: 'What is epoxy flooring?', answer: 'Epoxy flooring is a durable, high-performance surface created by applying layers of epoxy resin over properly prepared concrete. It creates a seamless, non-porous finish that is resistant to chemicals, stains, impact, and wear.' },
-  { question: 'How long does epoxy flooring last?', answer: 'With proper installation and maintenance, epoxy flooring can last 15-20+ years in residential settings and 10-15 years in high-traffic commercial or industrial environments.' },
-  { question: 'How long does installation take?', answer: 'Most residential garage floors take 1-2 days, while larger commercial or industrial projects may take 3-5 days depending on size, system complexity, and curing conditions.' },
-  { question: 'Can epoxy be installed in winter?', answer: 'Yes. We use temperature-controlled equipment and specialized curing agents for cold-weather installations. Indoor projects with climate control can be done year-round.' },
-  { question: 'How much does epoxy flooring cost?', answer: 'Costs vary based on square footage, system type, surface condition, and location. Residential garages typically range from $4-$12 per square foot. Commercial and industrial projects vary widely. Request a free quote for accurate pricing.' },
-  { question: 'What surfaces work with epoxy?', answer: 'Epoxy adheres best to properly prepared concrete. We can also install over certain existing coatings if they are in good condition. We assess every surface during your free consultation.' },
-  { question: 'Can I install epoxy flooring myself?', answer: 'While DIY kits exist, professional installation ensures proper surface preparation, correct mixing ratios, and optimal curing conditions. Improper installation leads to peeling, bubbling, and premature failure.' },
-  { question: 'How do I maintain my epoxy floor?', answer: 'Regular sweeping and occasional mopping with a pH-neutral cleaner is all that is needed. Avoid abrasive cleaners and tools. Reapply a topcoat every 3-5 years to maintain the glossy finish.' },
-]
-
-const serviceAreas = [
-  { region: 'Northeast', states: ['NY', 'NJ', 'PA', 'MA', 'CT', 'ME', 'VT', 'NH', 'RI'] },
-  { region: 'Southeast', states: ['FL', 'GA', 'SC', 'NC', 'VA', 'TN', 'AL', 'MS'] },
-  { region: 'Midwest', states: ['OH', 'MI', 'IN', 'IL', 'WI', 'MN', 'IA', 'MO', 'KY'] },
-  { region: 'Southwest', states: ['TX', 'OK', 'AR', 'LA', 'NM'] },
-  { region: 'West', states: ['CA', 'NV', 'AZ', 'UT', 'CO', 'OR', 'WA', 'ID'] },
-]
+const PROCESS = [
+  { step:'01', title:'Site Assessment', desc:'We evaluate substrate condition, existing coatings, moisture, and load requirements before recommending any system.' },
+  { step:'02', title:'Specification Package', desc:'Full written spec with product data sheets, coverage rates, cure schedules, and warranty terms — ready for your GC or architect.' },
+  { step:'03', title:'Competitive Bid', desc:'Itemized proposal with material, labor, and timeline. No hidden costs. No surprise change orders.' },
+  { step:'04', title:'Installation', desc:'Certified applicators only. Surface prep to topcoat. Every project is quality-inspected before handoff.' },
+];
 
 export default function HomePage() {
+  const [bidStep, setBidStep] = useState(0);
+  const [bidData, setBidData] = useState({ sector:'', sqft:'', timeline:'', name:'', email:'', phone:'' });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleBidSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      await fetch('/api/leads', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ ...bidData, source:'Homepage Bid Form', campaign:'design-06' }) });
+    } catch {}
+    setSubmitted(true);
+  };
+
   return (
     <>
-      {/* Hero */}
-      <section className="relative dark-section section-padding min-h-[600px] flex items-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-charcoal to-black opacity-90" />
-        <div className="container-custom relative z-10 text-center max-w-4xl mx-auto">
-          <h1 className="font-heading font-extrabold text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
-            <span className="gold-text">PREMIUM FLOORS.</span><br />
-            <span className="text-white">BUILT TO LAST.</span><br />
-            <span className="gold-text">NATIONWIDE.</span>
-          </h1>
-          <p className="text-white/70 text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed">
-            Transform your concrete with commercial-grade epoxy flooring systems.
-            Expert installation. Free estimates. Serving residential, commercial, and industrial clients across the country.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-            <CTAButton href="/quote" size="lg" variant="gold">
-              GET MY FREE QUOTE
-            </CTAButton>
-            <CTAButton href="/floor-systems" size="lg" variant="outline">
-              VIEW FLOOR SYSTEMS
-            </CTAButton>
-          </div>
-          <TrustStrip dark />
-        </div>
-      </section>
+      {/* ── HERO ── */}
+      <section style={{background:'linear-gradient(135deg,#0A0A0A 0%,#111827 60%,#1F2937 100%)',minHeight:'92vh',display:'flex',alignItems:'center',position:'relative',overflow:'hidden'}}>
+        {/* Grid texture */}
+        <div style={{position:'absolute',inset:0,backgroundImage:'linear-gradient(rgba(212,175,55,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(212,175,55,0.04) 1px,transparent 1px)',backgroundSize:'48px 48px'}}/>
+        {/* Gold accent line */}
+        <div style={{position:'absolute',top:0,left:0,right:0,height:3,background:'linear-gradient(90deg,transparent,#D4AF37,transparent)'}}/>
 
-      {/* Floor Systems Grid */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <p className="text-gold font-heading font-semibold text-sm uppercase tracking-wider mb-2">Our Systems</p>
-            <h2 className="font-heading font-extrabold text-3xl md:text-4xl text-black mb-4">
-              Floor Systems for Every Space
-            </h2>
-            <p className="text-slate-brand text-base max-w-2xl mx-auto">
-              From decorative flake to stunning metallic, we offer five premium epoxy systems tailored to your needs.
+        <div className="container-wide" style={{position:'relative',zIndex:2,display:'grid',gridTemplateColumns:'1fr 420px',gap:64,alignItems:'center',padding:'80px 32px'}}>
+          {/* Left */}
+          <div>
+            <div className="section-label" style={{color:'#D4AF37'}}>Commercial &amp; Facility Solutions</div>
+            <h1 className="display-xl" style={{color:'#fff',marginBottom:24,lineHeight:1.0}}>
+              ENTERPRISE<br/>
+              <span style={{WebkitTextStroke:'1px #D4AF37',color:'transparent'}}>FLOOR</span><br/>
+              SYSTEMS
+            </h1>
+            <p style={{fontSize:18,color:'#9CA3AF',lineHeight:1.7,maxWidth:520,marginBottom:36}}>
+              Industrial-grade epoxy and polished concrete for facilities that cannot afford downtime. Full specification packages, competitive bids, certified installation.
             </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {floorSystems.map((system) => (
-              <FloorSystemCard key={system.href} {...system} />
-            ))}
-            <div className="bg-charcoal rounded-xl p-6 flex flex-col items-center justify-center text-center">
-              <h3 className="font-heading font-bold text-white text-lg mb-2">Not Sure Which System?</h3>
-              <p className="text-white/60 text-sm mb-4">Our experts will help you choose the perfect system for your space and budget.</p>
-              <Link href="/visualizer" className="text-gold text-sm font-medium hover:underline">
-                Try Our Visualizer →
-              </Link>
+            <div style={{display:'flex',gap:12,flexWrap:'wrap'}}>
+              <Link href="/commercial" className="btn-primary">Request a Bid</Link>
+              <Link href="/specs" className="btn-outline">Download Specifications</Link>
+            </div>
+            {/* Trust row */}
+            <div style={{display:'flex',gap:32,marginTop:48,borderTop:'1px solid #1F2937',paddingTop:32}}>
+              {STATS.map(s=>(
+                <div key={s.label}>
+                  <div style={{fontFamily:'var(--font-display)',fontSize:36,color:'#D4AF37',lineHeight:1}}>{s.num}</div>
+                  <div style={{fontSize:11,color:'#6B7280',letterSpacing:'0.08em',textTransform:'uppercase',marginTop:4}}>{s.label}</div>
+                </div>
+              ))}
             </div>
           </div>
+
+          {/* Right — Bid card */}
+          <div style={{background:'#fff',borderRadius:12,padding:'36px',boxShadow:'0 24px 80px rgba(0,0,0,0.4)'}}>
+            {submitted ? (
+              <div style={{textAlign:'center',padding:'24px 0'}}>
+                <div style={{fontSize:48,marginBottom:16}}>✓</div>
+                <h3 style={{fontFamily:'var(--font-display)',fontSize:28,marginBottom:8,color:'#0A0A0A'}}>BID REQUEST RECEIVED</h3>
+                <p style={{fontSize:14,color:'#6B7280'}}>A specifications consultant will contact you within 1 business day.</p>
+              </div>
+            ) : (
+              <>
+                <div style={{marginBottom:24}}>
+                  <div className="section-label" style={{fontSize:10}}>Free Bid Request</div>
+                  <h2 style={{fontFamily:'var(--font-display)',fontSize:28,color:'#0A0A0A',lineHeight:1.1}}>GET YOUR PROJECT<br/>SPECIFICATION</h2>
+                </div>
+                <form onSubmit={handleBidSubmit} style={{display:'flex',flexDirection:'column',gap:14}}>
+                  <div className="form-group">
+                    <label className="form-label">Facility Type</label>
+                    <select className="form-select" value={bidData.sector} onChange={e=>setBidData({...bidData,sector:e.target.value})} required>
+                      <option value="">Select sector...</option>
+                      {SECTORS.map(s=><option key={s.title} value={s.title}>{s.title}</option>)}
+                    </select>
+                  </div>
+                  <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:12}}>
+                    <div className="form-group">
+                      <label className="form-label">Sq Footage</label>
+                      <input className="form-input" placeholder="e.g. 10,000" value={bidData.sqft} onChange={e=>setBidData({...bidData,sqft:e.target.value})} required/>
+                    </div>
+                    <div className="form-group">
+                      <label className="form-label">Timeline</label>
+                      <select className="form-select" value={bidData.timeline} onChange={e=>setBidData({...bidData,timeline:e.target.value})}>
+                        <option value="">Select...</option>
+                        <option>ASAP</option><option>1–3 months</option><option>3–6 months</option><option>Planning phase</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label">Your Name</label>
+                    <input className="form-input" placeholder="Full name" value={bidData.name} onChange={e=>setBidData({...bidData,name:e.target.value})} required/>
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label">Email</label>
+                    <input className="form-input" type="email" placeholder="work@company.com" value={bidData.email} onChange={e=>setBidData({...bidData,email:e.target.value})} required/>
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label">Phone</label>
+                    <input className="form-input" type="tel" placeholder="(555) 000-0000" value={bidData.phone} onChange={e=>setBidData({...bidData,phone:e.target.value})}/>
+                  </div>
+                  <button type="submit" className="btn-primary" style={{marginTop:4,justifyContent:'center',width:'100%',padding:'16px'}}>
+                    REQUEST SPECIFICATION & BID →
+                  </button>
+                  <p style={{fontSize:11,color:'#9CA3AF',textAlign:'center'}}>No spam. No obligation. Response within 1 business day.</p>
+                </form>
+              </>
+            )}
+          </div>
         </div>
       </section>
 
-      {/* Before/After Section */}
-      <section className="section-padding bg-light-gray">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <p className="text-gold font-heading font-semibold text-sm uppercase tracking-wider mb-2">See the Difference</p>
-            <h2 className="font-heading font-extrabold text-3xl md:text-4xl text-black mb-4">
-              Before & After Transformation
-            </h2>
-            <p className="text-slate-brand text-base max-w-2xl mx-auto">
-              Drag the slider to see how epoxy flooring transforms ordinary concrete into a premium surface.
+      {/* ── SECTORS ── */}
+      <section style={{padding:'96px 0',background:'#F9FAFB'}}>
+        <div className="container">
+          <div style={{textAlign:'center',marginBottom:56}}>
+            <div className="section-label" style={{justifyContent:'center'}}>Industries Served</div>
+            <h2 className="display-md" style={{color:'#0A0A0A'}}>BUILT FOR YOUR FACILITY</h2>
+            <p style={{fontSize:16,color:'#6B7280',marginTop:12,maxWidth:560,margin:'12px auto 0'}}>
+              Every environment demands different performance. We specify and install the right system for your exact conditions.
             </p>
           </div>
-          <div className="max-w-4xl mx-auto">
-            <BeforeAfterViewer
-              beforeAlt="Bare, stained concrete floor before epoxy installation"
-              afterAlt="Finished epoxy floor with glossy coating after installation"
-              label="Garage Floor Transformation"
-            />
+          <div className="grid-3">
+            {SECTORS.map(s=>(
+              <div key={s.title} className="card" style={{cursor:'pointer'}}>
+                <div style={{fontSize:32,marginBottom:14}}>{s.icon}</div>
+                <h3 style={{fontFamily:'var(--font-display)',fontSize:22,color:'#0A0A0A',marginBottom:8,letterSpacing:'0.03em'}}>{s.title}</h3>
+                <p style={{fontSize:14,color:'#6B7280',lineHeight:1.6}}>{s.desc}</p>
+                <Link href="/commercial" style={{display:'inline-flex',alignItems:'center',gap:6,marginTop:16,fontSize:13,fontWeight:600,color:'#D4AF37',textDecoration:'none'}}>
+                  Get Specifications →
+                </Link>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <p className="text-gold font-heading font-semibold text-sm uppercase tracking-wider mb-2">Why Choose Us</p>
-            <h2 className="font-heading font-extrabold text-3xl md:text-4xl text-black mb-4">
-              The National Epoxy Pros Difference
-            </h2>
+      {/* ── FLOOR SYSTEMS ── */}
+      <section style={{padding:'96px 0',background:'#fff'}}>
+        <div className="container">
+          <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-end',marginBottom:48,flexWrap:'wrap',gap:16}}>
+            <div>
+              <div className="section-label">Floor System Catalog</div>
+              <h2 className="display-md" style={{color:'#0A0A0A'}}>ENGINEERED SYSTEMS</h2>
+            </div>
+            <Link href="/floor-systems" className="btn-dark">View All Systems</Link>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {pillars.map((pillar) => (
-              <div key={pillar.title} className="text-center p-6 rounded-xl border border-light-gray hover:border-gold transition-colors">
-                <div className="w-16 h-16 rounded-full bg-charcoal flex items-center justify-center mx-auto mb-4">
-                  <pillar.icon size={28} className="text-gold" />
+          <div style={{display:'grid',gridTemplateColumns:'repeat(5,1fr)',gap:16}}>
+            {SYSTEMS.map(s=>(
+              <Link key={s.slug} href={`/floor-systems/${s.slug}`} style={{textDecoration:'none'}}>
+                <div style={{
+                  border:'1px solid #E5E7EB',borderRadius:10,overflow:'hidden',
+                  transition:'all 0.2s',background:'#fff'
+                }}
+                onMouseEnter={e=>{(e.currentTarget as HTMLElement).style.borderColor='#D4AF37';(e.currentTarget as HTMLElement).style.transform='translateY(-3px)';(e.currentTarget as HTMLElement).style.boxShadow='0 12px 40px rgba(0,0,0,0.1)'}}
+                onMouseLeave={e=>{(e.currentTarget as HTMLElement).style.borderColor='#E5E7EB';(e.currentTarget as HTMLElement).style.transform='translateY(0)';(e.currentTarget as HTMLElement).style.boxShadow='none'}}
+                >
+                  <div style={{height:120,background:'linear-gradient(135deg,#111827,#374151)',display:'flex',alignItems:'center',justifyContent:'center',position:'relative'}}>
+                    <div style={{fontFamily:'var(--font-display)',fontSize:13,color:'#D4AF37',letterSpacing:'0.1em',textAlign:'center',padding:'0 12px'}}>{s.label.toUpperCase()}</div>
+                    <div style={{position:'absolute',top:8,right:8}}><span className="badge badge-gold" style={{fontSize:9}}>{s.badge}</span></div>
+                  </div>
+                  <div style={{padding:'14px 16px'}}>
+                    <div style={{fontWeight:600,fontSize:13,color:'#111827',marginBottom:4}}>{s.label}</div>
+                    <div style={{fontSize:11,color:'#9CA3AF'}}>{s.spec}</div>
+                  </div>
                 </div>
-                <h3 className="font-heading font-bold text-lg text-black mb-2">{pillar.title}</h3>
-                <p className="text-slate-brand text-sm leading-relaxed">{pillar.text}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── PROCESS ── */}
+      <section style={{padding:'96px 0',background:'#0A0A0A',position:'relative',overflow:'hidden'}}>
+        <div style={{position:'absolute',inset:0,backgroundImage:'linear-gradient(rgba(212,175,55,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(212,175,55,0.03) 1px,transparent 1px)',backgroundSize:'64px 64px'}}/>
+        <div className="container" style={{position:'relative',zIndex:2}}>
+          <div style={{textAlign:'center',marginBottom:64}}>
+            <div className="section-label">How We Work</div>
+            <h2 className="display-md" style={{color:'#fff'}}>FROM SPEC TO<br/><span style={{WebkitTextStroke:'1px #D4AF37',color:'transparent'}}>INSTALLATION</span></h2>
+          </div>
+          <div className="grid-4">
+            {PROCESS.map((p,i)=>(
+              <div key={p.step} style={{position:'relative'}}>
+                {i < PROCESS.length-1 && (
+                  <div style={{position:'absolute',top:28,left:'50%',width:'100%',height:1,background:'linear-gradient(90deg,#D4AF37,transparent)',zIndex:0}}/>
+                )}
+                <div style={{position:'relative',zIndex:1}}>
+                  <div style={{
+                    width:56,height:56,borderRadius:'50%',
+                    border:'2px solid #D4AF37',
+                    display:'flex',alignItems:'center',justifyContent:'center',
+                    fontFamily:'var(--font-display)',fontSize:20,color:'#D4AF37',
+                    marginBottom:20,background:'#0A0A0A'
+                  }}>{p.step}</div>
+                  <h3 style={{fontFamily:'var(--font-display)',fontSize:20,color:'#fff',marginBottom:10,letterSpacing:'0.03em'}}>{p.title}</h3>
+                  <p style={{fontSize:13,color:'#6B7280',lineHeight:1.7}}>{p.desc}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Process Section */}
-      <section className="section-padding bg-charcoal">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <p className="text-gold font-heading font-semibold text-sm uppercase tracking-wider mb-2">Our Process</p>
-            <h2 className="font-heading font-extrabold text-3xl md:text-4xl text-white mb-4">
-              5 Steps to Perfect Floors
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-            {processSteps.map((step) => (
-              <div key={step.num} className="relative">
-                <div className="text-gold font-heading font-extrabold text-5xl mb-3">{step.num}</div>
-                <h3 className="font-heading font-bold text-white text-lg mb-2">{step.title}</h3>
-                <p className="text-white/60 text-sm leading-relaxed">{step.text}</p>
-              </div>
-            ))}
-          </div>
-          <div className="text-center mt-10">
-            <Link href="/process" className="text-gold text-sm font-medium hover:underline">
-              Learn More About Our Process →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Visualizer Invitation */}
-      <section className="section-padding bg-white">
-        <div className="container-custom max-w-4xl text-center">
-          <div className="w-20 h-20 rounded-full gold-gradient flex items-center justify-center mx-auto mb-6">
-            <Eye size={36} className="text-black" />
-          </div>
-          <h2 className="font-heading font-extrabold text-3xl md:text-4xl text-black mb-4">
-            Visualize Your New Floor
-          </h2>
-          <p className="text-slate-brand text-base md:text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
-            Upload a photo of your space and see how different epoxy systems and colors would look.
-            It is the easiest way to explore your options before requesting a quote.
+      {/* ── SPECS CTA ── */}
+      <section style={{padding:'80px 0',background:'linear-gradient(135deg,#D4AF37 0%,#F0D060 50%,#D4AF37 100%)'}}>
+        <div className="container" style={{textAlign:'center'}}>
+          <h2 className="display-md" style={{color:'#0A0A0A',marginBottom:16}}>READY TO SPECIFY YOUR PROJECT?</h2>
+          <p style={{fontSize:17,color:'#4B3B00',marginBottom:32,maxWidth:560,margin:'0 auto 32px'}}>
+            Get a complete specification package and competitive bid — no obligation, no pressure.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <CTAButton href="/visualizer" size="lg" variant="gold">
-              <Upload size={18} /> Try the Visualizer
-            </CTAButton>
-            <CTAButton href="/quote" size="lg" variant="outline">
-              Get a Quote Instead
-            </CTAButton>
+          <div style={{display:'flex',gap:16,justifyContent:'center',flexWrap:'wrap'}}>
+            <Link href="/commercial" style={{
+              display:'inline-flex',alignItems:'center',gap:8,
+              padding:'16px 36px',background:'#0A0A0A',color:'#fff',
+              borderRadius:6,fontWeight:700,fontSize:14,letterSpacing:'0.05em',textTransform:'uppercase',
+              textDecoration:'none'
+            }}>Request Bid Now →</Link>
+            <Link href="/contact" style={{
+              display:'inline-flex',alignItems:'center',gap:8,
+              padding:'15px 35px',background:'transparent',color:'#0A0A0A',
+              borderRadius:6,fontWeight:600,fontSize:14,letterSpacing:'0.05em',textTransform:'uppercase',
+              textDecoration:'none',border:'2px solid #0A0A0A'
+            }}>Talk to a Specialist</Link>
           </div>
         </div>
       </section>
-
-      {/* Project Gallery Preview */}
-      <section className="section-padding bg-light-gray">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <p className="text-gold font-heading font-semibold text-sm uppercase tracking-wider mb-2">Our Work</p>
-            <h2 className="font-heading font-extrabold text-3xl md:text-4xl text-black mb-4">
-              Project Gallery Preview
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <ProjectCard type="Residential" system="Metallic Epoxy" location="Phoenix, AZ" />
-            <ProjectCard type="Commercial" system="Flake System" location="Denver, CO" />
-            <ProjectCard type="Industrial" system="Quartz System" location="Columbus, OH" />
-          </div>
-          <div className="text-center mt-10">
-            <CTAButton href="/projects" size="md" variant="dark">
-              View All Projects <ArrowRight size={18} />
-            </CTAButton>
-          </div>
-        </div>
-      </section>
-
-      {/* Use Cases */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <p className="text-gold font-heading font-semibold text-sm uppercase tracking-wider mb-2">Use Cases</p>
-            <h2 className="font-heading font-extrabold text-3xl md:text-4xl text-black mb-4">
-              Floors for Every Application
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {useCases.map((use) => (
-              <div key={use.title} className="bg-light-gray rounded-xl p-8">
-                <div className="w-16 h-16 rounded-lg bg-charcoal flex items-center justify-center mb-4">
-                  <use.icon size={28} className="text-gold" />
-                </div>
-                <h3 className="font-heading font-bold text-xl text-black mb-3">{use.title}</h3>
-                <p className="text-slate-brand text-sm leading-relaxed mb-4">{use.text}</p>
-                <ul className="space-y-2">
-                  {use.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-2 text-sm text-black/70">
-                      <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Service Areas */}
-      <section className="section-padding bg-light-gray">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <p className="text-gold font-heading font-semibold text-sm uppercase tracking-wider mb-2">Service Areas</p>
-            <h2 className="font-heading font-extrabold text-3xl md:text-4xl text-black mb-4">
-              Nationwide Coverage
-            </h2>
-            <p className="text-slate-brand text-base max-w-2xl mx-auto">
-              We serve customers across the United States with our network of certified installation professionals.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {serviceAreas.map((area) => (
-              <ServiceAreaCard key={area.region} region={area.region} states={area.states} />
-            ))}
-          </div>
-          <div className="text-center mt-10">
-            <CTAButton href="/service-areas" size="md" variant="dark">
-              See All Service Areas <ArrowRight size={18} />
-            </CTAButton>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <p className="text-gold font-heading font-semibold text-sm uppercase tracking-wider mb-2">What Our Clients Say</p>
-            <h2 className="font-heading font-extrabold text-3xl md:text-4xl text-black mb-4">
-              Reviews From Our Customers
-            </h2>
-            <p className="text-slate-brand text-sm">Placeholder testimonials — these will be replaced with verified customer reviews.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((testimonial, i) => (
-              <TestimonialCard key={i} {...testimonial} />
-            ))}
-          </div>
-          <div className="text-center mt-10">
-            <CTAButton href="/reviews" size="md" variant="dark">
-              Read More Reviews <ArrowRight size={18} />
-            </CTAButton>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="section-padding bg-light-gray">
-        <div className="container-custom max-w-3xl">
-          <div className="text-center mb-12">
-            <p className="text-gold font-heading font-semibold text-sm uppercase tracking-wider mb-2">FAQ</p>
-            <h2 className="font-heading font-extrabold text-3xl md:text-4xl text-black mb-4">
-              Frequently Asked Questions
-            </h2>
-          </div>
-          <FAQAccordion items={faqItems} />
-          <div className="text-center mt-8">
-            <Link href="/faq" className="text-gold text-sm font-medium hover:underline">
-              View All FAQs →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <FinalCTA />
     </>
-  )
+  );
 }
