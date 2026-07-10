@@ -38,12 +38,14 @@ export async function POST(request: NextRequest) {
     }
 
     const supabase = getSupabaseAdmin()
-    const twentyFourHoursAgo = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString()
 
+    // Rate limiting: 1 submission per email per 24h
+    const twentyFourHoursAgo = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString()
     const { data: existing } = await supabase
       .from('leads')
       .select('id')
       .eq('email', email)
+      .eq('source', 'nep_website')
       .gte('created_at', twentyFourHoursAgo)
       .limit(1)
       .maybeSingle()
@@ -57,40 +59,42 @@ export async function POST(request: NextRequest) {
 
     const quoteNumber = generateQuoteNumber()
 
+    // Build a structured notes summary
+    const notesParts = [
+      `Quote: ${quoteNumber}`,
+      body.project_type && `Type: ${sanitize(body.project_type, 50)}`,
+      body.customer_type && `Customer: ${sanitize(body.customer_type, 50)}`,
+      body.square_footage && `Sqft: ${body.square_footage}`,
+      body.floor_system && `System: ${sanitize(body.floor_system, 50)}`,
+      body.finish && `Finish: ${sanitize(body.finish, 50)}`,
+      (body.city || body.state) && `Location: ${[body.city, body.state].filter(Boolean).map(s => sanitize(s, 100)).join(', ')}`,
+      body.timeline && `Timeline: ${sanitize(body.timeline, 100)}`,
+      body.notes && `Notes: ${sanitize(body.notes, 500)}`,
+      `Contact pref: ${sanitize(body.preferred_contact || 'Not specified', 50)}`,
+      `Best time: ${sanitize(body.best_time || 'Not specified', 100)}`,
+      `Consent: Yes`,
+    ].filter(Boolean).join(' | ')
+
     const leadData = {
-      quote_number: quoteNumber,
-      project_type: sanitize(body.project_type || '', 50),
-      customer_type: sanitize(body.customer_type || '', 50),
-      square_footage: Math.max(0, parseInt(body.square_footage) || 0),
-      city: sanitize(body.city || '', 100),
-      state: sanitize(body.state || '', 50),
-      zip: sanitize(body.zip || '', 10),
-      timeline: sanitize(body.timeline || '', 100),
-      measurement_method: sanitize(body.measurement_method || '', 50),
-      length: parseFloat(body.length) || 0,
-      width: parseFloat(body.width) || 0,
-      access_notes: sanitize(body.access_notes || '', 1000),
-      surface_type: sanitize(body.surface_type || '', 50),
-      existing_coating: sanitize(body.existing_coating || '', 50),
-      floor_system: sanitize(body.floor_system || '', 50),
-      color_preference: sanitize(body.color_preference || '', 500),
-      finish: sanitize(body.finish || '', 50),
-      concrete_conditions: Array.isArray(body.concrete_conditions) ? body.concrete_conditions.slice(0, 20) : [],
-      coating_removal: Boolean(body.coating_removal),
-      notes: sanitize(body.notes || '', 2000),
       full_name: fullName,
       email,
       phone,
-      preferred_contact: sanitize(body.preferred_contact || '', 20),
-      best_time: sanitize(body.best_time || '', 100),
-      consent: true,
-      file_count: Math.max(0, parseInt(body.file_count) || 0),
-      status: 'new',
+      source: 'nep_website',
+      stage: 'new',
+      score: 50,
+      notes: notesParts,
+      tags: [
+        body.project_type?.toLowerCase(),
+        body.floor_system?.toLowerCase().replace(/\s+/g, '_'),
+        'website_quote',
+      ].filter(Boolean),
     }
 
-    const { error: insertError } = await supabase
+    const { data: inserted, error: insertError } = await supabase
       .from('leads')
       .insert(leadData)
+      .select('id')
+      .single()
 
     if (insertError) {
       console.error('Supabase insert error:', insertError.message)
@@ -100,7 +104,7 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    return NextResponse.json({ success: true, quoteNumber }, { status: 201 })
+    return NextResponse.json({ success: true, quoteNumber, id: inserted?.id }, { status: 201 })
   } catch (err) {
     console.error('Lead submission error:', err instanceof Error ? err.message : 'Unknown error')
     return NextResponse.json(
@@ -111,8 +115,5 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET() {
-  return NextResponse.json(
-    { success: false, error: 'Method not allowed' },
-    { status: 405 }
-  )
+  return NextResponse.json({ success: false, error: 'Method not allowed' }, { status: 405 })
 }
