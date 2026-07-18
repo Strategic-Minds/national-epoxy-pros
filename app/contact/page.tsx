@@ -31,7 +31,7 @@ export default function ContactPage() {
                 <Phone size={24} className="text-gold" />
               </div>
               <h3 className="font-heading font-bold text-black mb-1">Phone</h3>
-              <p className="text-slate-brand text-sm">1-800-NEP-FLOOR</p>
+              <p className="text-slate-brand text-sm">(480) 800-8246</p>
               <p className="text-slate-brand text-xs mt-1">Mon-Fri, 8am-6pm EST</p>
             </div>
             <div className="text-center p-6 rounded-xl border border-light-gray">
@@ -39,7 +39,7 @@ export default function ContactPage() {
                 <Mail size={24} className="text-gold" />
               </div>
               <h3 className="font-heading font-bold text-black mb-1">Email</h3>
-              <p className="text-slate-brand text-sm">info@nationalepoxypros.com</p>
+              <p className="text-slate-brand text-sm">leads@nationalepoxypros.com</p>
               <p className="text-slate-brand text-xs mt-1">Response within 24h</p>
             </div>
             <div className="text-center p-6 rounded-xl border border-light-gray">

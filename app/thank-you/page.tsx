@@ -58,12 +58,12 @@ export default function ThankYouPage() {
           <div className="bg-white rounded-xl border border-light-gray p-4 text-center">
             <Phone size={24} className="text-gold mx-auto mb-2" />
             <p className="text-xs text-slate-brand">Call Us</p>
-            <p className="text-sm font-medium text-black">1-800-NEP-FLOOR</p>
+            <p className="text-sm font-medium text-black">(480) 800-8246</p>
           </div>
           <div className="bg-white rounded-xl border border-light-gray p-4 text-center">
             <Mail size={24} className="text-gold mx-auto mb-2" />
             <p className="text-xs text-slate-brand">Email Us</p>
-            <p className="text-sm font-medium text-black">info@nationalepoxypros.com</p>
+            <p className="text-sm font-medium text-black">leads@nationalepoxypros.com</p>
           </div>
           <div className="bg-white rounded-xl border border-light-gray p-4 text-center">
             <Clock size={24} className="text-gold mx-auto mb-2" />
