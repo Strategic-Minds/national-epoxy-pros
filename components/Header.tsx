@@ -79,8 +79,8 @@ export default function Header() {
 
           {/* CTA */}
           <div style={{display:'flex',alignItems:'center',gap:'12px'}}>
-            <Link href="tel:+18005551234" style={{fontSize:13,fontWeight:600,color:'#374151',textDecoration:'none',letterSpacing:'0.02em'}}>
-              (800) 555-1234
+            <Link href="tel:+14808008246" style={{fontSize:13,fontWeight:600,color:'#374151',textDecoration:'none',letterSpacing:'0.02em'}}>
+              (480) 800-8246
             </Link>
             <Link href="/commercial" className="btn-primary" style={{padding:'10px 20px',fontSize:12}}>
               Request Bid
